@@ -22,7 +22,7 @@ public class controllerProg implements Initializable{
     @FXML
     private AnchorPane consultationContainer;
     @FXML
-    private AnchorPane suiviContainer;
+    private AnchorPane seanceContainer;
     @FXML
     private AnchorPane atelierContainer;
     private BooleanProperty consultationActive = new SimpleBooleanProperty(false);
@@ -36,7 +36,7 @@ public class controllerProg implements Initializable{
                 suiviActive.set(false);
                 atelierActive.set(false);
                 break;
-            case "Suivi":
+            case "Seance de suivi":
                 consultationActive.set(false);
                 suiviActive.set(true);
                 atelierActive.set(false);
@@ -56,8 +56,10 @@ public class controllerProg implements Initializable{
     public void initialize (URL url, ResourceBundle rb ) {
         ObservableList list = FXCollections.observableArrayList("Consultation","Seance de suivi","Atelier");
         comb.setItems(list);
+        ObservableList list2 = FXCollections.observableArrayList("En présentiel","En ligne");
+        typeSeance.setItems((list2));
         consultationContainer.disableProperty().bind(consultationActive.not());
-        suiviContainer.disableProperty().bind(suiviActive.not());
+        seanceContainer.disableProperty().bind(suiviActive.not());
         atelierContainer.disableProperty().bind(atelierActive.not());
 
     }
