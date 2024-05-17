@@ -1,0 +1,15 @@
+Minimal Pairs,Practice distinguishing between words that differ by only one sound,false,None
+Repetition,Repeat words or phrases with specific sounds that the individual struggles with,true,Flashcards
+Tongue Twisters,Use tongue twisters to improve speech clarity and coordination,false,None
+Pitch Variation,Practice changing pitch to improve vocal range and intonation,false,None
+Resonance Exercises,Work on resonance by humming or buzzing sounds to feel vibrations in the mouth, nose, or throat,true,Resonance tubes
+Breathing Exercises,Focus on deep breathing techniques to support vocal production and control,false,None
+Slow Rate,Practice speaking slowly and deliberately to improve fluency and reduce stuttering,false,None
+Pausing,Incorporate pauses between phrases or sentences to enhance fluency and reduce speech disruptions,false,None
+Smooth Speech,Practice smooth, continuous speech by using gentle onset techniques and reducing tension in speech muscles,false,None
+Word Associations,Associate words with related concepts to improve vocabulary and semantic understanding,false,None
+Sentence Formation,Build sentences using targeted vocabulary or grammatical structures to improve syntax and sentence construction,false,None
+Storytelling,Tell stories or recount experiences to practice narrative skills and organizing thoughts coherently,false,None
+Role-Playing,Engage in role-playing scenarios to practice social interactions, turn-taking, and conversational skills,false,None
+Problem-Solving,Discuss hypothetical situations and brainstorm solutions to promote critical thinking and pragmatic language use,false,None
+Interpreting Social Cues,Practice interpreting nonverbal cues, such as facial expressions and body language, to improve social communication skills,false,None
