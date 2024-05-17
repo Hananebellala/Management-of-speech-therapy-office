@@ -15,7 +15,8 @@ public class controllerProg implements Initializable{
     private ComboBox comb;
     @FXML
     private Label label;
-    void Select (ActionEvent event) {
+
+    public void Select (ActionEvent event) {
         String s =comb.getSelectionModel().getSelectedItem().toString();
         label.setText(s);
     }

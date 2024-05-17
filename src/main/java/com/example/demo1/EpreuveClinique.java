@@ -5,11 +5,11 @@ import java.util.*;
 import java.io.*;
 
 public class EpreuveClinique {
-    private Test[] Testepreuve;
-    private String Observation;
-    private int ScoreTotal;
-    static private int max = 10;
-    static private int i = 0;
+    protected Test[] Testepreuve;
+    protected String Observation;
+    protected int ScoreTotal;
+    static protected int max = 10;
+    static protected int i = 0;
     Scanner sc = new Scanner(System.in);
 
     public EpreuveClinique(Test[] Testepreuve, String Observation, int ScoreTotal) {

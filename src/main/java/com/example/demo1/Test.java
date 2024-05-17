@@ -14,6 +14,10 @@ abstract class Test {
 
     public abstract int CalculerScore();
 
+    public String GetNom(){
+        return this.Nom;
+    }
+
 
 
 }

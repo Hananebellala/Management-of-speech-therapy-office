@@ -2,9 +2,9 @@ package com.example.demo1;
 
 public class Question {
 
-    private String Enonce;
-    private boolean Effectue;
-    private int score;
+    protected String Enonce;
+    protected boolean Effectue;
+    protected int score;
 
     public Question(String Enonce, boolean Effectue, int score){
         this.Enonce=Enonce;
@@ -21,4 +21,7 @@ public class Question {
         return this.score;
     }
 
+    public String getEnonce() {
+        return Enonce;
+    }
 }
