@@ -22,7 +22,7 @@ public class EpreuveClinique {
         this.Observation = text;
     }
 
-    public void addTest() throws IOException {
+    /*public void addTest() throws IOException {
         if (i >= max) {
             System.out.println("You have reached the maximum number of tests allowed.");
             return;
@@ -42,9 +42,9 @@ public class EpreuveClinique {
             addQuestionnaire();
             i++;
         }
-    }
+    }*/
 
-    private void addExercise() throws IOException {
+    /*private void addExercise() throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader("C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/Exercice.txt"))) {
             List<String> lines = new ArrayList<>();
             String line;
@@ -67,97 +67,77 @@ public class EpreuveClinique {
         }
     }
 
-    private void addQuestionnaire() throws IOException {
-
-
-        int[] tab = { 1, 2 };
+    public void addQCM() throws IOException {
         Question[] qst = new Question[4];
-        boolean effectue;
+        addQCMQuestions(qst);
+        Testepreuve[i] = new Questionnaire("Quiz", 0, "", qst);
+    }
 
-        for (int i = 0; i < qst.length; i++) {
-            qst[i] = new Libre("", false, 0, ""); // You can adjust parameters as needed
-        }
+    private void addQCMQuestions(Question[] qst) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader("C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/QCM.txt"))) {
+            List<String> lines = new ArrayList<>();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+            Random random = new Random();
+            int randomIndex = random.nextInt(lines.size());
+            String randomLine = lines.get(randomIndex);
 
-        Random random1 = new Random();
-        int randomIndex1 = random1.nextInt(tab.length);
-
-        for (int k = 0; k < 4; k++) {
-            effectue = true; // Reset effectue to true for each new question
-            if (randomIndex1 == 1) {
-                try (BufferedReader reader = new BufferedReader(new FileReader("C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/QCU.txt"))) {
-                    List<String> lines = new ArrayList<>();
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        lines.add(line);
-                    }
-
-                    while (effectue) {
-                        Random random = new Random();
-                        int randomIndex = random.nextInt(lines.size());
-                        String randomLine = lines.get(randomIndex);
-                        // Assuming the line format is:
-                        // name;score;Consigne;nomMateriel;needMateriel;CompteRdu
-                        String[] parts = randomLine.split(",");
-                        String consigne = parts[0];
-                        String[] answers = parts[1].split(";");
-                        int answer = Integer.parseInt(parts[2]);
-
-                        // Check if consigne already exists in qst
-                        for (Question question : qst) {
-                            if (question != null && question.getConsigne().equals(consigne)) {
-                                effectue = false;
-                                break;
-                            }
-                        }
-
-                        if (effectue) {
-                            qst[k] = new QCU(consigne, true,0, answers, answer);
-                        }
-                    }
-                }
-            } else if (randomIndex1 == 2) {
-
-                try (BufferedReader reader = new BufferedReader(new FileReader("C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/QCM.txt"))) {
-                    List<String> lines = new ArrayList<>();
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        lines.add(line);
-                    }
-                    Random random = new Random();
-                    int randomIndex = random.nextInt(lines.size());
-                    String randomLine = lines.get(randomIndex);
-
-                    String[] parts = randomLine.split(",");
-
-                    // int score = Integer.parseInt(parts[1]);
-                    String consigne = parts[0];
-                    String[] answers = parts[1].split(";");
-                    String[] answerStrings = parts[2].split(";");
-                    int[] answer = new int[answerStrings.length];
-                    for (int j = 0; j < answerStrings.length; j++) {
-                        answer[j] = Integer.parseInt(answerStrings[j]);
-                    }
-
-                    for (Question question : qst) {
-                        if (question != null && question.getConsigne().equals(consigne)) {
-                            effectue = false;
-                            break;
-                        }
-                    }
-
-                    if (effectue) {
-                        qst[k] = new QCM(consigne, true,0, answers, answer);
-                    }
-
-
-                }
+            String[] parts = randomLine.split(",");
+            String consigne = parts[0];
+            String[] answers = parts[1].split(";");
+            String[] answerStrings = parts[2].split(";");
+            int[] answer = new int[answerStrings.length];
+            for (int j = 0; j < answerStrings.length; j++) {
+                answer[j] = Integer.parseInt(answerStrings[j]);
             }
 
-            randomIndex1 = random1.nextInt(tab.length);
+            for (int k = 0; k < 4; k++) {
+                qst[k] = new QCM(consigne, true, 0, answers, answer);
+            }
         }
-
-        Testepreuve[i] = new Questionnaire("Quiz",0,"",qst);
     }
+
+    public void addQCU() throws IOException {
+        Question[] qst = new Question[4];
+        addQCUQuestions(qst);
+        Testepreuve[i] = new Questionnaire("Quiz", 0, "", qst);
+    }
+
+    private void addQCUQuestions(Question[] qst) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader("C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/QCU.txt"))) {
+            List<String> lines = new ArrayList<>();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+
+            Random random = new Random();
+            int randomIndex = random.nextInt(lines.size());
+            String randomLine = lines.get(randomIndex);
+
+            String[] parts = randomLine.split(",");
+            String consigne = parts[0];
+            String[] answers = parts[1].split(";");
+            int answer = Integer.parseInt(parts[2]);
+
+            for (int k = 0; k < 4; k++) {
+                qst[k] = new QCU(consigne, true, 0, answers, answer);
+            }
+        }
+    }*/
+
+
+    public void addExercise(Exercice exercice) {
+        if (i >= max) {
+            System.out.println("You have reached the maximum number of tests allowed.");
+            return;
+        }
+        Testepreuve[i] = exercice;
+        i++;
+    }
+
 
     public void score() {
 

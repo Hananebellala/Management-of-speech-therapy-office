@@ -17,6 +17,7 @@ public class Question {
         return this.Enonce;
     }
 
+
     public int getScore(){
         return this.score;
     }

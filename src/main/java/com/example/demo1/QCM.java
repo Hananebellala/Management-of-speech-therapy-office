@@ -46,6 +46,25 @@ public class QCM extends Question implements Initializable {
         return this.answer;
     }
 
+    public int calculerScore(int[] reponse, int[] answer) {
+        int score = 0;
+
+        // Check if the arrays have the same length
+        if (reponse.length != answer.length) {
+            throw new IllegalArgumentException("Arrays must have the same length");
+        }
+
+        // Iterate through the arrays and compare corresponding elements
+        for (int i = 0; i < reponse.length; i++) {
+            if (reponse[i] == answer[i]) {
+                score++;
+            }
+        }
+
+        return score;
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         questionLabel.setText(this.Enonce);

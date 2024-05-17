@@ -22,4 +22,35 @@ public class Exercice extends Test {
     }
 
 
+    public String getConsigne() {
+        return this.Consigne;
+    }
+
+    public String getNomMateriel() {
+        return this.nomMateriel;
+    }
+
+    public String getCompteRdu() {
+        return this.CompteRdu;
+    }
+
+    public boolean isNeedMateriel() {
+        return this.needMateriel;
+    }
+
+    public void setConsigne(String text) {
+        this.Consigne=text;
+    }
+
+    public void setNomMateriel(String text) {
+        this.nomMateriel=text;
+    }
+
+    public void setNeedMateriel(boolean selected) {
+        this.needMateriel=selected;
+    }
+
+    public void setCompteRdu(String text) {
+        this.CompteRdu=text;
+    }
 }

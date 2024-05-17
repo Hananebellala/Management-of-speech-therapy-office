@@ -25,12 +25,12 @@ public class Testing extends Application {
         // Create an EpreuveClinique instance
         EpreuveClinique epreuveClinique = new EpreuveClinique(tests, "Observation text", 0);
 
-        try {
+        /*try {
             // Add tests
-            epreuveClinique.addTest();
+            //epreuveClinique.addQCM();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("QCM.fxml"));
 
