@@ -6,11 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 
 public class App extends Application {
     public void start(Stage primaryStage) throws Exception{
         // Charger le fichier FXML
-        Parent root = FXMLLoader.load(getClass().getResource("ProgrammationScene.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("rdvScene.fxml")));
         // Créer une scène
         Scene scene = new Scene(root);
         // Définir la scène sur la fenêtre principale
