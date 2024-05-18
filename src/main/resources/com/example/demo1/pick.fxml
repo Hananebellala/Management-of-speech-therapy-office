@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21 " xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.pickController">
+<BorderPane fx:id="mainLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.pickController">
    <left>
       <Pane prefHeight="340.0" prefWidth="200.0" style="-fx-background-color: #710193;" BorderPane.alignment="CENTER">
          <children>
@@ -52,9 +52,9 @@
       <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #710193;" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="200.0" prefWidth="377.0" />
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Epreuve clinique" wrappingWidth="213.59375">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Epreuve clinique" wrappingWidth="232.26043701171875">
                <font>
-                  <Font name="System Bold" size="26.0" />
+                  <Font name="Georgia Bold" size="26.0" />
                </font>
                <HBox.margin>
                   <Insets top="10.0" />
@@ -67,21 +67,26 @@
    <center>
       <Pane prefHeight="340.0" prefWidth="401.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="292.0" layoutY="260.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="68.0" style="-fx-background-color: #9867C5; -fx-background-radius: 10;" text="Button" textFill="WHITE">
+            <Button fx:id="SuivantButton" layoutX="211.0" layoutY="225.0" mnemonicParsing="false" onAction="#showPage" prefHeight="33.0" prefWidth="89.0" style="-fx-background-color: #9867C5; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <RadioButton layoutX="94.0" layoutY="103.0" mnemonicParsing="false" text="Exercice">
+            <RadioButton fx:id="Exercice" layoutX="152.0" layoutY="111.0" mnemonicParsing="false" text="Exercice">
+               <font>
+                  <Font name="Georgia" size="16.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="Quiz" layoutX="152.0" layoutY="157.0" mnemonicParsing="false" text="Quiz">
                <font>
                   <Font size="16.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="94.0" layoutY="136.0" mnemonicParsing="false" text="Quiz">
+            <Button layoutX="106.0" layoutY="225.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="89.0" style="-fx-background-color: #9867C5; -fx-background-radius: 10;" text="Terminer" textFill="WHITE">
                <font>
-                  <Font size="16.0" />
+                  <Font name="Georgia Bold" size="14.0" />
                </font>
-            </RadioButton>
+            </Button>
          </children>
       </Pane>
    </center>
