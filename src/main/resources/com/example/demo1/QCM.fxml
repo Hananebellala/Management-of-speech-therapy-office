@@ -8,16 +8,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.QCM">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.QCMController">
    <top>
       <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #710193;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="60.0" prefWidth="377.0" />
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Clinical Tests">
+            <Pane prefHeight="60.0" prefWidth="444.0" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="QCM">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
@@ -29,101 +29,91 @@
          </children>
       </HBox>
    </top>
-   <left>
-      <VBox prefHeight="340.0" prefWidth="200.0" style="-fx-background-color: #710193;" BorderPane.alignment="CENTER">
-         <children>
-            <Pane prefHeight="170.0" prefWidth="200.0" />
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="QCM">
-               <font>
-                  <Font name="System Bold" size="30.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="70.0" />
-               </VBox.margin>
-            </Text>
-            <Pane prefHeight="177.0" prefWidth="200.0" />
-         </children>
-      </VBox>
-   </left>
    <center>
-      <VBox prefHeight="340.0" prefWidth="55.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="questionLabel" alignment="CENTER" prefHeight="29.0" prefWidth="243.0" text="${controller.Enonce}">
-
-
-            <VBox.margin>
-                  <Insets bottom="30.0" left="20.0" top="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-            <CheckBox mnemonicParsing="false" text="CheckBox">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </CheckBox>
-            <CheckBox mnemonicParsing="false" text="CheckBox">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </CheckBox>
-            <CheckBox mnemonicParsing="false" text="CheckBox">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </CheckBox>
-            <CheckBox mnemonicParsing="false" text="CheckBox">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </CheckBox>
-            <CheckBox mnemonicParsing="false" text="CheckBox">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </CheckBox>
-            <CheckBox mnemonicParsing="false" text="CheckBox">
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </CheckBox>
-            <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="68.0" style="-fx-background-color: #9867C5; -fx-background-radius: 10;" text="Button" textFill="WHITE">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <VBox.margin>
-                  <Insets left="250.0" top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
+            <VBox layoutX="216.0" layoutY="108.0" prefHeight="405.0" prefWidth="522.0" style="-fx-background-color: F1EAFF; -fx-border-color: #710193; -fx-border-width: 2;">
+               <children>
+                  <Label fx:id="questionLabel" alignment="CENTER" prefHeight="29.0" prefWidth="243.0" text="Question">
+      
+      
+                  <VBox.margin>
+                        <Insets bottom="30.0" left="150.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Georgia Bold" size="19.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+                  <Line endX="215.2928924560547" fill="#710193" startX="-100.0" stroke="#710193" strokeWidth="2.0">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="120.0" top="-10.0" />
+                     </VBox.margin>
+                  </Line>
+                  <CheckBox fx:id="first" mnemonicParsing="false" text="CheckBox">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="100.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Georgia" size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="second" mnemonicParsing="false" text="CheckBox">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="100.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="third" mnemonicParsing="false" text="CheckBox">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="100.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Georgia" size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="fourth" mnemonicParsing="false" text="CheckBox">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="100.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Georgia" size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="fifth" mnemonicParsing="false" text="CheckBox">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="100.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Georgia" size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="sixth" mnemonicParsing="false" text="CheckBox">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="100.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Georgia" size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <Button fx:id="button" mnemonicParsing="false" onAction="#Ajouter" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #9867C5; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets left="220.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Georgia Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
          </children>
-         <BorderPane.margin>
-            <Insets left="50.0" />
-         </BorderPane.margin>
-      </VBox>
+      </Pane>
    </center>
 </BorderPane>

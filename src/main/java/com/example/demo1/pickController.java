@@ -2,6 +2,7 @@ package com.example.demo1;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.CheckBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Button;
@@ -23,6 +24,30 @@ public class pickController {
     @FXML
     private Button SuivantButton;
 
+    @FXML
+    private CheckBox qcm;
+
+    @FXML
+    private CheckBox qcu;
+
+    @FXML
+    private CheckBox qstLibre;
+
+    @FXML
+    void GoQcm(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Goqcu(ActionEvent event) {
+
+    }
+
+    @FXML
+    void qstLibre(ActionEvent event) {
+
+    }
+
 
 
     private EpreuveClinique epreuveClinique = new EpreuveClinique(new Test[EpreuveClinique.max], "", 0);
@@ -43,8 +68,23 @@ public class pickController {
                 exerciceController.initData(epreuveClinique);
 
             } else if (Quiz.isSelected()) {
-                loader = new FXMLLoader(getClass().getResource("Quiz.fxml"));
-                page = loader.load();
+
+                if(qcm.isSelected()){
+                    loader = new FXMLLoader(getClass().getResource("QCM.fxml"));
+                    page = loader.load();
+                    mainLayout.getChildren().setAll(page);
+                }else if(qcu.isSelected()){
+                    loader = new FXMLLoader(getClass().getResource("QCU.fxml"));
+                    page = loader.load();
+                    mainLayout.getChildren().setAll(page);
+                }else if(qstLibre.isSelected()){
+                    loader = new FXMLLoader(getClass().getResource("Libre.fxml"));
+                    page = loader.load();
+                    mainLayout.getChildren().setAll(page);
+
+
+                }
+
 
                 // Assuming QuizController has a similar initData method
                 //QuizController quizController = loader.getController();
@@ -53,7 +93,7 @@ public class pickController {
                 // Neither Exercice nor Quiz is selected, do nothing
                 return;
             }
-            mainLayout.getChildren().setAll(page);
+
 
         } catch (IOException e) {
             e.printStackTrace();

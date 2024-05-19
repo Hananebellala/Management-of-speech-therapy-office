@@ -14,6 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -49,6 +50,9 @@ public class ExerciceController {
     @FXML
     private Button Precedent;
 
+    @FXML
+    private TextField score;
+
     private EpreuveClinique epreuveClinique;
 
     // Method to initialize the controller with an EpreuveClinique object
@@ -62,13 +66,13 @@ public class ExerciceController {
         // Check if all fields are filled
 
         if (oui.isSelected()) {
-            if (consigne.getText().isEmpty() || nom.getText().isEmpty() || nommat.getText().isEmpty()) {
+            if (consigne.getText().isEmpty() || nom.getText().isEmpty() || nommat.getText().isEmpty()||score.getText().isEmpty()) {
                 // Show an error message or handle accordingly
                 Alert();
                 return;
             }
         }else{
-            if (consigne.getText().isEmpty() || nom.getText().isEmpty() ) {
+            if (consigne.getText().isEmpty() || nom.getText().isEmpty() ||score.getText().isEmpty()) {
                 // Show an error message or handle accordingly
                 Alert();
                 return;
@@ -80,7 +84,7 @@ public class ExerciceController {
         if(oui.isSelected()) {
             Exercice exercice = new Exercice(
                     nom.getText(),
-                    0, // Set score to 0 initially
+                    Integer.parseInt(score.getText()), // Set score to 0 initially
                     consigne.getText(),
                     nommat.getText(),
                     oui.isSelected(),
@@ -92,7 +96,7 @@ public class ExerciceController {
         }else{
             Exercice exercice = new Exercice(
                     nom.getText(),
-                    0, // Set score to 0 initially
+                    Integer.parseInt(score.getText()),// Set score to 0 initially
                     consigne.getText(),
                     "",
                     oui.isSelected(),
