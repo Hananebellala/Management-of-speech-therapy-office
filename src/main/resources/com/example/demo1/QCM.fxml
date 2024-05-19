@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.QCMController">
+<BorderPane fx:id="mainLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.QCMController">
    <top>
-      <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #710193;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #4b0082;" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="60.0" prefWidth="444.0" />
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="QCM">
@@ -32,13 +32,13 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox layoutX="216.0" layoutY="108.0" prefHeight="405.0" prefWidth="522.0" style="-fx-background-color: F1EAFF; -fx-border-color: #710193; -fx-border-width: 2;">
+            <VBox layoutX="216.0" layoutY="108.0" prefHeight="405.0" prefWidth="522.0" style="-fx-background-color: f5e5ff; -fx-border-color: #4b0082; -fx-border-width: 2; -fx-border-radius: 40; -fx-background-radius: 40;">
                <children>
-                  <Label fx:id="questionLabel" alignment="CENTER" prefHeight="29.0" prefWidth="243.0" text="Question">
+                  <Label fx:id="questionLabel" alignment="CENTER" prefHeight="25.0" prefWidth="501.0" text="Question">
       
       
                   <VBox.margin>
-                        <Insets bottom="30.0" left="150.0" top="20.0" />
+                        <Insets bottom="30.0" left="10.0" top="20.0" />
                      </VBox.margin>
                      <font>
                         <Font name="Georgia Bold" size="19.0" />
@@ -47,7 +47,7 @@
                         <Insets />
                      </opaqueInsets>
                   </Label>
-                  <Line endX="215.2928924560547" fill="#710193" startX="-100.0" stroke="#710193" strokeWidth="2.0">
+                  <Line endX="215.2928924560547" fill="#710193" startX="-100.0" stroke="INDIGO" strokeWidth="2.0">
                      <VBox.margin>
                         <Insets bottom="20.0" left="120.0" top="-10.0" />
                      </VBox.margin>
@@ -100,17 +100,32 @@
                         <Font name="Georgia" size="15.0" />
                      </font>
                   </CheckBox>
-                  <Button fx:id="button" mnemonicParsing="false" onAction="#Ajouter" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #9867C5; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <VBox.margin>
-                        <Insets left="220.0" top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="Georgia Bold" size="16.0" />
-                     </font>
-                  </Button>
+                  <HBox prefHeight="71.0" prefWidth="413.0">
+                     <children>
+                        <Button fx:id="button" mnemonicParsing="false" onAction="#Precedent" prefHeight="41.0" prefWidth="108.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Precedent" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="Georgia Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button1" mnemonicParsing="false" onAction="#Ajouter" prefHeight="41.0" prefWidth="108.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="Georgia Bold" size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="150.0" />
+                     </padding>
+                  </HBox>
                </children>
             </VBox>
          </children>

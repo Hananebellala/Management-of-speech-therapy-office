@@ -17,9 +17,9 @@
 
 <BorderPane fx:id="mainLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.pickController">
    <left>
-      <Pane prefHeight="340.0" prefWidth="200.0" style="-fx-background-color: #710193;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="340.0" prefWidth="200.0" style="-fx-background-color: #4b0082;" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="342.0" prefWidth="199.0">
+            <VBox prefHeight="407.0" prefWidth="199.0">
                <children>
                   <Pane prefHeight="397.0" prefWidth="199.0" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Choisis un Test" wrappingWidth="172.64776611328125">
@@ -46,14 +46,14 @@
                         <Insets left="30.0" top="10.0" />
                      </VBox.margin>
                   </Text>
-                  <Pane prefHeight="457.0" prefWidth="199.0" />
+                  <Pane prefHeight="303.0" prefWidth="199.0" />
                </children>
             </VBox>
          </children>
       </Pane>
    </left>
    <top>
-      <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #710193;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #4b0082;" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="200.0" prefWidth="377.0" />
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Epreuve clinique" wrappingWidth="232.26043701171875">
@@ -71,8 +71,8 @@
    <center>
       <Pane prefHeight="340.0" prefWidth="401.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="60.0" layoutY="66.0" prefHeight="502.0" prefWidth="600.0" style="-fx-background-color: F1EAFF;" />
-            <Button fx:id="SuivantButton" layoutX="355.0" layoutY="313.0" mnemonicParsing="false" onAction="#showPage" prefHeight="33.0" prefWidth="89.0" style="-fx-background-color: #9867C5; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
+            <AnchorPane layoutX="60.0" layoutY="66.0" prefHeight="502.0" prefWidth="600.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40;" />
+            <Button fx:id="SuivantButton" layoutX="355.0" layoutY="313.0" mnemonicParsing="false" onAction="#showPage" prefHeight="33.0" prefWidth="89.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -87,7 +87,7 @@
                   <Font size="16.0" />
                </font>
             </RadioButton>
-            <Button layoutX="250.0" layoutY="313.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="89.0" style="-fx-background-color: #9867C5; -fx-background-radius: 10;" text="Terminer" textFill="WHITE">
+            <Button layoutX="250.0" layoutY="313.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="89.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Terminer" textFill="WHITE">
                <font>
                   <Font name="Georgia Bold" size="14.0" />
                </font>
@@ -112,7 +112,7 @@
                   <Font name="Georgia" size="14.0" />
                </font>
             </CheckBox>
-            <QuadCurve controlX="-42.666656494140625" controlY="-81.33331298828125" endX="-49.999969482421875" endY="-108.66665649414062" fill="DODGERBLUE" layoutX="354.0" layoutY="316.0" startX="-49.999969482421875" startY="-24.666656494140625" stroke="#791eaa" strokeType="INSIDE" strokeWidth="4.0" />
+            <QuadCurve controlX="-42.666656494140625" controlY="-81.33331298828125" endX="-49.999969482421875" endY="-108.66665649414062" fill="DODGERBLUE" layoutX="354.0" layoutY="316.0" startX="-49.999969482421875" startY="-24.666656494140625" stroke="INDIGO" strokeType="INSIDE" strokeWidth="4.0" />
          </children>
       </Pane>
    </center>

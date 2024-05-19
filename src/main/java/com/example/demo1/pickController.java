@@ -8,6 +8,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+
 import java.io.IOException;
 
 public class pickController {
@@ -33,76 +34,90 @@ public class pickController {
     @FXML
     private CheckBox qstLibre;
 
-    @FXML
-    void GoQcm(ActionEvent event) {
-
-    }
-
-    @FXML
-    void Goqcu(ActionEvent event) {
-
-    }
-
-    @FXML
-    void qstLibre(ActionEvent event) {
-
-    }
-
-
-
     private EpreuveClinique epreuveClinique = new EpreuveClinique(new Test[EpreuveClinique.max], "", 0);
 
     @FXML
+    public void initialize() {
+        // Disable the checkboxes initially
+        qcm.setDisable(true);
+        qcu.setDisable(true);
+        qstLibre.setDisable(true);
+
+        // Add listeners to the radio buttons
+        Exercice.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                qcm.setDisable(true);
+                qcu.setDisable(true);
+                qstLibre.setDisable(true);
+            }
+        });
+
+        Quiz.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                qcm.setDisable(false);
+                qcu.setDisable(false);
+                qstLibre.setDisable(false);
+            } else {
+                qcm.setDisable(true);
+                qcu.setDisable(true);
+                qstLibre.setDisable(true);
+            }
+        });
+    }
+
     public void showPage(ActionEvent event) {
         try {
             FXMLLoader loader;
-            Parent page;
+            Parent page = null;
             if (Exercice.isSelected()) {
                 loader = new FXMLLoader(getClass().getResource("Exercice.fxml"));
                 page = loader.load();
-
-                // Get the controller associated with Exercice.fxml
                 ExerciceController exerciceController = loader.getController();
-
-                // Initialize the controller with the epreuveClinique instance
                 exerciceController.initData(epreuveClinique);
-
             } else if (Quiz.isSelected()) {
-
-                if(qcm.isSelected()){
+                if (qcm.isSelected()) {
                     loader = new FXMLLoader(getClass().getResource("QCM.fxml"));
                     page = loader.load();
-                    mainLayout.getChildren().setAll(page);
-                }else if(qcu.isSelected()){
+                    QCMController qcmController = loader.getController();
+                    qcmController.initData(epreuveClinique);
+                } else if (qcu.isSelected()) {
                     loader = new FXMLLoader(getClass().getResource("QCU.fxml"));
                     page = loader.load();
-                    mainLayout.getChildren().setAll(page);
-                }else if(qstLibre.isSelected()){
+                    QCUController qcuController = loader.getController();
+                    qcuController.initData(epreuveClinique);
+                } else if (qstLibre.isSelected()) {
                     loader = new FXMLLoader(getClass().getResource("Libre.fxml"));
                     page = loader.load();
-                    mainLayout.getChildren().setAll(page);
-
-
+                    LibreController libreController = loader.getController();
+                    libreController.initData(epreuveClinique);
                 }
-
-
-                // Assuming QuizController has a similar initData method
-                //QuizController quizController = loader.getController();
-                //quizController.initData(epreuveClinique);
             } else {
-                // Neither Exercice nor Quiz is selected, do nothing
                 return;
             }
-
-
+            mainLayout.getChildren().setAll(page);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    
 
+    @FXML
+    void GoQcm(ActionEvent event) {
+        // Handle GoQcm action
+    }
 
-    public void initData(pageEpreuve pageEpreuve) {
-        // Implementation for pageEpreuve if necessary
+    @FXML
+    void Goqcu(ActionEvent event) {
+        // Handle Goqcu action
+    }
+
+    @FXML
+    void qstLibre(ActionEvent event) {
+        // Handle qstLibre action
+    }
+
+    public void initData(EpreuveClinique epreuveClinique) {
+        this.epreuveClinique = epreuveClinique;
     }
 }

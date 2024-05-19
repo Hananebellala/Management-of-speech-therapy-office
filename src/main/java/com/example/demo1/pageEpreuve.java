@@ -30,7 +30,7 @@ public class pageEpreuve extends Application {
 
             // Get the controller for the pick.fxml file
             pickController = loader.getController();
-            pickController.initData(this);
+            pickController.initData(this.getEpreuveClinique());
 
             // Create a scene with the loaded root
             Scene scene = new Scene(root);
