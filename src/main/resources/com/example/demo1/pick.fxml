@@ -19,7 +19,7 @@
    <left>
       <Pane prefHeight="340.0" prefWidth="200.0" style="-fx-background-color: #4b0082;" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="407.0" prefWidth="199.0">
+            <VBox prefHeight="342.0" prefWidth="199.0">
                <children>
                   <Pane prefHeight="397.0" prefWidth="199.0" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Choisis un Test" wrappingWidth="172.64776611328125">
@@ -55,6 +55,14 @@
    <top>
       <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #4b0082;" BorderPane.alignment="CENTER">
          <children>
+            <ImageView fitHeight="54.0" fitWidth="201.0">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/logo%20(2).png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </ImageView>
             <Pane prefHeight="200.0" prefWidth="377.0" />
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Epreuve clinique" wrappingWidth="232.26043701171875">
                <font>
