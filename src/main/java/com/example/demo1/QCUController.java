@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -43,21 +44,51 @@ public class QCUController {
     @FXML
     private CheckBox third;
 
+
+    private QCU qcu;
+
     @FXML
     void Ajouter(ActionEvent event) {
+        // Get the selected answer index (assuming the CheckBoxes are mutually exclusive)
+        int selectedAnswerIndex = -1;
+        if (first.isSelected()) selectedAnswerIndex = 0;
+        if (second.isSelected()) selectedAnswerIndex = 1;
+        if (third.isSelected()) selectedAnswerIndex = 2;
+        if (fourth.isSelected()) selectedAnswerIndex = 3;
 
+        // Calculate the score based on the selected answer
+        int score=0;
+
+
+            if (selectedAnswerIndex==qcu.GetAnser()) {
+                score++;
+            }
+
+
+            qcu.SetScore(score);
+
+
+
+        // Set the score in the QCU object
+        qcu.SetScore(score);
+
+        // Show the score in a window
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Score");
+        alert.setHeaderText(null);
+        alert.setContentText("Your score is: " + score);
+        alert.showAndWait();
     }
 
     @FXML
     public void initialize() {
         // Get a random QCU object
-        QCU qcu = QCU.getRandomQCU();
+        qcu = QCU.getRandomQCU();
 
-        // Get the enonce and set it to the qst label
-        String enonce = qcu.Enonce;
-        qst.setText(enonce);
+        // Set the question label
+        qst.setText(qcu.getEnonce());
 
-        // Get the propositions and set them to the CheckBoxes
+        // Set the propositions to the CheckBoxes
         String[] propositions = qcu.getProposition();
         if (propositions.length > 0) first.setText(propositions[0]);
         if (propositions.length > 1) second.setText(propositions[1]);
@@ -81,6 +112,6 @@ public class QCUController {
         }
     }
 
-    public void initData(EpreuveClinique epreuveClinique) {
+    public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
     }
 }

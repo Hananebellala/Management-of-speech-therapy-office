@@ -13,8 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -56,7 +54,7 @@ public class ExerciceController {
     private EpreuveClinique epreuveClinique;
 
     // Method to initialize the controller with an EpreuveClinique object
-    public void initData(EpreuveClinique epreuveClinique) {
+    public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
         this.epreuveClinique = epreuveClinique;
     }
 

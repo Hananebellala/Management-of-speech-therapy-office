@@ -8,4 +8,16 @@ public class Diagnostic{
         this.nom=nom;
         this.categorie=categorie;
     }
+
+    public void add(String diagnostic) {
+        this.nom=diagnostic;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public DiagnoCategorie getCategorie() {
+        return categorie;
+    }
 }

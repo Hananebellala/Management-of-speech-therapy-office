@@ -10,8 +10,8 @@ public class EpreuveClinique {
     static protected int i = 0;
     private Questionnaire currentQuestionnaire;
 
-    public EpreuveClinique(Test[] Testepreuve, String Observation, int ScoreTotal) {
-        this.Testepreuve = Testepreuve;
+    public EpreuveClinique(String Observation, int ScoreTotal) {
+        this.Testepreuve = new Test[max]; // Initialize the array with a fixed size
         this.Observation = Observation;
         this.ScoreTotal = ScoreTotal;
         this.currentQuestionnaire = null; // Initialize to null
@@ -19,6 +19,10 @@ public class EpreuveClinique {
 
     public void RedigerObservation(String text) {
         this.Observation = text;
+    }
+
+    public void SetTest(Test[] test){
+        this.Testepreuve = test;
     }
 
     public void addExercise(Exercice exercice) {

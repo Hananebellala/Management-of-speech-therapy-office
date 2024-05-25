@@ -35,6 +35,10 @@ public class QCM extends Question implements Initializable {
         this.Enonce = Enonce;
     }
 
+    public void SetScore(int score){
+        this.score=score;
+    }
+
     public String[] getProposition() {
         return proposition;
     }
@@ -55,6 +59,7 @@ public class QCM extends Question implements Initializable {
         for (int i = 0; i < reponse.length; i++) {
             if (reponse[i] == answer[i]) {
                 score++;
+                System.out.println("hereeeeee");
             }
         }
 
@@ -139,4 +144,8 @@ public class QCM extends Question implements Initializable {
         }
     }
 
+    public int[] getCorrectAnswers() {
+
+        return this.answer;
+    }
 }

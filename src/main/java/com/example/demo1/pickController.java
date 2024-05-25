@@ -26,6 +26,9 @@ public class pickController {
     private Button SuivantButton;
 
     @FXML
+    private Button TerminerButton;
+
+    @FXML
     private CheckBox qcm;
 
     @FXML
@@ -34,7 +37,9 @@ public class pickController {
     @FXML
     private CheckBox qstLibre;
 
-    private EpreuveClinique epreuveClinique = new EpreuveClinique(new Test[EpreuveClinique.max], "", 0);
+    private EpreuveClinique epreuveClinique = new EpreuveClinique("", 0);
+    private BO bo = new BO(); // Instantiate BO
+    private int patientId = 1; // Example patientId, replace as needed
 
     @FXML
     public void initialize() {
@@ -73,23 +78,23 @@ public class pickController {
                 loader = new FXMLLoader(getClass().getResource("Exercice.fxml"));
                 page = loader.load();
                 ExerciceController exerciceController = loader.getController();
-                exerciceController.initData(epreuveClinique);
+                exerciceController.initData(epreuveClinique, bo, patientId);
             } else if (Quiz.isSelected()) {
                 if (qcm.isSelected()) {
                     loader = new FXMLLoader(getClass().getResource("QCM.fxml"));
                     page = loader.load();
                     QCMController qcmController = loader.getController();
-                    qcmController.initData(epreuveClinique);
+                    qcmController.initData(epreuveClinique, bo, patientId); // Pass all parameters
                 } else if (qcu.isSelected()) {
                     loader = new FXMLLoader(getClass().getResource("QCU.fxml"));
                     page = loader.load();
                     QCUController qcuController = loader.getController();
-                    qcuController.initData(epreuveClinique);
+                    qcuController.initData(epreuveClinique, bo, patientId); // Pass all parameters
                 } else if (qstLibre.isSelected()) {
                     loader = new FXMLLoader(getClass().getResource("Libre.fxml"));
                     page = loader.load();
                     LibreController libreController = loader.getController();
-                    libreController.initData(epreuveClinique);
+                    libreController.initData(epreuveClinique, bo, patientId); // Pass all parameters
                 }
             } else {
                 return;
@@ -100,7 +105,19 @@ public class pickController {
         }
     }
 
-    
+    @FXML
+    void Terminer(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Diagnostic.fxml"));
+            Parent diagnosticPage = loader.load();
+            DiagnosticController diagnosticController = loader.getController();
+            diagnosticController.initData(epreuveClinique, bo, patientId); // Pass necessary data
+
+            mainLayout.getChildren().setAll(diagnosticPage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void GoQcm(ActionEvent event) {
@@ -117,7 +134,9 @@ public class pickController {
         // Handle qstLibre action
     }
 
-    public void initData(EpreuveClinique epreuveClinique) {
+    public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
         this.epreuveClinique = epreuveClinique;
+        this.bo = bo;
+        this.patientId = patientId;
     }
 }

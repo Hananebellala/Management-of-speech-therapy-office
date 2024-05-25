@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.controllerBilan">
    <children>
       <AnchorPane layoutX="138.0" layoutY="120.0" prefHeight="469.0" prefWidth="746.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-border-width: 2;">
@@ -23,17 +22,17 @@
                   <Font name="Georgia Bold" size="16.0" />
                </font>
             </Text>
-            <TextField layoutX="168.0" layoutY="20.0" promptText="Nom" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
+            <TextField fx:id="nom" layoutX="168.0" layoutY="20.0" promptText="Nom" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
                <font>
                   <Font name="Georgia" size="12.0" />
                </font>
             </TextField>
-            <TextField layoutX="168.0" layoutY="51.0" promptText="Prénom" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
+            <TextField fx:id="prenom" layoutX="168.0" layoutY="51.0" promptText="Prénom" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
                <font>
                   <Font name="Georgia" size="12.0" />
                </font>
             </TextField>
-            <DatePicker layoutX="519.0" layoutY="19.0" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;" />
+            <DatePicker fx:id="date" layoutX="519.0" layoutY="19.0" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;" />
             <Text layoutX="355.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date de naissance :">
                <font>
                   <Font name="Georgia Bold" size="16.0" />
@@ -44,7 +43,7 @@
                   <Font name="Georgia Bold" size="16.0" />
                </font>
             </Text>
-            <TextField layoutX="519.0" layoutY="51.0" promptText="Lieu de naissance" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
+            <TextField fx:id="lieu" layoutX="519.0" layoutY="51.0" promptText="Lieu de naissance" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
                <font>
                   <Font name="Georgia" size="12.0" />
                </font>
@@ -54,7 +53,7 @@
                   <Font name="Georgia Bold" size="16.0" />
                </font>
             </Text>
-            <TextField layoutX="168.0" layoutY="82.0" promptText="Adresse" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
+            <TextField fx:id="adress" layoutX="168.0" layoutY="82.0" promptText="Adresse" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
                <font>
                   <Font name="Georgia" size="12.0" />
                </font>
@@ -72,7 +71,7 @@
                         <Font name="Georgia Bold" size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="331.0" layoutY="11.0" promptText="Classe" style="-fx-background-color: #ffffff;">
+                  <TextField fx:id="classe" layoutX="331.0" layoutY="11.0" promptText="Classe" style="-fx-background-color: #ffffff;">
                      <font>
                         <Font name="Georgia" size="12.0" />
                      </font>
@@ -82,7 +81,7 @@
                         <Font name="Georgia Bold" size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="331.0" layoutY="40.0" promptText="N° du père" style="-fx-background-color: #ffffff;">
+                  <TextField fx:id="npere" layoutX="331.0" layoutY="40.0" promptText="N° du père" style="-fx-background-color: #ffffff;">
                      <font>
                         <Font name="Georgia" size="12.0" />
                      </font>
@@ -92,7 +91,7 @@
                         <Font name="Georgia Bold" size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="331.0" layoutY="69.0" promptText="N° de la mère" style="-fx-background-color: #ffffff;">
+                  <TextField fx:id="nmere" layoutX="331.0" layoutY="69.0" promptText="N° de la mère" style="-fx-background-color: #ffffff;">
                      <font>
                         <Font name="Georgia" size="12.0" />
                      </font>
@@ -106,7 +105,7 @@
                         <Font name="Georgia Bold" size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="331.0" layoutY="11.0" promptText="Diplôme" style="-fx-background-color: #ffffff;">
+                  <TextField fx:id="diplome" layoutX="331.0" layoutY="11.0" promptText="Diplôme" style="-fx-background-color: #ffffff;">
                      <font>
                         <Font name="Georgia" size="12.0" />
                      </font>
@@ -116,7 +115,7 @@
                         <Font name="Georgia Bold" size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="331.0" layoutY="40.0" promptText="Profession" style="-fx-background-color: #ffffff;">
+                  <TextField fx:id="profession" layoutX="331.0" layoutY="40.0" promptText="Profession" style="-fx-background-color: #ffffff;">
                      <font>
                         <Font name="Georgia" size="12.0" />
                      </font>
@@ -126,7 +125,7 @@
                         <Font name="Georgia Bold" size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="331.0" layoutY="69.0" promptText="N° personnel" style="-fx-background-color: #ffffff;">
+                  <TextField fx:id="numeropers" layoutX="331.0" layoutY="69.0" promptText="N° personnel" style="-fx-background-color: #ffffff;">
                      <font>
                         <Font name="Georgia" size="12.0" />
                      </font>
@@ -151,7 +150,7 @@
             <Font name="Georgia" size="18.0" />
          </font>
       </Text>
-      <Button layoutX="400.0" layoutY="617.0" mnemonicParsing="false" style="-fx-background-color: #4b0082;" text="Passer à l'étape suivante" textFill="WHITE">
+      <Button fx:id="Suivant" layoutX="400.0" layoutY="617.0" mnemonicParsing="false" onAction="#Suivant" style="-fx-background-color: #4b0082;" text="Passer à l'étape suivante" textFill="WHITE">
          <font>
             <Font name="Georgia Bold" size="16.0" />
          </font>

@@ -12,8 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.DiagnosticController">
+<BorderPane fx:id="mainLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.DiagnosticController">
    <top>
       <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #4b0082;" BorderPane.alignment="CENTER">
          <children>
@@ -57,7 +56,7 @@
          <children>
             <ImageView fitHeight="268.0" fitWidth="324.0" layoutX="298.0" layoutY="14.0">
                <image>
-                  <Image url="@../../../../../../../../Downloads/Doctor-bro.png" />
+                  <Image url="@../../../Doctor-bro.png" />
                </image>
             </ImageView>
             <Button fx:id="Suivantbutton" layoutX="601.0" layoutY="-5.0" mnemonicParsing="false" onAction="#Suivant" prefHeight="41.0" prefWidth="108.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Suivant" textFill="WHITE">

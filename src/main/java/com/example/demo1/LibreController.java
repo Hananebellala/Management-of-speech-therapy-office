@@ -12,7 +12,6 @@ import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 
-// LibreController class
 public class LibreController {
 
     @FXML
@@ -34,10 +33,13 @@ public class LibreController {
     private BorderPane mainLayout;
 
     private EpreuveClinique epreuveClinique;
+    private BO bo;
+    private int patientId;
 
-    // Method to initialize the controller with an EpreuveClinique object
-    public void initData(EpreuveClinique epreuveClinique) {
+    public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
         this.epreuveClinique = epreuveClinique;
+        this.bo = bo;
+        this.patientId = patientId;
     }
 
     @FXML
@@ -54,6 +56,11 @@ public class LibreController {
         int enteredScore;
         try {
             enteredScore = Integer.parseInt(score.getText());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText(null);
+            alert.setContentText("Question Ajoutee");
+            alert.showAndWait();
         } catch (NumberFormatException e) {
             // Show an error message if the score is not a valid integer
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -72,7 +79,7 @@ public class LibreController {
 
         // Add the Libre object to the EpreuveClinique
         if (epreuveClinique != null) {
-            //epreuveClinique.addLibre(libre);
+            // epreuveClinique.addLibre(libre);
             System.out.println("Libre exercise added");
         } else {
             System.out.println("EpreuveClinique is not initialized.");
@@ -87,7 +94,7 @@ public class LibreController {
 
             // Assuming pickController has a similar initData method
             pickController epreuveController = loader.getController();
-            epreuveController.initData(epreuveClinique);
+            epreuveController.initData(epreuveClinique, bo, patientId);
 
             mainLayout.getChildren().setAll(page);
         } catch (IOException e) {

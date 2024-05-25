@@ -112,4 +112,13 @@ public class QCU extends Question {
     }
 
 
+    public void SetScore(int score) {
+
+        this.score=score;
+    }
+
+    public int GetAnser() {
+
+        return this.answer;
+    }
 }

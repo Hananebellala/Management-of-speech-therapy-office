@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.AnamneseController">
+<BorderPane fx:id="mainLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.AnamneseController">
    <stylesheets>
       <URL value="@styles.css" />
    </stylesheets>
@@ -41,12 +41,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1005.0" prefWidth="735.0">
                      <children>
-                        <Pane layoutX="14.0" layoutY="60.0" prefHeight="34.0" prefWidth="679.0">
-                           <children>
-                              <TextArea fx:id="text1" prefHeight="27.0" prefWidth="680.0" />
-                           </children>
-                        </Pane>
-                        <HBox layoutY="26.0" prefHeight="79.0" prefWidth="734.0" styleClass="vbox-bottom-rounded">
+                        <HBox layoutY="37.0" prefHeight="79.0" prefWidth="734.0" styleClass="vbox-bottom-rounded">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Question:">
                                  <HBox.margin>
@@ -66,9 +61,9 @@
                               </Label>
                            </children>
                         </HBox>
-                        <VBox prefHeight="28.0" prefWidth="244.0" styleClass="hbox-top-rounded">
+                        <VBox layoutX="-1.0" layoutY="11.0" prefHeight="28.0" prefWidth="300.0" styleClass="hbox-top-rounded">
                            <children>
-                              <Label fx:id="categorie1" prefHeight="23.0" prefWidth="506.0" text="Categorie">
+                              <Label fx:id="categorie1" prefHeight="23.0" prefWidth="506.0" text="Structure Familiale">
                                  <font>
                                     <Font name="Georgia Bold" size="19.0" />
                                  </font>
@@ -78,7 +73,7 @@
                               </Label>
                            </children>
                         </VBox>
-                        <HBox layoutY="164.0" prefHeight="79.0" prefWidth="734.0" styleClass="vbox-bottom-rounded">
+                        <HBox layoutY="174.0" prefHeight="79.0" prefWidth="734.0" styleClass="vbox-bottom-rounded">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Question:">
                                  <font>
@@ -88,7 +83,7 @@
                                     <Insets left="10.0" top="8.0" />
                                  </HBox.margin>
                               </Text>
-                              <Label fx:id="question1" prefHeight="25.0" prefWidth="604.0" text="Question">
+                              <Label fx:id="question2" prefHeight="25.0" prefWidth="604.0" text="Question">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -98,9 +93,9 @@
                               </Label>
                            </children>
                         </HBox>
-                        <VBox layoutY="138.0" prefHeight="28.0" prefWidth="244.0" styleClass="hbox-top-rounded">
+                        <VBox layoutY="148.0" prefHeight="28.0" prefWidth="300.0" styleClass="hbox-top-rounded">
                            <children>
-                              <Label fx:id="categorie2" prefHeight="23.0" prefWidth="237.0" text="Categorie">
+                              <Label fx:id="categorie2" prefHeight="23.0" prefWidth="237.0" text="Dynamique Familiale">
                                  <font>
                                     <Font name="Georgia Bold" size="19.0" />
                                  </font>
@@ -113,9 +108,9 @@
                               </Label>
                            </children>
                         </VBox>
-                        <VBox layoutY="280.0" prefHeight="28.0" prefWidth="244.0" styleClass="hbox-top-rounded">
+                        <VBox layoutY="280.0" prefHeight="28.0" prefWidth="300.0" styleClass="hbox-top-rounded">
                            <children>
-                              <Label fx:id="categorie3" prefHeight="23.0" prefWidth="506.0" text="Categorie">
+                              <Label fx:id="categorie3" prefHeight="23.0" prefWidth="506.0" text="Antecedent Familiaux">
                                  <font>
                                     <Font name="Georgia Bold" size="19.0" />
                                  </font>
@@ -145,9 +140,9 @@
                               </Label>
                            </children>
                         </HBox>
-                        <VBox layoutY="419.0" prefHeight="28.0" prefWidth="244.0" styleClass="hbox-top-rounded">
+                        <VBox layoutY="419.0" prefHeight="28.0" prefWidth="300.0" styleClass="hbox-top-rounded">
                            <children>
-                              <Label fx:id="categorie4" prefHeight="23.0" prefWidth="506.0" text="Categorie">
+                              <Label fx:id="categorie4" prefHeight="23.0" prefWidth="506.0" text="Conditions Natales">
                                  <font>
                                     <Font name="Georgia Bold" size="19.0" />
                                  </font>
@@ -177,9 +172,9 @@
                               </Label>
                            </children>
                         </HBox>
-                        <VBox layoutY="561.0" prefHeight="28.0" prefWidth="244.0" styleClass="hbox-top-rounded">
+                        <VBox layoutY="561.0" prefHeight="28.0" prefWidth="300.0" styleClass="hbox-top-rounded">
                            <children>
-                              <Label fx:id="categorie5" prefHeight="23.0" prefWidth="506.0" text="Categorie">
+                              <Label fx:id="categorie5" prefHeight="23.0" prefWidth="506.0" text="Dev Psychomoteur">
                                  <font>
                                     <Font name="Georgia Bold" size="19.0" />
                                  </font>
@@ -209,9 +204,9 @@
                               </Label>
                            </children>
                         </HBox>
-                        <VBox layoutX="-1.0" layoutY="703.0" prefHeight="28.0" prefWidth="244.0" styleClass="hbox-top-rounded">
+                        <VBox layoutX="-1.0" layoutY="703.0" prefHeight="28.0" prefWidth="300.0" styleClass="hbox-top-rounded">
                            <children>
-                              <Label fx:id="categorie6" prefHeight="23.0" prefWidth="506.0" text="Categorie">
+                              <Label fx:id="categorie6" prefHeight="23.0" prefWidth="506.0" text="Developpement Langaguier">
                                  <font>
                                     <Font name="Georgia Bold" size="19.0" />
                                  </font>
@@ -241,9 +236,9 @@
                               </Label>
                            </children>
                         </HBox>
-                        <VBox layoutX="-1.0" layoutY="845.0" prefHeight="28.0" prefWidth="244.0" styleClass="hbox-top-rounded">
+                        <VBox layoutX="-1.0" layoutY="845.0" prefHeight="28.0" prefWidth="300.0" styleClass="hbox-top-rounded">
                            <children>
-                              <Label fx:id="categorie7" prefHeight="23.0" prefWidth="506.0" text="Categorie">
+                              <Label fx:id="categorie7" prefHeight="23.0" prefWidth="506.0" text="Caractere Et Comportement">
                                  <font>
                                     <Font name="Georgia Bold" size="19.0" />
                                  </font>
@@ -273,7 +268,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Pane layoutX="15.0" layoutY="197.0" prefHeight="34.0" prefWidth="679.0">
+                        <Pane layoutX="15.0" layoutY="207.0" prefHeight="34.0" prefWidth="679.0">
                            <children>
                               <TextArea fx:id="text2" prefHeight="27.0" prefWidth="680.0" />
                            </children>
@@ -301,6 +296,11 @@
                         <Pane layoutX="20.0" layoutY="905.0" prefHeight="34.0" prefWidth="679.0">
                            <children>
                               <TextArea fx:id="text7" prefHeight="27.0" prefWidth="680.0" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="15.0" layoutY="70.0" prefHeight="34.0" prefWidth="679.0">
+                           <children>
+                              <TextArea fx:id="text1" prefHeight="27.0" prefWidth="680.0" />
                            </children>
                         </Pane>
                      </children>

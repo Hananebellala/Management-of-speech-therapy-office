@@ -11,8 +11,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class QCMController {
+
+    private QCM qcm;
 
     @FXML
     private Button button;
@@ -44,32 +48,63 @@ public class QCMController {
     @FXML
     private CheckBox third;
 
-    private EpreuveClinique epreuveClinique; // Add this field
+    private EpreuveClinique epreuveClinique = new EpreuveClinique("Initial Observation", 0);
+
+    private BO bo;
+    private int patientId;
+
+    public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
+        this.epreuveClinique = epreuveClinique;
+        this.bo = bo;
+        this.patientId = patientId;
+    }
 
     @FXML
     void Ajouter(ActionEvent event) {
-        String consigne = "Sample consigne"; // Replace with actual consigne text input
-        String[] answers = {"Answer 1", "Answer 2", "Answer 3", "Answer 4"}; // Replace with actual answers input
-        String[] correctAnswersStrings = {"1", "3"}; // Replace with actual correct answers input
-        int[] correctAnswers = new int[correctAnswersStrings.length];
-        for (int i = 0; i < correctAnswersStrings.length; i++) {
-            correctAnswers[i] = Integer.parseInt(correctAnswersStrings[i]);
+        // Get the selected answers
+        List<Integer> selectedAnswers = new ArrayList<>();
+        if (first.isSelected()) selectedAnswers.add(0);
+        if (second.isSelected()) selectedAnswers.add(1);
+        if (third.isSelected()) selectedAnswers.add(2);
+        if (fourth.isSelected()) selectedAnswers.add(3);
+        if (fifth.isSelected()) selectedAnswers.add(4);
+        if (sixth.isSelected()) selectedAnswers.add(5);
+
+        // Get the correct answers from the question
+        int[] correctAnswers = qcm.getCorrectAnswers();
+
+        // Check if the selected answers match the correct answers
+        int score = 0;
+        int i = 0;
+        for (int k = 0; k < correctAnswers.length; k++) {
+            if (selectedAnswers.get(k) == correctAnswers[k]) {
+                i++;
+            }
+
+            if (i == correctAnswers.length) {
+                score = 1;
+                qcm.SetScore(1);
+            }
         }
 
-        Question qcm = new QCM(consigne, true, 0, answers, correctAnswers);
+        // Add QCM to the current questionnaire in epreuveClinique
         if (epreuveClinique != null) {
             epreuveClinique.addQuestionToCurrentQuestionnaire(qcm);
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("EpreuveClinique is not initialized.");
-            alert.showAndWait();
-        }
-    }
+            if(bo!=null){
+                bo.updateEpreuveClinique(epreuveClinique);
+            }
 
-    public void initData(EpreuveClinique epreuveClinique) {
-        this.epreuveClinique = epreuveClinique; // Initialize the field
+
+            // Show the score in a window
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Score");
+            alert.setHeaderText(null);
+            alert.setContentText("Your score is: " + score);
+            alert.showAndWait();
+        } else {
+            // Handle the case where epreuveClinique is null
+            System.out.println("EpreuveClinique is not initialized.");
+        }
     }
 
     @FXML
@@ -80,7 +115,7 @@ public class QCMController {
 
             // Assuming pickController has a similar initData method
             pickController epreuveController = loader.getController();
-            epreuveController.initData(epreuveClinique); // Pass the epreuveClinique instance
+            epreuveController.initData(epreuveClinique, bo, patientId);
 
             mainLayout.getChildren().setAll(page);
         } catch (IOException e) {
@@ -88,10 +123,9 @@ public class QCMController {
         }
     }
 
-    @FXML
     public void initialize() {
         // Get a random QCU object
-        QCM qcm = QCM.getRandomQCM();
+        qcm = QCM.getRandomQCM();
 
         // Get the enonce and set it to the qst label
         String enonce = qcm.Enonce;
