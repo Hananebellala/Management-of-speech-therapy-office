@@ -1,0 +1,19 @@
+/* styles.css */
+
+/* HBox top rounded corners */
+.hbox-top-rounded {
+    -fx-background-color: #f5e5ff; /* Replace with your desired color */
+    -fx-border-color: #4b0082;
+    -fx-border-width: 2;
+    -fx-border-radius: 10px 10px 0 0; /* Top left and top right corners rounded */
+    -fx-background-radius: 10px 10px 0 0; /* Top left and top right corners rounded */
+}
+
+/* VBox bottom rounded corners */
+.vbox-bottom-rounded {
+     /* Replace with your desired color */
+    -fx-border-color: #4b0082;
+    -fx-border-width: 2;
+    -fx-border-radius: 0 10 10px 10px; /* Bottom left and bottom right corners rounded */
+    -fx-background-radius: 0 0 10px 10px; /* Bottom left and bottom right corners rounded */
+}

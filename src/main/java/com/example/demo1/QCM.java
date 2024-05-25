@@ -11,10 +11,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
@@ -35,7 +32,11 @@ public class QCM extends Question implements Initializable {
         super(Enonce, Effectue,score);
         this.proposition=proposition;
         this.answer=answer;
-        this.Enonce = String.valueOf(new SimpleStringProperty(Enonce));
+        this.Enonce = Enonce;
+    }
+
+    public void SetScore(int score){
+        this.score=score;
     }
 
     public String[] getProposition() {
@@ -58,10 +59,74 @@ public class QCM extends Question implements Initializable {
         for (int i = 0; i < reponse.length; i++) {
             if (reponse[i] == answer[i]) {
                 score++;
+                System.out.println("hereeeeee");
             }
         }
 
         return score;
+    }
+
+    public static QCM getRandomQCM() {
+        String enonce = "";
+        String[] propositions = new String[0];
+        int[] answer = new int[0];
+        List<String> lines = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/QCM.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+
+            if (!lines.isEmpty()) {
+                Random random = new Random();
+                int randomIndex = random.nextInt(lines.size());
+                String randomLine = lines.get(randomIndex);
+
+                // Split the random line to get enonce, propositions, and answers
+                String[] parts = randomLine.split(",");
+                enonce = parts[0];
+                propositions = parts[1].split(";");
+                String[] answerStrings = parts[2].split(";");
+                answer = new int[answerStrings.length];
+                for (int i = 0; i < answerStrings.length; i++) {
+                    answer[i] = Integer.parseInt(answerStrings[i].trim());
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+        return new QCM(enonce, true, 0, propositions, answer);
+    }
+
+    public String getEnonce() {
+        String enonce = "";
+        List<String> lines = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/QCM.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+
+            if (!lines.isEmpty()) {
+                Random random = new Random();
+                int randomIndex = random.nextInt(lines.size());
+                String randomLine = lines.get(randomIndex);
+
+                // Split the random line at the first comma and take the first part as the enonce
+                enonce = randomLine.split(",")[0];
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+        return enonce;
     }
 
 
@@ -79,4 +144,8 @@ public class QCM extends Question implements Initializable {
         }
     }
 
+    public int[] getCorrectAnswers() {
+
+        return this.answer;
+    }
 }

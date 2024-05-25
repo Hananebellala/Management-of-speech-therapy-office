@@ -1,0 +1,7 @@
+Qui sont les membres de la famille immédiate ?, Y a-t-il des membres de la famille élargie vivant dans le ménage ?, Comment les membres de la famille se rapportent-ils les uns aux autres ?
+À quelle fréquence les membres de la famille communiquent-ils entre eux ?, Y a-t-il des conflits familiaux en cours ?, Comment les membres de la famille se soutiennent-ils pendant les moments difficiles ?
+Y a-t-il des maladies héréditaires dans la famille ?, Y a-t-il eu des problèmes de santé mentale significatifs dans la famille ?, Y a-t-il des conditions génétiques connues dans la famille ?
+L'enfant est-il né à terme ou prématuré ?, Y a-t-il eu des complications pendant la naissance ?, Quel était le poids de naissance de l'enfant ?
+Quand l'enfant a-t-il commencé à marcher ?, Y a-t-il des préoccupations concernant la coordination ou les compétences motrices de l'enfant ?, Comment l'enfant se comporte-t-il dans les activités physiques ?
+Quand l'enfant a-t-il commencé à parler ?, Y a-t-il des retards de parole ou de langage ?, Dans quelle mesure l'enfant comprend-il et suit-il les instructions ?
+Comment l'enfant réagit-il généralement aux nouvelles situations ?, Y a-t-il des préoccupations comportementales ?, Comment l'enfant interagit-il avec ses pairs et les adultes ?

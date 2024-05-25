@@ -23,7 +23,7 @@ public class Testing extends Application {
         Test[] tests = new Test[EpreuveClinique.max];
 
         // Create an EpreuveClinique instance
-        EpreuveClinique epreuveClinique = new EpreuveClinique(tests, "Observation text", 0);
+        EpreuveClinique epreuveClinique = new EpreuveClinique("Observation text", 0);
 
         /*try {
             // Add tests

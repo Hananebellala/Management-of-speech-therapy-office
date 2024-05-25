@@ -53,4 +53,8 @@ public class Exercice extends Test {
     public void setCompteRdu(String text) {
         this.CompteRdu=text;
     }
+
+    public void Afficher(Exercice exercice) {
+        System.out.println(exercice.nomMateriel);
+    }
 }
