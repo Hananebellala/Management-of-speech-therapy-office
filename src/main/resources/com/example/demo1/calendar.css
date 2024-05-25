@@ -1,0 +1,4 @@
+.calendar-view .event {
+    -fx-background-color: #4b0082;
+    -fx-text-fill: #FFFFFF;
+}

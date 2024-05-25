@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.calendarfx.view.CalendarView?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import jfxtras.scene.control.LocalTimeTextField?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TP_GUI.PlanningsController">
+   <children>
+      <VBox prefHeight="880.0" prefWidth="328.0">
+         <children>
+            <Separator prefHeight="26.0" prefWidth="328.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Separator orientation="VERTICAL" prefHeight="102.0" prefWidth="40.0" />
+                  <ImageView fitHeight="150.0" fitWidth="250.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@../LOGO/OrganizeMe.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Separator layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="328.0" />
+            <HBox prefHeight="300.0" prefWidth="328.0">
+               <children>
+                  <Separator orientation="VERTICAL" prefHeight="393.0" prefWidth="33.0" />
+                  <Pane prefHeight="411.0" prefWidth="295.0">
+                     <children>
+                        <VBox layoutX="-1.0" prefHeight="530.0" prefWidth="275.0">
+                           <children>
+                              <Pane layoutX="10.0" layoutY="10.0" onMouseClicked="#loadHomePage" prefHeight="50.0" prefWidth="295.0" style="-fx-background-radius: 20;">
+                                 <children>
+                                    <Label layoutX="108.0" layoutY="8.0" onMouseClicked="#loadHomePage" prefHeight="35.0" prefWidth="132.0" style="-fx-alignment: left;" text="Home" textFill="#3f365f">
+                                       <font>
+                                          <Font name="Arial Nova Cond" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="27.0" layoutY="8.0" onMouseClicked="#loadHomePage" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/HomeBlue.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="10.0" prefWidth="200.0" />
+                              <Pane layoutX="10.0" layoutY="60.0" onMouseClicked="#loadTasksPage" prefHeight="50.0" prefWidth="295.0">
+                                 <children>
+                                    <Label layoutX="108.0" layoutY="8.0" onMouseClicked="#loadTasksPage" prefHeight="35.0" prefWidth="132.0" style="-fx-alignment: left;" text="Tasks" textFill="#3f365f">
+                                       <font>
+                                          <Font name="Arial Nova Cond" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="27.0" layoutY="8.0" onMouseClicked="#loadTasksPage" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/TasksBlue.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="60.0" prefHeight="10.0" prefWidth="200.0" />
+                              <Pane layoutX="10.0" layoutY="191.0" onMouseClicked="#loadProjectsPage" prefHeight="50.0" prefWidth="295.0">
+                                 <children>
+                                    <Label layoutX="108.0" layoutY="8.0" onMouseClicked="#loadProjectsPage" prefHeight="35.0" prefWidth="132.0" style="-fx-alignment: left;" text="Projects" textFill="#3f365f">
+                                       <font>
+                                          <Font name="Arial Nova Cond" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="30.0" layoutY="8.0" onMouseClicked="#loadProjectsPage" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/ProjectsBlue.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="121.0" prefHeight="10.0" prefWidth="200.0" />
+                              <Pane fx:id="planningsPane" prefHeight="50.0" prefWidth="295.0" style="-fx-background-color: #D1E7DA; -fx-background-radius: 20; -fx-padding: 8;">
+                                 <children>
+                                    <Label layoutX="108.0" layoutY="8.0" prefHeight="35.0" prefWidth="132.0" style="-fx-alignment: left;" text="Plannings" textFill="#fbfbfb">
+                                       <font>
+                                          <Font name="Arial Nova Cond Bold" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="27.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/PlanningWhite.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="181.0" prefHeight="10.0" prefWidth="200.0" />
+                              <Pane layoutX="10.0" layoutY="252.0" onMouseClicked="#loadCalendarPage" prefHeight="50.0" prefWidth="295.0">
+                                 <children>
+                                    <Label layoutX="108.0" layoutY="8.0" onMouseClicked="#loadCalendarPage" prefHeight="35.0" prefWidth="132.0" style="-fx-alignment: left;" text="Calendar" textFill="#3f365f">
+                                       <font>
+                                          <Font name="Arial Nova Cond" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="27.0" layoutY="8.0" onMouseClicked="#loadCalendarPage" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/CalenderBlue.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="242.0" prefHeight="10.0" prefWidth="200.0" />
+                              <Pane layoutX="10.0" layoutY="131.0" onMouseClicked="#loadGoalsPage" prefHeight="50.0" prefWidth="295.0">
+                                 <children>
+                                    <Label layoutX="108.0" layoutY="8.0" onMouseClicked="#loadGoalsPage" prefHeight="35.0" prefWidth="132.0" style="-fx-alignment: left;" text="Goals" textFill="#3f365f">
+                                       <font>
+                                          <Font name="Arial Nova Cond" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="27.0" layoutY="8.0" onMouseClicked="#loadGoalsPage" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/GoalsBlue.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="302.0" prefHeight="10.0" prefWidth="200.0" />
+                              <Pane layoutX="10.0" layoutY="312.0" onMouseClicked="#loadInboxPage" prefHeight="50.0" prefWidth="295.0">
+                                 <children>
+                                    <Label layoutX="108.0" layoutY="8.0" onMouseClicked="#loadInboxPage" prefHeight="35.0" prefWidth="132.0" style="-fx-alignment: left;" text="Inbox" textFill="#3f365f">
+                                       <font>
+                                          <Font name="Arial Nova Cond" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="27.0" layoutY="8.0" onMouseClicked="#loadInboxPage" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/InboxBlue.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="362.0" prefHeight="10.0" prefWidth="200.0" />
+                              <Pane layoutX="10.0" layoutY="373.0" onMouseClicked="#loadHistoryPage" prefHeight="50.0" prefWidth="295.0">
+                                 <children>
+                                    <Label layoutX="108.0" layoutY="8.0" onMouseClicked="#loadHistoryPage" prefHeight="35.0" prefWidth="132.0" style="-fx-alignment: left;" text="History" textFill="#3f365f">
+                                       <font>
+                                          <Font name="Arial Nova Cond" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="27.0" layoutY="8.0" onMouseClicked="#loadHistoryPage" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/historyBlue.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="423.0" prefHeight="10.0" prefWidth="200.0" />
+                              <Pane layoutX="10.0" layoutY="433.0" onMouseClicked="#logoutButtonClicked" prefHeight="50.0" prefWidth="295.0">
+                                 <children>
+                                    <Label layoutX="108.0" layoutY="8.0" onMouseClicked="#logoutButtonClicked" prefHeight="35.0" prefWidth="132.0" style="-fx-alignment: left;" text="Log out" textFill="#3f365f">
+                                       <font>
+                                          <Font name="Arial Nova Cond" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="27.0" layoutY="8.0" onMouseClicked="#logoutButtonClicked" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/logoutBlue.png" />
+                                       </image>
+                                       <rotationAxis>
+                                          <Point3D z="-1.0" />
+                                       </rotationAxis>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Pane prefHeight="880.0" prefWidth="1373.0" style="-fx-background-color: #A6BBF2;">
+         <children>
+            <Label layoutX="31.0" layoutY="37.0" prefHeight="50.0" prefWidth="141.0" text="Plannings" textFill="#fffdfd">
+               <font>
+                  <Font name="Arial Nova Cond" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="dateLabel" alignment="CENTER_RIGHT" layoutX="1204.0" layoutY="37.0" prefHeight="50.0" prefWidth="141.0" style="-fx-alignment: center;" textFill="WHITE">
+               <font>
+                  <Font name="Arial Nova Cond" size="30.0" />
+               </font>
+            </Label>
+            <Pane layoutX="64.0" layoutY="100.0" prefHeight="735.0" prefWidth="1254.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40;">
+               <children>
+                  <VBox layoutX="194.0" layoutY="10.0" prefHeight="702.0" prefWidth="1024.0">
+                     <children>
+                        <Pane prefHeight="81.0" prefWidth="1024.0">
+                           <children>
+                              <Label layoutX="12.0" layoutY="7.0" text="Planning's Name">
+                                 <font>
+                                    <Font name="Arial Nova Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="596.0" layoutY="7.0" text="Start Date">
+                                 <font>
+                                    <Font name="Arial Nova" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="725.0" layoutY="8.0" text="End Date">
+                                 <font>
+                                    <Font name="Arial Nova Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="871.0" layoutY="8.0" text="Duration">
+                                 <font>
+                                    <Font name="Arial Nova Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="startDatePicker" layoutX="596.0" layoutY="28.0" onAction="#handleEndDateSelected" prefHeight="25.0" prefWidth="113.0" promptText="Start date" />
+                              <DatePicker fx:id="endDatePicker" layoutX="724.0" layoutY="28.0" onAction="#handleEndDateSelected" prefHeight="25.0" prefWidth="113.0" promptText="End date" />
+                              <Label fx:id="durationPlanningLabel" layoutX="872.0" layoutY="28.0" prefHeight="25.0" prefWidth="113.0" textFill="#838080" />
+                           </children>
+                        </Pane>
+                        <TabPane prefHeight="657.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                              <Tab text="List">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="628.0" prefWidth="981.0">
+                                       <children>
+                                          <TableView fx:id="UpcomingTableView" prefHeight="511.0" prefWidth="1024.0">
+                                            <columns>
+                                              <TableColumn prefWidth="220.0" text="To Do" />
+                                                <TableColumn prefWidth="120.0" text="Type" />
+                                              <TableColumn prefWidth="200.0" text="Due date" />
+                                                <TableColumn prefWidth="120.0" text="Duration" />
+                                                <TableColumn prefWidth="120.0" text="Etat" />
+                                                <TableColumn prefWidth="120.0" text="Priority (task)" />
+                                                <TableColumn prefWidth="120.0" text="Category (task)" />
+                                            </columns>
+                                          </TableView>
+                                          <Pane layoutY="509.0" prefHeight="118.0" prefWidth="1024.0">
+                                             <children>
+                                                <TextField fx:id="taskNameInput" layoutX="1.0" layoutY="13.0" prefWidth="220.0" promptText="Task/Project Name" style="-fx-border-color: #D1E7DA; -fx-border-radius: 20; -fx-background-radius: 20;" />
+                                                <ChoiceBox fx:id="priorityInput" layoutX="221.0" layoutY="12.0" prefWidth="120.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1E7DA; -fx-border-radius: 20;" />
+                                                <DatePicker fx:id="deadlineInput" layoutX="340.0" layoutY="12.0" prefWidth="200.0" promptText="Deadline" style="-fx-background-color: #D1E7DA; -fx-border-color: #D1E7DA; -fx-border-radius: 20; -fx-background-radius: 20;" />
+                                                <Button fx:id="addButtonClicked" layoutX="120.0" layoutY="60.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #D1E7DA; -fx-background-radius: 20;" text="Add">
+                                                   <effect>
+                                                      <DropShadow>
+                                                         <color>
+                                                            <Color opacity="0.6042856574058533" />
+                                                         </color>
+                                                      </DropShadow>
+                                                   </effect>
+                                                </Button>
+                                                <Button fx:id="deleteButtonClicked" layoutX="400.0" layoutY="60.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #D1E7DA; -fx-background-radius: 20;" text="Delete">
+                                                   <effect>
+                                                      <DropShadow>
+                                                         <color>
+                                                            <Color opacity="0.6000000238418579" />
+                                                         </color>
+                                                      </DropShadow>
+                                                   </effect>
+                                                </Button>
+                                                <Button fx:id="doneButtonClicked" layoutX="680.0" layoutY="60.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #D1E7DA; -fx-background-radius: 20;" text="Done">
+                                                   <effect>
+                                                      <DropShadow>
+                                                         <color>
+                                                            <Color opacity="0.6000000238418579" />
+                                                         </color>
+                                                      </DropShadow>
+                                                   </effect>
+                                                </Button>
+                                                <LocalTimeTextField layoutX="540.0" layoutY="12.0" prefWidth="120.0" style="-fx-border-color: #D1E7DA; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #D1E7DA;" />
+                                                <ChoiceBox fx:id="priorityInput1" layoutX="661.0" layoutY="14.0" prefWidth="120.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1E7DA; -fx-border-radius: 20;" />
+                                                <ChoiceBox fx:id="priorityInput11" layoutX="781.0" layoutY="14.0" prefWidth="119.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1E7DA; -fx-border-radius: 20;" />
+                                                <ChoiceBox fx:id="priorityInput111" layoutX="1059.0" layoutY="14.0" prefWidth="119.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1E7DA; -fx-border-radius: 20;" />
+                                                <ChoiceBox fx:id="priorityInput112" layoutX="900.0" layoutY="14.0" prefWidth="119.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1E7DA; -fx-border-radius: 20;" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Calendar">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                   <CalendarView fx:id="calendarView" xmlns="http://www.calendarfx.com" xmlns:fx="http://javafx.com/fxml/1" />
+                                </content>
+                              </Tab>
+                            <Tab text="Dashboard">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <PieChart fx:id="pieChart" layoutX="515.0" layoutY="255.0" prefHeight="258.0" prefWidth="435.0" style="-fx-border-color: Grey; -fx-border-radius: 40;" title="Badges" />
+                                          <BarChart fx:id="barChart" layoutX="45.0" layoutY="255.0" prefHeight="258.0" prefWidth="435.0" style="-fx-border-radius: 40; -fx-border-color: Grey;" title="Analysis of Daily Productivity">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                          <Pane layoutX="515.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: Grey; -fx-border-radius: 40;">
+                                             <children>
+                                                <Label layoutX="61.0" layoutY="20.0" text="Total tasks">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="overdueTasks" layoutX="74.0" layoutY="65.0" prefHeight="50.0" prefWidth="52.0" text="13">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutX="750.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: Grey; -fx-border-radius: 40;">
+                                             <children>
+                                                <Label layoutX="55.0" layoutY="20.0" text="Total projects">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="totalTasks" layoutX="74.0" layoutY="65.0" prefHeight="50.0" prefWidth="52.0" text="03">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutX="280.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: Grey; -fx-border-radius: 40;">
+                                             <children>
+                                                <Label layoutX="30.0" layoutY="20.0" text="Completed projects ">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="incompleteTasks" layoutX="74.0" layoutY="65.0" prefHeight="50.0" prefWidth="52.0" text="01">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutX="45.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: Grey; -fx-border-radius: 40;">
+                                             <children>
+                                                <Label layoutX="41.0" layoutY="20.0" text="Completed tasks">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="completedTasks" layoutX="74.0" layoutY="65.0" prefHeight="50.0" prefWidth="52.0" text="04">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutX="45.0" layoutY="528.0" prefHeight="80.0" prefWidth="435.0" style="-fx-border-color: Grey; -fx-border-radius: 40;">
+                                             <children>
+                                                <Label layoutX="55.0" layoutY="28.0" text="Progress Planning">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="projectProgress" layoutX="245.0" layoutY="5.0" prefHeight="70.0" prefWidth="95.0" text="85%">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutX="515.0" layoutY="528.0" prefHeight="80.0" prefWidth="435.0" style="-fx-border-color: Grey; -fx-border-radius: 40;">
+                                             <children>
+                                                <Label layoutX="55.0" layoutY="28.0" text="Badges Number">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="badgesNbr" layoutX="245.0" layoutY="5.0" prefHeight="50.0" prefWidth="52.0" text="10">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="28.0" layoutY="55.0" prefHeight="559.0" prefWidth="166.0">
+                     <children>
+                        <ListView prefHeight="558.0" prefWidth="166.0" />
+                     </children>
+                  </VBox>
+                  <Pane layoutX="-6.0" layoutY="10.0" prefHeight="44.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="45.0" layoutY="7.0" text="Plannings">
+                           <font>
+                              <Font name="Arial Nova Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</HBox>

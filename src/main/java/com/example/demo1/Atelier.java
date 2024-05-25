@@ -1,13 +1,15 @@
 package com.example.demo1;
 
-public class Atelier extends RendezVous {
+import java.time.ZonedDateTime;
+
+/*public class Atelier extends RendezVous {
     private String thematique;
     private int[] listeDossiers;
     public Atelier(String thematique, int[] dossiers) {
         this.thematique=thematique;
         listeDossiers=dossiers;
     }
-    public void programmer(Date dat, float heure, float duree) {
+    public void programmer(ZonedDateTime dat, float heure, float duree) {
         this.dat=dat;
         this.heure=heure;
         this.duree=duree;
@@ -19,4 +21,4 @@ public class Atelier extends RendezVous {
     public int[] getDossiers() {
         return listeDossiers;
     }
-}
+}*/

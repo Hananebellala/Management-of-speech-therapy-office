@@ -1,25 +1,22 @@
 package com.example.demo1;
 
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
+import java.util.List;
+
 public class Date {
-    private int jour;
-    private int mois;
-    private int annee;
-    Date(int jour, int mois, int annee) {
-        this.jour=jour;
-        this.mois=mois;
-        this.annee=annee;
+    private ZonedDateTime time;
+    private List<LocalTime> availableSlots;
+    public Date(ZonedDateTime time) {
+        this.time=time;
     }
-    public int getJour() {
-        return jour;
+    public ZonedDateTime getTime() {
+        return time;
     }
-    public int getMois() {
-        return mois;
+    public void addSlot(LocalTime time) {
+        availableSlots.add(time);
     }
-    public int getAnne() {
-        return annee;
-    }
-    public String getDate() {
-        String myDate = jour+"/"+mois+"/"+annee;
-        return myDate;
+    public void removeSlot(LocalTime time){
+        availableSlots.remove(time);
     }
 }

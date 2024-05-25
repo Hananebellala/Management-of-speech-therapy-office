@@ -1,5 +1,9 @@
 package com.example.demo1;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
+
 public class Consultation extends RendezVous {
     private String nom;
     private String prenom;
@@ -8,10 +12,11 @@ public class Consultation extends RendezVous {
         this.nom=nom;
         this.prenom=prenom;
         this.age=age;
+        this.type=TypeRdv.CONSULTATION;
     }
-    public void programmer(Date dat, float heure, float duree) {
+    public void programmer(LocalDate dat, LocalTime heure, float duree) {
         this.dat=dat;
-        this.heure=heure;
+        this.time=heure;
         this.type=TypeRdv.CONSULTATION;
         this.duree=duree;
     }

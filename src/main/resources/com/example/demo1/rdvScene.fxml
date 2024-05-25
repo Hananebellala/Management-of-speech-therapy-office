@@ -24,17 +24,17 @@
                 <Font name="Georgia" size="18.0" />
             </font>
         </Text>
-        <ComboBox fx:id="comb" layoutX="605.0" layoutY="72.0" onAction="#Select" prefWidth="150.0" promptText="Type de rendez-vous" style="-fx-border-color: #4b0082; -fx-background-color: #ffffff; -fx-border-width: 2;" />
+        <ComboBox fx:id="comb" layoutX="552.0" layoutY="72.0" onAction="#Select" prefWidth="150.0" promptText="Type de rendez-vous" style="-fx-border-color: #4b0082; -fx-background-color: #ffffff; -fx-border-width: 2;" />
         <AnchorPane prefHeight="680.0" prefWidth="100.0" style="-fx-background-color: #4b0082;" />
         <AnchorPane prefHeight="60.0" prefWidth="100.0" style="-fx-background-color: #f5e5ff;" />
         <AnchorPane fx:id="consultationContainer" layoutX="147.0" layoutY="127.0" prefHeight="100.0" prefWidth="735.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-border-width: 2;">
             <children>
-                <TextField layoutX="133.0" layoutY="17.0" promptText="Nom" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
+                <TextField fx:id="champsNom" layoutX="133.0" layoutY="17.0" promptText="Nom" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
                     <font>
                         <Font name="Georgia" size="12.0" />
                     </font>
                 </TextField>
-                <TextField layoutX="133.0" layoutY="58.0" promptText="Prenom" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
+                <TextField fx:id="champsPrenom" layoutX="133.0" layoutY="58.0" promptText="Prenom" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
                     <font>
                         <Font name="Georgia" size="12.0" />
                     </font>
@@ -49,7 +49,7 @@
                         <Font name="Georgia Bold" size="14.0" />
                     </font>
                 </Text>
-                <TextField layoutX="464.0" layoutY="17.0" promptText="Age" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
+                <TextField fx:id="champsAge" layoutX="464.0" layoutY="17.0" promptText="Age" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
                     <font>
                         <Font name="Georgia" size="12.0" />
                     </font>
@@ -63,7 +63,7 @@
         </AnchorPane>
         <AnchorPane fx:id="seanceContainer" layoutX="147.0" layoutY="255.0" prefHeight="100.0" prefWidth="735.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-border-width: 2;">
             <children>
-                <TextField layoutX="256.0" layoutY="17.0" promptText="Numéro" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
+                <TextField fx:id="champsDossier" layoutX="256.0" layoutY="17.0" promptText="Numéro" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
                     <font>
                         <Font name="Georgia" size="12.0" />
                     </font>
@@ -83,7 +83,7 @@
         </AnchorPane>
         <AnchorPane fx:id="atelierContainer" layoutX="147.0" layoutY="387.0" prefHeight="226.0" prefWidth="735.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-border-width: 2;">
             <children>
-                <TextField layoutX="256.0" layoutY="17.0" prefHeight="26.0" prefWidth="378.0" promptText="Thématique" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
+                <TextField fx:id="champsThematique" layoutX="256.0" layoutY="17.0" prefHeight="26.0" prefWidth="378.0" promptText="Thématique" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;">
                     <font>
                         <Font name="Georgia" size="12.0" />
                     </font>
@@ -102,7 +102,7 @@
                 <ListView layoutX="436.0" layoutY="53.0" prefHeight="162.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;" />
             </children>
         </AnchorPane>
-      <Button layoutX="459.0" layoutY="628.0" mnemonicParsing="false" style="-fx-background-color: #4b0082;" text="Programmer" textFill="WHITE">
+      <Button layoutX="459.0" layoutY="628.0" mnemonicParsing="false" onAction="#creationRdv" style="-fx-background-color: #4b0082;" text="Programmer" textFill="WHITE" fx:id="button">
          <font>
             <Font name="Georgia" size="16.0" />
          </font>
