@@ -15,12 +15,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.GestionQCMController">
    <top>
       <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #4b0082;" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="60.0" prefWidth="379.0" />
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion de QCM">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion de QCU">
                <font>
                   <Font name="Georgia Bold" size="26.0" />
                </font>
@@ -45,12 +45,12 @@
                                  <children>
                                     <Pane layoutX="23.0" layoutY="33.0" prefHeight="129.0" prefWidth="481.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 40;">
                                        <children>
-                                          <Label layoutX="22.0" layoutY="20.0" prefHeight="29.0" prefWidth="440.0" text="Label">
+                                          <Label fx:id="qst1" layoutX="22.0" layoutY="20.0" prefHeight="29.0" prefWidth="440.0">
                                              <font>
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="144.0" layoutY="51.0" prefHeight="29.0" prefWidth="321.0" text="Label">
+                                          <Label fx:id="prop1" layoutX="144.0" layoutY="51.0" prefHeight="29.0" prefWidth="321.0">
                                              <font>
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
@@ -60,12 +60,12 @@
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answers:">
+                                          <Text layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answer:">
                                              <font>
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Label layoutX="111.0" layoutY="81.0" prefHeight="29.0" prefWidth="355.0" text="Label">
+                                          <Label fx:id="ans1" layoutX="111.0" layoutY="81.0" prefHeight="29.0" prefWidth="355.0">
                                              <font>
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
@@ -75,12 +75,12 @@
                                     </Pane>
                                     <Pane layoutX="31.0" layoutY="196.0" prefHeight="129.0" prefWidth="481.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 40;">
                                        <children>
-                                          <Label layoutX="22.0" layoutY="20.0" prefHeight="29.0" prefWidth="440.0" text="Label">
+                                          <Label fx:id="qst2" layoutX="22.0" layoutY="20.0" prefHeight="29.0" prefWidth="440.0">
                                              <font>
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="144.0" layoutY="51.0" prefHeight="29.0" prefWidth="321.0" text="Label">
+                                          <Label fx:id="prop2" layoutX="144.0" layoutY="51.0" prefHeight="29.0" prefWidth="321.0">
                                              <font>
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
@@ -90,12 +90,12 @@
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answers:">
+                                          <Text layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answer:">
                                              <font>
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Label layoutX="111.0" layoutY="81.0" prefHeight="29.0" prefWidth="355.0" text="Label">
+                                          <Label fx:id="ans2" layoutX="111.0" layoutY="81.0" prefHeight="29.0" prefWidth="355.0">
                                              <font>
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
@@ -105,12 +105,12 @@
                                     </Pane>
                                     <Pane layoutX="31.0" layoutY="359.0" prefHeight="129.0" prefWidth="481.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 40;">
                                        <children>
-                                          <Label layoutX="22.0" layoutY="20.0" prefHeight="29.0" prefWidth="440.0" text="Label">
+                                          <Label fx:id="qst3" layoutX="22.0" layoutY="20.0" prefHeight="29.0" prefWidth="440.0">
                                              <font>
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="144.0" layoutY="51.0" prefHeight="29.0" prefWidth="321.0" text="Label">
+                                          <Label fx:id="prop3" layoutX="144.0" layoutY="51.0" prefHeight="29.0" prefWidth="321.0">
                                              <font>
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
@@ -120,12 +120,12 @@
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answers:">
+                                          <Text layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answer:">
                                              <font>
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Label layoutX="111.0" layoutY="81.0" prefHeight="29.0" prefWidth="355.0" text="Label">
+                                          <Label fx:id="ans3" layoutX="111.0" layoutY="81.0" prefHeight="29.0" prefWidth="355.0">
                                              <font>
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
@@ -135,12 +135,12 @@
                                     </Pane>
                                     <Pane layoutX="31.0" layoutY="524.0" prefHeight="129.0" prefWidth="481.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 40;">
                                        <children>
-                                          <Label layoutX="22.0" layoutY="20.0" prefHeight="29.0" prefWidth="440.0" text="Label">
+                                          <Label fx:id="qst4" layoutX="22.0" layoutY="20.0" prefHeight="29.0" prefWidth="440.0">
                                              <font>
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="144.0" layoutY="51.0" prefHeight="29.0" prefWidth="321.0" text="Label">
+                                          <Label fx:id="prop4" layoutX="144.0" layoutY="51.0" prefHeight="29.0" prefWidth="321.0">
                                              <font>
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
@@ -150,12 +150,12 @@
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answers:">
+                                          <Text layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answer:">
                                              <font>
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Label layoutX="111.0" layoutY="81.0" prefHeight="29.0" prefWidth="355.0" text="Label">
+                                          <Label fx:id="ans4" layoutX="111.0" layoutY="81.0" prefHeight="29.0" prefWidth="355.0">
                                              <font>
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
@@ -165,12 +165,12 @@
                                     </Pane>
                                     <Pane layoutX="30.0" layoutY="687.0" prefHeight="129.0" prefWidth="481.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 40;">
                                        <children>
-                                          <Label layoutX="22.0" layoutY="20.0" prefHeight="29.0" prefWidth="440.0" text="Label">
+                                          <Label fx:id="qst5" layoutX="22.0" layoutY="20.0" prefHeight="29.0" prefWidth="440.0">
                                              <font>
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="144.0" layoutY="51.0" prefHeight="29.0" prefWidth="321.0" text="Label">
+                                          <Label fx:id="prop5" layoutX="144.0" layoutY="51.0" prefHeight="29.0" prefWidth="321.0">
                                              <font>
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
@@ -180,12 +180,12 @@
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answers:">
+                                          <Text layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answer:">
                                              <font>
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Label layoutX="111.0" layoutY="81.0" prefHeight="29.0" prefWidth="355.0" text="Label">
+                                          <Label fx:id="ans5" layoutX="111.0" layoutY="81.0" prefHeight="29.0" prefWidth="355.0">
                                              <font>
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
@@ -195,12 +195,12 @@
                                     </Pane>
                                     <Pane layoutX="33.0" layoutY="852.0" prefHeight="129.0" prefWidth="481.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 40;">
                                        <children>
-                                          <Label layoutX="22.0" layoutY="20.0" prefHeight="29.0" prefWidth="440.0" text="Label">
+                                          <Label fx:id="qst6" layoutX="22.0" layoutY="20.0" prefHeight="29.0" prefWidth="440.0">
                                              <font>
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="144.0" layoutY="51.0" prefHeight="29.0" prefWidth="321.0" text="Label">
+                                          <Label fx:id="prop6" layoutX="144.0" layoutY="51.0" prefHeight="29.0" prefWidth="321.0">
                                              <font>
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
@@ -210,12 +210,12 @@
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answers:">
+                                          <Text layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answer:">
                                              <font>
                                                 <Font name="Georgia Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Label layoutX="111.0" layoutY="81.0" prefHeight="29.0" prefWidth="355.0" text="Label">
+                                          <Label fx:id="ans6" layoutX="111.0" layoutY="81.0" prefHeight="29.0" prefWidth="355.0">
                                              <font>
                                                 <Font name="Georgia" size="16.0" />
                                              </font>
@@ -241,25 +241,25 @@
                               <Font name="Georgia Bold" size="16.0" />
                            </font>
                         </Text>
-                        <Text layoutX="32.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reponses:">
+                        <Text layoutX="32.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reponse:">
                            <font>
                               <Font name="Georgia Bold" size="16.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="32.0" layoutY="121.0" prefHeight="35.0" prefWidth="307.0" />
-                        <TextField layoutX="32.0" layoutY="192.0" prefHeight="47.0" prefWidth="307.0" />
-                        <TextField layoutX="32.0" layoutY="274.0" prefHeight="47.0" prefWidth="307.0" />
+                        <TextField fx:id="Question" layoutX="32.0" layoutY="121.0" prefHeight="35.0" prefWidth="307.0" />
+                        <TextField fx:id="Proposition" layoutX="32.0" layoutY="192.0" prefHeight="47.0" prefWidth="307.0" />
+                        <TextField fx:id="Reponses" layoutX="32.0" layoutY="274.0" prefHeight="47.0" prefWidth="307.0" />
                         <Text fill="RED" layoutX="32.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NB: Ils doivent etre séparé par &quot;',&quot;">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </Text>
-                        <Button layoutX="133.0" layoutY="398.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
+                        <Button fx:id="Ajouter" layoutX="133.0" layoutY="398.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
                            <font>
                               <Font name="Georgia Bold" size="16.0" />
                            </font>
                         </Button>
-                        <Button layoutX="133.0" layoutY="481.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Suprimer" textFill="WHITE">
+                        <Button fx:id="Suprimer" layoutX="133.0" layoutY="481.0" mnemonicParsing="false" onAction="#Suprimer" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Suprimer" textFill="WHITE">
                            <font>
                               <Font name="Georgia Bold" size="16.0" />
                            </font>

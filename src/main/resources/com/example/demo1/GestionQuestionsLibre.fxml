@@ -172,12 +172,12 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <Button fx:id="Ajouter" layoutX="129.0" layoutY="315.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="102.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
+                        <Button fx:id="Ajouter" layoutX="129.0" layoutY="315.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="46.0" prefWidth="102.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
                            <font>
                               <Font name="Georgia Bold" size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="Suprimer" layoutX="129.0" layoutY="414.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="102.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Suprimer" textFill="WHITE">
+                        <Button fx:id="Suprimer" layoutX="129.0" layoutY="414.0" mnemonicParsing="false" onAction="#suprimer" prefHeight="46.0" prefWidth="102.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Suprimer" textFill="WHITE">
                            <font>
                               <Font name="Georgia Bold" size="16.0" />
                            </font>

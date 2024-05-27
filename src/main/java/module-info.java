@@ -12,6 +12,7 @@ module com.example.demo1 {
     requires com.almasb.fxgl.all;
     requires java.desktop;
     requires com.calendarfx.view;
+    requires java.sql;
 
     opens com.example.demo1 to javafx.fxml;
     exports com.example.demo1;

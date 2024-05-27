@@ -10,6 +10,10 @@ public class Date {
     public Date(ZonedDateTime time) {
         this.time=time;
     }
+
+    public Date(int dayOfMonth, int monthValue, int year) {
+    }
+
     public ZonedDateTime getTime() {
         return time;
     }
