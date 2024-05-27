@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.GestionAnamneseController">
+   <top>
+      <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #4b0082;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="60.0" prefWidth="289.0" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion de questions anamnese">
+               <font>
+                  <Font name="Georgia Bold" size="26.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </Text>
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <SplitPane dividerPositions="0.5988" prefHeight="622.0" prefWidth="920.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="711.0" prefWidth="543.0">
+                     <children>
+                        <ScrollPane prefHeight="627.0" prefWidth="547.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="844.0" prefWidth="529.0">
+                                 <children>
+                                    <Label fx:id="qst1" layoutX="47.0" layoutY="21.0" prefHeight="51.0" prefWidth="433.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="Georgia Bold" size="16.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="qst6" layoutX="47.0" layoutY="398.0" prefHeight="51.0" prefWidth="433.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="Georgia Bold" size="16.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="qst5" layoutX="47.0" layoutY="319.0" prefHeight="51.0" prefWidth="433.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="Georgia Bold" size="16.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="qst4" layoutX="47.0" layoutY="244.0" prefHeight="51.0" prefWidth="433.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="Georgia Bold" size="16.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="qst3" layoutX="47.0" layoutY="166.0" prefHeight="51.0" prefWidth="433.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="Georgia Bold" size="16.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="qst2" layoutX="47.0" layoutY="91.0" prefHeight="51.0" prefWidth="433.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="Georgia Bold" size="16.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="qst7" layoutX="47.0" layoutY="477.0" prefHeight="51.0" prefWidth="433.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="Georgia Bold" size="16.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="qst8" layoutX="47.0" layoutY="556.0" prefHeight="51.0" prefWidth="433.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="Georgia Bold" size="16.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="qst9" layoutX="51.0" layoutY="635.0" prefHeight="51.0" prefWidth="433.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="Georgia Bold" size="16.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="qst10" layoutX="52.0" layoutY="706.0" prefHeight="51.0" prefWidth="433.0" style="-fx-background-color: f5e5ff; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="Georgia Bold" size="16.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <RadioButton fx:id="radio1" layoutX="446.0" layoutY="37.0" mnemonicParsing="false" />
+                                    <RadioButton fx:id="radio2" layoutX="446.0" layoutY="106.0" mnemonicParsing="false" />
+                                    <RadioButton fx:id="radio3" layoutX="447.0" layoutY="182.0" mnemonicParsing="false" />
+                                    <RadioButton fx:id="radio4" layoutX="446.0" layoutY="260.0" mnemonicParsing="false" />
+                                    <RadioButton fx:id="radio5" layoutX="446.0" layoutY="336.0" mnemonicParsing="false" />
+                                    <RadioButton fx:id="radio6" layoutX="447.0" layoutY="414.0" mnemonicParsing="false" />
+                                    <RadioButton fx:id="radio7" layoutX="446.0" layoutY="493.0" mnemonicParsing="false" />
+                                    <RadioButton fx:id="radio8" layoutX="446.0" layoutY="573.0" mnemonicParsing="false" />
+                                    <RadioButton fx:id="radio9" layoutX="446.0" layoutY="650.0" mnemonicParsing="false" />
+                                    <RadioButton fx:id="radio10" layoutX="448.0" layoutY="723.0" mnemonicParsing="false" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Button fx:id="Ajouter" layoutX="129.0" layoutY="315.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="46.0" prefWidth="102.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
+                           <font>
+                              <Font name="Georgia Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="Suprimer" layoutX="129.0" layoutY="414.0" mnemonicParsing="false" onAction="#Suprimer" prefHeight="46.0" prefWidth="102.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Suprimer" textFill="WHITE">
+                           <font>
+                              <Font name="Georgia Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Text layoutX="34.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enoncé" wrappingWidth="97.5616455078125">
+                           <font>
+                              <Font name="Georgia Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="Enonce" layoutX="36.0" layoutY="234.0" prefHeight="53.0" prefWidth="314.0" />
+                        <Line endX="100.0" layoutX="179.0" layoutY="389.0" startX="-100.0" stroke="INDIGO" strokeLineCap="ROUND" strokeWidth="2.0" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
