@@ -3,6 +3,7 @@ package com.example.demo1;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Button;
@@ -36,6 +37,9 @@ public class pickController {
 
     @FXML
     private CheckBox qstLibre;
+
+    @FXML
+    private TextArea conclusion;
 
     private EpreuveClinique epreuveClinique = new EpreuveClinique("", 0);
     private BO bo = new BO(); // Instantiate BO

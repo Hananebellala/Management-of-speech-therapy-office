@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 
@@ -11,22 +12,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GestionQCMController {
+public class GestionQCUController {
 
     @FXML
-    private Button Ajouter;
-
-    @FXML
-    private TextField Proposition;
-
-    @FXML
-    private TextField Question;
-
-    @FXML
-    private TextField Reponses;
-
-    @FXML
-    private Button Suprimer;
+    private Button ajouter;
 
     @FXML
     private Label ans1;
@@ -65,6 +54,9 @@ public class GestionQCMController {
     private Label prop6;
 
     @FXML
+    private TextField proposition;
+
+    @FXML
     private Label qst1;
 
     @FXML
@@ -82,38 +74,67 @@ public class GestionQCMController {
     @FXML
     private Label qst6;
 
+    @FXML
+    private TextField qstion;
+
+    @FXML
+    private RadioButton radio1;
+
+    @FXML
+    private RadioButton radio2;
+
+    @FXML
+    private RadioButton radio3;
+
+    @FXML
+    private RadioButton radio4;
+
+    @FXML
+    private RadioButton radio5;
+
+    @FXML
+    private RadioButton radio6;
+
+    @FXML
+    private TextField reponse;
+
+    @FXML
+    private Button suprimer;
+
     private Label[] qstLabels;
     private Label[] propLabels;
     private Label[] ansLabels;
+    private RadioButton[] radioButtons;
 
-    private final String FILE_PATH = "C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/QCU.txt";
+    private final String FILE_PATH = "C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/QCM.txt";
 
     @FXML
     public void initialize() {
         qstLabels = new Label[]{qst1, qst2, qst3, qst4, qst5, qst6};
         propLabels = new Label[]{prop1, prop2, prop3, prop4, prop5, prop6};
         ansLabels = new Label[]{ans1, ans2, ans3, ans4, ans5, ans6};
+        radioButtons = new RadioButton[]{radio1, radio2, radio3, radio4, radio5, radio6};
 
         loadQCMs();
     }
 
     @FXML
     void Ajouter(ActionEvent event) {
-        String question = Question.getText().trim();
-        String proposition = Proposition.getText().trim();
-        String reponse = Reponses.getText().trim();
+        String question = qstion.getText().trim();
+        String propositionText = proposition.getText().trim();
+        String reponseText = reponse.getText().trim();
 
-        if (!question.isEmpty() && !proposition.isEmpty() && !reponse.isEmpty()) {
+        if (!question.isEmpty() && !propositionText.isEmpty() && !reponseText.isEmpty()) {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH, true))) {
-                writer.write(question + "," + proposition + "," + reponse);
+                writer.write(question + "," + propositionText + "," + reponseText);
                 writer.newLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             updateLabels();
-            Question.clear();
-            Proposition.clear();
-            Reponses.clear();
+            qstion.clear();
+            proposition.clear();
+            reponse.clear();
             showAlert("Success", "QCM added successfully!");
         } else {
             showAlert("Error", "All fields must be filled!");
@@ -123,8 +144,8 @@ public class GestionQCMController {
     @FXML
     void Suprimer(ActionEvent event) {
         int indexToRemove = -1;
-        for (int i = 0; i < qstLabels.length; i++) {
-            if (!qstLabels[i].getText().isEmpty()) {
+        for (int i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].isSelected()) {
                 indexToRemove = i;
                 break;
             }

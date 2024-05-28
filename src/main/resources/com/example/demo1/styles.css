@@ -17,3 +17,17 @@
     -fx-border-radius: 0 10 10px 10px; /* Bottom left and bottom right corners rounded */
     -fx-background-radius: 0 0 10px 10px; /* Bottom left and bottom right corners rounded */
 }
+
+.button {
+    -fx-background-color: #4b0082;
+    -fx-background-radius: 40;
+    -fx-text-fill: white;
+    -fx-font-family: 'Georgia Bold';
+    -fx-font-size: 16px;
+}
+
+.button:hover {
+    -fx-background-color: #f5e5ff;
+    -fx-text-fill: #4b0082;
+}
+

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -71,48 +72,56 @@
    <center>
       <Pane prefHeight="340.0" prefWidth="401.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="60.0" layoutY="66.0" prefHeight="502.0" prefWidth="600.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40;" />
-            <Button fx:id="SuivantButton" layoutX="355.0" layoutY="313.0" mnemonicParsing="false" onAction="#showPage" prefHeight="33.0" prefWidth="89.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <RadioButton fx:id="Exercice" layoutX="303.0" layoutY="126.0" mnemonicParsing="false" text="Exercice">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </RadioButton>
-            <RadioButton fx:id="Quiz" layoutX="303.0" layoutY="172.0" mnemonicParsing="false" text="Quiz">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </RadioButton>
-            <Button fx:id="TerminerButton" layoutX="250.0" layoutY="313.0" mnemonicParsing="false" onAction="#Terminer" prefHeight="33.0" prefWidth="89.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Terminer" textFill="WHITE">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="254.0" layoutY="371.0">
+            <AnchorPane layoutX="60.0" layoutY="66.0" prefHeight="502.0" prefWidth="600.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40;">
+               <children>
+                  <RadioButton fx:id="Exercice" layoutX="238.0" layoutY="24.0" mnemonicParsing="false" text="Exercice">
+                     <font>
+                        <Font name="Georgia" size="16.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="Quiz" layoutX="238.0" layoutY="54.0" mnemonicParsing="false" text="Quiz">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </RadioButton>
+                  <CheckBox fx:id="qstLibre" layoutX="253.0" layoutY="92.0" mnemonicParsing="false" onAction="#qstLibre" text="Question Libre">
+                     <font>
+                        <Font name="Georgia" size="13.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="qcm" layoutX="253.0" layoutY="120.0" mnemonicParsing="false" onAction="#GoQcm" text="QCM">
+                     <font>
+                        <Font name="Georgia" size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="qcu" layoutX="254.0" layoutY="148.0" mnemonicParsing="false" onAction="#Goqcu" text="QCU">
+                     <font>
+                        <Font name="Georgia" size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <QuadCurve controlX="-42.666656494140625" controlY="-81.33331298828125" endX="-49.999969482421875" endY="-108.66665649414062" fill="DODGERBLUE" layoutX="292.0" layoutY="197.0" startX="-49.999969482421875" startY="-24.666656494140625" stroke="INDIGO" strokeType="INSIDE" strokeWidth="4.0" />
+                  <Button fx:id="SuivantButton" layoutX="305.0" layoutY="270.0" mnemonicParsing="false" onAction="#showPage" prefHeight="33.0" prefWidth="89.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="TerminerButton" layoutX="193.0" layoutY="270.0" mnemonicParsing="false" onAction="#Terminer" prefHeight="33.0" prefWidth="89.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Terminer" textFill="WHITE">
+                     <font>
+                        <Font name="Georgia Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <TextArea fx:id="conclusion" layoutX="120.0" layoutY="203.0" prefHeight="61.0" prefWidth="365.0" />
+                  <Text layoutX="120.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rédiger votre conclusion:  ">
+                     <font>
+                        <Font name="Georgia" size="14.0" />
+                     </font>
+                  </Text>
+               </children></AnchorPane>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="254.0" layoutY="374.0">
                <image>
                   <Image url="@../../../Medical prescription-bro.png" />
                </image>
             </ImageView>
-            <CheckBox fx:id="qstLibre" layoutX="314.0" layoutY="211.0" mnemonicParsing="false" onAction="#qstLibre" text="Question Libre">
-               <font>
-                  <Font name="Georgia" size="13.0" />
-               </font>
-            </CheckBox>
-            <CheckBox fx:id="qcm" layoutX="313.0" layoutY="238.0" mnemonicParsing="false" onAction="#GoQcm" text="QCM">
-               <font>
-                  <Font name="Georgia" size="14.0" />
-               </font>
-            </CheckBox>
-            <CheckBox fx:id="qcu" layoutX="314.0" layoutY="269.0" mnemonicParsing="false" onAction="#Goqcu" text="QCU">
-               <font>
-                  <Font name="Georgia" size="14.0" />
-               </font>
-            </CheckBox>
-            <QuadCurve controlX="-42.666656494140625" controlY="-81.33331298828125" endX="-49.999969482421875" endY="-108.66665649414062" fill="DODGERBLUE" layoutX="354.0" layoutY="316.0" startX="-49.999969482421875" startY="-24.666656494140625" stroke="INDIGO" strokeType="INSIDE" strokeWidth="4.0" />
          </children>
       </Pane>
    </center>

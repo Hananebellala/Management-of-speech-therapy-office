@@ -11,7 +11,7 @@ import java.io.IOException;
 public class pageEpreuve extends Application {
 
     private Stage primaryStage;
-    private AnamneseController pickController;
+    private AnamneseTestController pickController;
     private EpreuveClinique epreuveClinique; // Add this attribute
 
     @Override

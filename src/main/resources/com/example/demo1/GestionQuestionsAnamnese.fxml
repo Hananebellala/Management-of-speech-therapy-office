@@ -15,13 +15,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.GestionLibreController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.GestionAnamneseController">
    <top>
       <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #4b0082;" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="60.0" prefWidth="289.0" />
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion de questions libres">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion de questions anamnese">
                <font>
                   <Font name="Georgia Bold" size="26.0" />
                </font>
@@ -177,7 +176,7 @@
                               <Font name="Georgia Bold" size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="Suprimer" layoutX="129.0" layoutY="414.0" mnemonicParsing="false" onAction="#suprimer" prefHeight="46.0" prefWidth="102.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Suprimer" textFill="WHITE">
+                        <Button fx:id="Suprimer" layoutX="129.0" layoutY="414.0" mnemonicParsing="false" onAction="#Suprimer" prefHeight="46.0" prefWidth="102.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Suprimer" textFill="WHITE">
                            <font>
                               <Font name="Georgia Bold" size="16.0" />
                            </font>

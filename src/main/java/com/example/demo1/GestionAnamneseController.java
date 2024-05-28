@@ -12,7 +12,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GestionLibreController {
+public class GestionAnamneseController {
 
     @FXML
     private Button Ajouter;
@@ -86,16 +86,42 @@ public class GestionLibreController {
     private Label[] labels;
     private RadioButton[] radioButtons;
 
-    private final String FILE_PATH = "C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/Libre.txt";
+    private final String FILE_PATH = "C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/Anamnese.txt";
 
     @FXML
     void Ajouter(ActionEvent event) {
-        handleAddQuestion();
+        String question = Enonce.getText().trim();
+        if (!question.isEmpty()) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH, true))) {
+                writer.write(question);
+                writer.newLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            updateLabels();
+            Enonce.clear();
+            showAlert("Success", "Question added successfully!");
+        } else {
+            showAlert("Error", "Question cannot be empty!");
+        }
     }
 
     @FXML
-    void suprimer(ActionEvent event) {
-        handleDeleteQuestion();
+    void Suprimer(ActionEvent event) {
+        int indexToRemove = -1;
+        for (int i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].isSelected()) {
+                indexToRemove = i;
+                break;
+            }
+        }
+
+        if (indexToRemove != -1) {
+            removeQuestionFromFile(indexToRemove);
+            updateLabels();
+        } else {
+            showAlert("Error", "No question selected for deletion!");
+        }
     }
 
     @FXML
@@ -116,42 +142,6 @@ public class GestionLibreController {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void handleAddQuestion() {
-        String question = Enonce.getText().trim();
-        if (!question.isEmpty()) {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH, true))) {
-                writer.write(question);
-                writer.newLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            updateLabels();
-            Enonce.clear();
-            showAlert("Success", "Question added successfully!");
-        } else {
-            showAlert("Error", "Question cannot be empty!");
-        }
-    }
-
-    @FXML
-    private void handleDeleteQuestion() {
-        int indexToRemove = -1;
-        for (int i = 0; i < radioButtons.length; i++) {
-            if (radioButtons[i].isSelected()) {
-                indexToRemove = i;
-                break;
-            }
-        }
-
-        if (indexToRemove != -1) {
-            removeQuestionFromFile(indexToRemove);
-            updateLabels();
-        } else {
-            showAlert("Error", "No question selected for deletion!");
         }
     }
 
