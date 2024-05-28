@@ -1,14 +1,19 @@
 package com.example.demo1;
 
-public class Compte {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Compte implements Serializable {
     private String nom;
     private String prenom;
     private String adresse;
     private int numero;
     private String email;
     private String motdepasse;
-    private Dossier[] dossiersPatients;
-    private Dossier[] dossiersParticuliers;
+    private List<Dossier> dossiersPatients;
+    private List<Dossier> dossiersParticuliers;
+    private List<RendezVous> rdvList = new ArrayList<RendezVous> ();
 
     public Compte(String nom, String prenom, String adresse, int numero, String email, String motdepasse) {
         this.nom = nom;
@@ -35,5 +40,17 @@ public class Compte {
     }
     public String getMdp() {
         return motdepasse;
+    }
+    public boolean containsDossier(int numero) {
+        for (Dossier dos : dossiersPatients) {
+            if (dos.getNumDossier() == numero) return true;
+        }
+        return false;
+    }
+    public void setRdvList(List<RendezVous> list) {
+        rdvList = list;
+    }
+    public List<RendezVous> getRdvList() {
+        return rdvList;
     }
 }

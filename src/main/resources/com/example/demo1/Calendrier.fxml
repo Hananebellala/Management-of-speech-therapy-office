@@ -9,7 +9,10 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.control.ListView?>
+
 <AnchorPane prefHeight="642.0" prefWidth="744.0" style="-fx-background-color: #f2fafc;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.CalendarController">
+    <ListView fx:id="listeHoraires" visible="false" layoutX="50.0" layoutY="200.0" prefHeight="150.0" prefWidth="716.0"/>
+
     <FlowPane fx:id="calendar" hgap="10.0" layoutX="14.0" layoutY="116.0" prefHeight="498.0" prefWidth="716.0" vgap="5.0" />
     <HBox alignment="CENTER" layoutX="-69.0" layoutY="14.0" prefHeight="44.0" prefWidth="398.0" spacing="5.0">
         <children>
@@ -42,10 +45,20 @@
         </padding>
     </HBox>
     <ListView fx:id="timeSlotsListView" layoutX="14.0" layoutY="624.0" prefHeight="150.0" prefWidth="716.0" visible="false" />
-   <Button layoutX="469.0" layoutY="21.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="209.0" style="-fx-background-color: #4b0082;" text="Programmer rendez-vous" textFill="WHITE" visible="false" fx:id="button" onAction="#openAppointmentForm">
+   <Button layoutX="490.0" layoutY="21.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="209.0" style="-fx-background-color: #4b0082;" text="Programmer rendez-vous" textFill="WHITE" visible="false" fx:id="button" onAction="#openAppointmentForm">
       <font>
          <Font name="Georgia" size="16.0" />
       </font>
    </Button>
 
+    <Button fx:id="startAppointmentButton" visible="false" layoutX="469.0" layoutY="21.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="209.0" style="-fx-background-color: #4b0082;" text="Commencer rendez-vous" textFill="WHITE" onAction="#commencerRdv">
+        <font>
+            <Font name="Georgia" size="16.0" />
+        </font>
+    </Button>
+    <Button fx:id="precedentButton" visible="true" layoutX="280.0" layoutY="21.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="180.0" style="-fx-background-color: #4b0082;" text="Retour" textFill="WHITE" onAction="#retourMenu">
+        <font>
+            <Font name="Georgia" size="16.0" />
+        </font>
+    </Button>
 </AnchorPane>

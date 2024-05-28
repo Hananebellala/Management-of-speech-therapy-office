@@ -40,23 +40,35 @@ public class CalendarController implements Initializable {
     private Button button;
     @FXML
     private Text month;
-
+    private int duree;
     @FXML
     private FlowPane calendar;
     private ZonedDateTime selectedDate;
     private LocalTime selectedTime;
     @FXML
     private ListView<String> timeSlotsListView;
+    @FXML
+    private Button startAppointmentButton;
+    @FXML
+    private Button precedentButton;
+    @FXML
+    private ListView<String> listeHoraires;
     private static Map<LocalDate, List<LocalTime>> availableTimeSlotsMap = new HashMap<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dateFocus = ZonedDateTime.now();
         today = ZonedDateTime.now();
+        Compte ortho = Session.getCompte();
+        System.out.println("Connecte en tant que : "+ortho.getNom());
+        if(ortho.getRdvList()!=null) {
+        calendarActivities = ortho.getRdvList();}
         drawCalendar();
         generateAvailableTimeSlots();
     }
-
+    public void setDuree(int duree){
+        this.duree=duree;
+    }
     private List<LocalTime> generateTimeSlots() {
         List<LocalTime> slots = new ArrayList<>();
         for (int i = 8; i < 17; i++) { // 8 AM to 5 PM
@@ -76,8 +88,11 @@ public class CalendarController implements Initializable {
         if (availableTimeSlotsMap.containsKey(date)) {
             List<LocalTime> slots = availableTimeSlotsMap.get(date);
             availableTimeSlotsMap.remove(date);
-            slots.remove(time);
-
+            LocalTime endTime = time.plusMinutes(duree);
+            while (time.isBefore(endTime)) {
+                slots.remove(time);
+                time = time.plusMinutes(30);
+            }
             availableTimeSlotsMap.put(date, slots);
         }
     }
@@ -114,6 +129,7 @@ public class CalendarController implements Initializable {
         drawCalendar();
     }
     private void drawCalendar() {
+        button.setVisible(false);
         year.setText(String.valueOf(dateFocus.getYear()));
         month.setText(String.valueOf(dateFocus.getMonth()));
 
@@ -201,13 +217,28 @@ public class CalendarController implements Initializable {
             }
         });
     }
+    public void commencerRdv() throws IOException {
+        Session.setRdvList(calendarActivities);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/bilan.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Commencer un rendez-vous");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 
-
-
+    public void retourMenu() throws IOException {
+        Stage stage = (Stage) startAppointmentButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PageAccueil.fxml")));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     public void ajouterRdv(RendezVous rdv) {
         calendarActivities.add(rdv);
         System.out.println("Date et heure : "+rdv.getDate()+selectedTime);
+        System.out.println(("La duree du rdv est : "+duree));
         updateAvailableSlots(rdv.getDate(),selectedTime);
         System.out.println(availableTimeSlotsMap.get(rdv.getDate()));
         refreshCalendar();
@@ -248,23 +279,61 @@ public class CalendarController implements Initializable {
         for (int k = 0; k < calendarActivities.size(); k++) {
             if (k >= 2) {
                 Text moreActivities = new Text("...");
+                moreActivities.setFill(Color.WHITE);
                 calendarActivityBox.getChildren().add(moreActivities);
                 moreActivities.setOnMouseClicked(mouseEvent -> {
-                    System.out.println(calendarActivities);
+                    showAppointmentsPopup(calendarActivities, stackPane);
                 });
                 break;
             }
             RendezVous rdv = calendarActivities.get(k);
             Text text = new Text(rdv.getTime().toString());
+            text.setFill(Color.WHITE);
             calendarActivityBox.getChildren().add(text);
+
             text.setOnMouseClicked(mouseEvent -> {
                 System.out.println(text.getText());
+
+                // Ensure the button is visible and set its properties
+                startAppointmentButton.setVisible(true);// Adjust as needed
             });
         }
+
         calendarActivityBox.setTranslateY((rectangleHeight / 2) * 0.20);
         calendarActivityBox.setMaxWidth(rectangleWidth * 0.8);
         calendarActivityBox.setMaxHeight(rectangleHeight * 0.65);
         calendarActivityBox.setStyle("-fx-background-color:#4b0082");
         stackPane.getChildren().add(calendarActivityBox);
     }
+
+    private void showAppointmentsPopup(List<RendezVous> appointments, StackPane parentStackPane) {
+        // Create a new ListView
+        ListView<String> listView = new ListView<>();
+        for (RendezVous rdv : appointments) {
+            listView.getItems().add(rdv.getTime().toString());
+        }
+
+        // Create a VBox to hold the ListView
+        VBox vbox = new VBox(listView);
+        vbox.setStyle("-fx-padding: 10; -fx-background-color: white; -fx-border-color: black;");
+
+        // Create a popup and set its content
+        Popup popup = new Popup();
+        popup.getContent().add(vbox);
+
+        // Position the popup relative to the parent stack pane
+        popup.setAutoHide(true);
+        popup.setX(parentStackPane.localToScreen(parentStackPane.getBoundsInLocal()).getMinX());
+        popup.setY(parentStackPane.localToScreen(parentStackPane.getBoundsInLocal()).getMinY() + 20);
+
+        // Show the popup
+        popup.show(parentStackPane.getScene().getWindow());
+        listView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                startAppointmentButton.setVisible(true);
+                // Optionally update selectedTime or other properties here if needed
+            }
+        });
+    }
+
 }

@@ -13,6 +13,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Objects;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 public class creationCompteController {
 
     @FXML
@@ -50,14 +54,11 @@ public class creationCompteController {
     }
 
     private void creerFichierCompte(Compte compte) {
-        nomFichier = "orthophoniste.txt";
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomFichier))) {
-            writer.write("Nom: " + compte.getNom() + "\n");
-            writer.write("Prénom: " + compte.getPrenom() + "\n");
-            writer.write("Adresse: " + compte.getAdresse() + "\n");
-            writer.write("Numéro: " + compte.getNumero() + "\n");
-            writer.write("Email: " + compte.getEmail() + "\n");
-            writer.write("Mot de passe: " + compte.getMdp() + "\n");
+        nomFichier = "orthophoniste.ser";
+        try (FileOutputStream fileOut = new FileOutputStream(nomFichier);
+             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+            out.writeObject(compte);
+            System.out.println("Serialized data is saved in " + nomFichier);
         } catch (IOException e) {
             e.printStackTrace();
             // Gérer l'erreur (par exemple, afficher un message à l'utilisateur)
@@ -80,4 +81,3 @@ public class creationCompteController {
         }
     }
 }
-

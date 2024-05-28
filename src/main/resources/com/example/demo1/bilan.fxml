@@ -137,7 +137,7 @@
                   <Font name="Georgia" size="18.0" />
                </font>
             </Text>
-            <Button layoutX="300.0" layoutY="499.0" mnemonicParsing="false" style="-fx-background-color: #4b0082; -fx-background-radius: 40;" text="Passer à l'étape suivante" textFill="WHITE">
+            <Button layoutX="300.0" layoutY="499.0" mnemonicParsing="false" style="-fx-background-color: #4b0082; -fx-background-radius: 40;" text="Passer à l'étape suivante" textFill="WHITE" onAction="#Suivant">
                <font>
                   <Font name="Georgia Bold" size="16.0" />
                </font>

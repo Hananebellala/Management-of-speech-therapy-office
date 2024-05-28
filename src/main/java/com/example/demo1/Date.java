@@ -5,18 +5,29 @@ import java.time.ZonedDateTime;
 import java.util.List;
 
 public class Date {
-    private ZonedDateTime time;
-    private List<LocalTime> availableSlots;
-    public Date(ZonedDateTime time) {
-        this.time=time;
+    private int jour;
+    private int mois;
+    private int annee;
+
+    public Date(int jour, int mois, int annee) {
+        this.jour=jour;
+        this.mois=mois;
+        this.annee=annee;
     }
-    public ZonedDateTime getTime() {
-        return time;
+
+    public int getJour() {
+        return jour;
     }
-    public void addSlot(LocalTime time) {
-        availableSlots.add(time);
+
+    public int getqmqois() {
+        return mois;
     }
-    public void removeSlot(LocalTime time){
-        availableSlots.remove(time);
+
+    public int getAnnee() {
+        return annee;
+    }
+
+    public String getDate() {
+        return jour+"/"+mois+"/"+annee;
     }
 }

@@ -49,12 +49,12 @@
             <Font name="Georgia Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="294.0" layoutY="320.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter mes rendez-vous">
+      <Button layoutX="294.0" layoutY="320.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter mes rendez-vous" onAction="#loadSceneCalendar">
          <font>
             <Font name="Georgia Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="294.0" layoutY="260.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter un dossier">
+      <Button layoutX="294.0" layoutY="260.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter un dossier" onAction="#loadSceneDossiers">
          <font>
             <Font name="Georgia Bold" size="16.0" />
          </font>
