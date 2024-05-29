@@ -224,7 +224,6 @@ public class CalendarController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/bilan.fxml"));
         Parent root = loader.load();
         controllerBilan controller = loader.getController();
-        System.out.println("Type avant passage : "+selectedRdv.getType());
         controller.setTypeRdv(selectedRdv.getType());
         Stage stage = (Stage) calendar.getScene().getWindow();
         stage.setTitle("Commencer un rendez-vous");
@@ -299,7 +298,6 @@ public class CalendarController implements Initializable {
             text.setOnMouseClicked(mouseEvent -> {
                 System.out.println(text.getText());
                 selectedRdv = rdv;
-                System.out.println("Type du rdv selectionne : "+selectedRdv.getType());
                 // Ensure the button is visible and set its properties
                 startAppointmentButton.setVisible(true);// Adjust as needed
             });

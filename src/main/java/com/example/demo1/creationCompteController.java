@@ -46,6 +46,7 @@ public class creationCompteController {
             String mdp = champsMotPasse.getText();
             compteOrtho = new Compte(nom, prenom, adresse, numero, email, mdp);
             creerFichierCompte(compteOrtho);
+            Session.setCompte(compteOrtho);
             chargerNouvelleScene();
         } catch (NumberFormatException e) {
             // Gérer l'erreur (par exemple, afficher un message d'erreur)
