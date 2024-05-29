@@ -8,8 +8,8 @@
 
 <AnchorPane prefHeight="680.0" prefWidth="920.0" style="-fx-background-color: #4b0082;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.consultationDossiersController">
    <children>
-      <ListView layoutX="108.0" layoutY="20.0" prefHeight="514.0" prefWidth="703.0" style="-fx-background-color: #f5e5ff;" />
-      <Button layoutX="257.0" layoutY="565.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="406.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40; -fx-border-color: #4b0082;" text="Consulter">
+      <ListView layoutX="108.0" layoutY="20.0" prefHeight="514.0" prefWidth="703.0" style="-fx-background-color: #f5e5ff;" fx:id="listeDossiers" />
+      <Button layoutX="257.0" layoutY="565.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="406.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40; -fx-border-color: #4b0082;" text="Consulter" fx:id="button">
          <font>
             <Font name="Georgia" size="18.0" />
          </font>

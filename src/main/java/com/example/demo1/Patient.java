@@ -1,16 +1,18 @@
 package com.example.demo1;
 
+import java.time.LocalDate;
+
 public class Patient {
     private String nom;
     private String prenom;
     private String lieuNaiss;
-    private Date dateNaiss;
+    private LocalDate dateNaiss;
     private boolean particulier;
     private boolean premiere;
     protected BO[] bo;
     protected static int i;
 
-    public Patient(String nom, String prenom, String lieuNaiss, com.example.demo1.Date dateNaiss) {
+    public Patient(String nom, String prenom, String lieuNaiss, LocalDate dateNaiss) {
         this.nom = nom;
         this.prenom = prenom;
         this.lieuNaiss = lieuNaiss;

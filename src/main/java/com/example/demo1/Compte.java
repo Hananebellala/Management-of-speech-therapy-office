@@ -11,7 +11,7 @@ public class Compte implements Serializable {
     private int numero;
     private String email;
     private String motdepasse;
-    private List<Dossier> dossiersPatients;
+    private List<Dossier> dossiersPatients = new ArrayList<Dossier>();
     private List<Dossier> dossiersParticuliers;
     private List<RendezVous> rdvList = new ArrayList<RendezVous> ();
 
@@ -41,7 +41,7 @@ public class Compte implements Serializable {
     public String getMdp() {
         return motdepasse;
     }
-    public boolean containsDossier(int numero) {
+    public boolean containsDossier(String numero) {
         for (Dossier dos : dossiersPatients) {
             if (dos.getNumDossier() == numero) return true;
         }
@@ -52,5 +52,19 @@ public class Compte implements Serializable {
     }
     public List<RendezVous> getRdvList() {
         return rdvList;
+    }
+    public void ajouterDossier(Dossier dos) {
+        dossiersPatients.add(dos);
+    }
+    public List<Dossier> getDossiersPatients() {
+        return dossiersPatients;
+    }
+    public Dossier trouverPatient(Patient patient) {
+        for (Dossier dos : dossiersPatients) {
+            if(dos.getPatient()==patient) {
+                return dos;
+            }
+        }
+        return null;
     }
 }

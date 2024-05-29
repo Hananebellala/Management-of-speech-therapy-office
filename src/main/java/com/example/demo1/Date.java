@@ -19,7 +19,7 @@ public class Date {
         return jour;
     }
 
-    public int getqmqois() {
+    public int getmois() {
         return mois;
     }
 

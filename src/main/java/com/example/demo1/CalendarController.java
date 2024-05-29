@@ -54,6 +54,7 @@ public class CalendarController implements Initializable {
     @FXML
     private ListView<String> listeHoraires;
     private static Map<LocalDate, List<LocalTime>> availableTimeSlotsMap = new HashMap<>();
+    private RendezVous selectedRdv;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -219,9 +220,13 @@ public class CalendarController implements Initializable {
     }
     public void commencerRdv() throws IOException {
         Session.setRdvList(calendarActivities);
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/bilan.fxml"));
         Parent root = loader.load();
-        Stage stage = new Stage();
+        controllerBilan controller = loader.getController();
+        System.out.println("Type avant passage : "+selectedRdv.getType());
+        controller.setTypeRdv(selectedRdv.getType());
+        Stage stage = (Stage) calendar.getScene().getWindow();
         stage.setTitle("Commencer un rendez-vous");
         stage.setScene(new Scene(root));
         stage.show();
@@ -293,7 +298,8 @@ public class CalendarController implements Initializable {
 
             text.setOnMouseClicked(mouseEvent -> {
                 System.out.println(text.getText());
-
+                selectedRdv = rdv;
+                System.out.println("Type du rdv selectionne : "+selectedRdv.getType());
                 // Ensure the button is visible and set its properties
                 startAppointmentButton.setVisible(true);// Adjust as needed
             });
