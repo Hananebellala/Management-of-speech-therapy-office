@@ -117,7 +117,7 @@ public class FichesController {
 
             if (controller.isCompleted()) {
                 // Assuming you want to change the label text when the process is completed
-                labels[index].setText("Fiche " + (index + 1));
+                labels[index].setText("F " + (index + 1));
                 //saveFiche(new Fiche(), index); // Save the fiche (you need to replace with actual data)
             }
         } catch (IOException e) {
