@@ -86,7 +86,7 @@ public class GestionAnamneseController {
     private Label[] labels;
     private RadioButton[] radioButtons;
 
-    private final String FILE_PATH = "C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/Anamnese.txt";
+    private final String FILE_PATH = "src/main/resources/Anamnese.txt";
 
     @FXML
     void Ajouter(ActionEvent event) {

@@ -85,7 +85,7 @@ public class QCU extends Question {
         int answer = 0;
         List<String> lines = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/QCU.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/QCU.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 lines.add(line);

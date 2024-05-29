@@ -11,7 +11,7 @@ import java.io.IOException;
 public class pageEpreuve extends Application {
 
     private Stage primaryStage;
-    private AnamneseTestController pickController;
+    private FichesController pickController;
     private EpreuveClinique epreuveClinique; // Add this attribute
 
     @Override
@@ -25,7 +25,7 @@ public class pageEpreuve extends Application {
     private void initMainLayout() {
         try {
             // Load the pick.fxml file as the initial page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("QestionTestAnamnese.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Fiches.fxml"));
             Parent root = loader.load();
 
             // Get the controller for the pick.fxml file

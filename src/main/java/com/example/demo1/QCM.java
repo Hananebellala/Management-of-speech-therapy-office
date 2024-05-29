@@ -72,7 +72,7 @@ public class QCM extends Question implements Initializable {
         int[] answer = new int[0];
         List<String> lines = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/QCM.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/QCM.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 lines.add(line);
@@ -106,7 +106,7 @@ public class QCM extends Question implements Initializable {
         String enonce = "";
         List<String> lines = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/QCM.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/QCM.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 lines.add(line);
