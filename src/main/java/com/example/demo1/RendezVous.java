@@ -8,8 +8,8 @@ public abstract class RendezVous {
     protected LocalDate dat;
     protected LocalTime time;
     protected TypeRdv type;
-    protected float duree;
-    public abstract void programmer(LocalDate dat,LocalTime time, float duree);
+    protected int duree;
+    public abstract void programmer(LocalDate dat,LocalTime time, int duree);
     public LocalDate getDate() {
         return dat;
     }

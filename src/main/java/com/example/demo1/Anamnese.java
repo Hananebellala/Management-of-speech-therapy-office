@@ -19,7 +19,7 @@ public class Anamnese {
         question = new QuestionAnamnese[Categorie.values().length]; // Initialize the question array
 
         List<List<String>> categories = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/Anamnese.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/com/example/demo1/Anamnese.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");

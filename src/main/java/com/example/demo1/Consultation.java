@@ -14,7 +14,7 @@ public class Consultation extends RendezVous {
         this.age=age;
         this.type=TypeRdv.CONSULTATION;
     }
-    public void programmer(LocalDate dat, LocalTime heure, float duree) {
+    public void programmer(LocalDate dat, LocalTime heure, int duree) {
         this.dat=dat;
         this.time=heure;
         this.type=TypeRdv.CONSULTATION;

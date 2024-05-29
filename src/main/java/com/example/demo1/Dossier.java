@@ -2,15 +2,20 @@ package com.example.demo1;
 
 public class Dossier {
     private Patient pat;
-    private int num;
-    public Dossier(Patient pat, int num) {
+    private static int nbDossiers;
+    private String numDossier;
+    public Dossier(Patient pat,String numDossier) {
         this.pat=pat;
-        this.num=num;
+        this.numDossier=numDossier;
+    }
+    public Dossier() {
+
     }
     public Patient getPatient() {
         return pat;
     }
-    public int getNumDossier() {
-        return num;
+    public String getNumDossier() {
+        return numDossier;
     }
+    public int getNbDossiers() { return nbDossiers ;}
 }

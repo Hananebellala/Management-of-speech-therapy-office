@@ -13,10 +13,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-
 public class QCM extends Question implements Initializable {
 
     private String [] proposition;
@@ -72,7 +68,7 @@ public class QCM extends Question implements Initializable {
         int[] answer = new int[0];
         List<String> lines = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/QCM.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/com/example/demo1/QCM.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 lines.add(line);
@@ -106,7 +102,7 @@ public class QCM extends Question implements Initializable {
         String enonce = "";
         List<String> lines = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/QCM.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("com/example/demo1/QCM.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 lines.add(line);

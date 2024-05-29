@@ -18,8 +18,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class controllerBilan implements Initializable {
@@ -68,18 +69,21 @@ public class controllerBilan implements Initializable {
 
     @FXML
     private TextField profession;
-
+    private TypeRdv typeRdv;
     private BooleanProperty enfantActive = new SimpleBooleanProperty(false);
     private BooleanProperty adulteActive = new SimpleBooleanProperty(false);
-
+    private Compte ortho;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<String> list = FXCollections.observableArrayList("Enfant", "Adulte");
         categoriePatient.setItems(list);
         enfantContainer.disableProperty().bind(enfantActive.not());
         adulteContainer.disableProperty().bind(adulteActive.not());
+        ortho = Session.getCompte();
     }
-
+    public void setTypeRdv(TypeRdv typeRdv) {
+        this.typeRdv=typeRdv;
+    }
     public void Select(ActionEvent event) {
         String s = categoriePatient.getSelectionModel().getSelectedItem();
         if (s != null) {
@@ -160,7 +164,42 @@ public class controllerBilan implements Initializable {
         if (isValid) {
             // Create Patient object
             LocalDate localDate = date.getValue();
-            com.example.demo1.Date customDate = new com.example.demo1.Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
+            String s = categoriePatient.getSelectionModel().getSelectedItem();
+            String nomPat = nom.getText();
+            String prenomPat = prenom.getText();
+            LocalDate datenaiss = date.getValue();
+            String adr = adress.getText();
+            String lieuNaiss = lieu.getText();
+            if(typeRdv == TypeRdv.CONSULTATION) {
+
+                if(s=="Enfant") {
+                    String cls = classe.getText();
+                    String numPere = npere.getText();
+                    String numMere = nmere.getText();
+                    Enfant patEnfant = new Enfant(cls, numPere, numMere, nomPat, prenomPat, lieuNaiss, datenaiss);
+                    Dossier dos = new Dossier();
+                    int nbDoss = dos.getNbDossiers() + 1;
+                    dos = new  Dossier(patEnfant,Integer.toString(nbDoss));
+                    ortho.ajouterDossier(dos);
+                    Session.setCompte(ortho);
+                }
+                else if(s=="Adulte") {
+                    String prof = profession.getText();
+                    String dip = diplome.getText();
+                    String numP = numeropers.getText();
+                    Adulte adulte = new Adulte(nomPat,prenomPat,lieuNaiss,datenaiss,dip,prof,numP);
+                    Dossier dos = new Dossier();
+                    int nbDoss = dos.getNbDossiers() + 1;
+                    dos = new  Dossier(adulte,Integer.toString(nbDoss));
+                    ortho.ajouterDossier(dos);
+                    Session.setCompte(ortho);
+                }
+                else System.out.println("Erreur creation dossier");
+            }
+            else if ( typeRdv == TypeRdv.SEANCEDESUIVI) {
+                Patient patient = new Patient(nomPat,prenomPat,lieuNaiss,datenaiss);
+                Dossier dossier = ortho.trouverPatient(patient);
+            }
             QuestionAnamnese qst = new QuestionAnamnese("", Categorie.AntecedentFamiliaux, "");
             QuestionAnamnese[] qsts = {qst};
             Anamnese anam = new Anamnese(qsts);
@@ -172,7 +211,7 @@ public class controllerBilan implements Initializable {
             String projetTherapeutique = "";
             BO bo = new BO(anam, epreuve, diag, projetTherapeutique);
 
-            Patient patient = new Patient(nom.getText(), prenom.getText(), lieu.getText(), customDate);
+            Patient patient = new Patient(nom.getText(), prenom.getText(), lieu.getText(), localDate);
             patient.setBO(bo);
             patient.setParticulier(false);
             patient.setPremiere();
@@ -202,5 +241,6 @@ public class controllerBilan implements Initializable {
             alert.setContentText(errorMessage);
             alert.showAndWait();
         }
+
     }
 }

@@ -99,7 +99,7 @@
                     </font>
                 </Text>
                 <ComboBox fx:id="comb1" layoutX="256.0" layoutY="55.0" onAction="#Select" prefWidth="150.0" promptText="Numéros de dossiers :" style="-fx-border-color: #4b0082; -fx-background-color: #ffffff; -fx-border-width: 2;" />
-                <ListView layoutX="436.0" layoutY="53.0" prefHeight="162.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;" />
+                <ListView fx:id="listeDossiers" layoutX="436.0" layoutY="53.0" prefHeight="162.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-color: #4b0082;" />
             </children>
         </AnchorPane>
       <Button fx:id="button" layoutX="459.0" layoutY="628.0" mnemonicParsing="false" onAction="#creationRdv" style="-fx-background-color: #4b0082;" text="Programmer" textFill="WHITE">
