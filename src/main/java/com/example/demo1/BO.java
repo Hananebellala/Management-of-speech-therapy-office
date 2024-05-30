@@ -10,6 +10,8 @@ public class BO {
     protected String projetTherapeutique;
     protected  static int id;
 
+
+
     public BO(Anamnese anam, EpreuveClinique epreuve, Diagnostic diag,String projetTherapeutique){
         this.anamnese=anam;
         this.epreuve=epreuve;
@@ -32,6 +34,10 @@ public class BO {
 
     public Patient getPatient(int id) {
         return patients.get(id);
+    }
+
+    public Anamnese getAnamnese() {
+        return this.anamnese;
     }
 
     public void updateEpreuveClinique(EpreuveClinique epreuveClinique) {

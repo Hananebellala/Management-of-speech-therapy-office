@@ -1,7 +1,11 @@
 package com.example.demo1;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -10,7 +14,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -80,6 +86,8 @@ public class ObjectifController {
     @FXML
     private NumberAxis yaxis;
 
+
+
     private int index;
 
     public void setIndex(int index) {
@@ -88,7 +96,13 @@ public class ObjectifController {
 
     @FXML
     void Checked(ActionEvent event) {
-        // Add your event handling code here
+        if (checked.isSelected()) {
+            File file = new File("fiche" + index + ".ser");
+            if (file.exists()) {
+                file.delete();
+                clearLabels();
+            }
+        }
     }
 
     public void setFiche(Fiche fiche) {
@@ -112,11 +126,37 @@ public class ObjectifController {
         }
     }
 
+    private void clearLabels() {
+        nom1.setText("");
+        type1.setText("");
+        nom2.setText("");
+        type2.setText("");
+        nom3.setText("");
+        type3.setText("");
+        nom4.setText("");
+        type4.setText("");
+    }
+
     public void saveFiche(Fiche fiche) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("fiche" + index + ".ser"))) {
             oos.writeObject(fiche);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void back(ActionEvent event) throws IOException {
+        navigateToQuestionTestAnamnese();
+    }
+
+    private void navigateToQuestionTestAnamnese() throws IOException {
+
+        Stage stage = (Stage) checked.getScene().getWindow(); // Get the current stage
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Fiches.fxml")); // Load the FXML file for QuestionTestAnamnese
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

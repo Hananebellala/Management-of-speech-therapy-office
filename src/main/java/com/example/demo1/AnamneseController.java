@@ -32,6 +32,8 @@ public class AnamneseController {
     @FXML
     private Label question2;
 
+
+
     @FXML
     private Button SuivantBoutton;
 
@@ -87,6 +89,10 @@ public class AnamneseController {
 
     private Patient patient;
 
+    public void initData(Patient patient) {
+        this.patient = patient;
+    }
+
     @FXML
     void Suivant(ActionEvent event) {
         // Validate that all text areas are filled
@@ -135,25 +141,37 @@ public class AnamneseController {
 
             // Create Anamnese object
             Anamnese anamnese = new Anamnese(questions);
-            // Assuming you have already initialized your QuestionAnamnese array
 
+            // Assuming you have already initialized your QuestionAnamnese array
             anamnese.displayQuestionsWithAnswers();
 
+            // Create a new BO and set Anamnese
+            if (patient != null) {
+                BO bo = new BO();
+                bo.setAnamnese(anamnese);
+                patient.setBO(bo); // Add the new BO to the patient
 
-            // Save Anamnese to patient
-            patient.setAnamnese(anamnese);
+                // Proceed to the next step
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("pick.fxml"));
+                    Parent pickPage = loader.load();
+                    pickController pickController = loader.getController();
+                    pickController.initData(patient); // Pass the updated patient object
 
-
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("pick.fxml"));
-                Parent pickPage = loader.load();
-                pickController pickController = loader.getController();
-                // Pass any necessary data
-                // pickController.initData(patient);
-
-                mainLayout.getChildren().setAll(pickPage);
-            } catch (IOException e) {
-                e.printStackTrace();
+                    Scene scene = new Scene(pickPage);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                // Handle the case where the patient is null (this should not happen if your workflow is correct)
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText(null);
+                alert.setContentText("Le patient n'a pas été correctement initialisé.");
+                alert.showAndWait();
             }
         } else {
             // Show error message
@@ -163,12 +181,9 @@ public class AnamneseController {
             alert.setContentText(errorMessage);
             alert.showAndWait();
         }
-
     }
 
-    public void initData(Patient patient) {
-        this.patient = patient;
-    }
+
 
     @FXML
     public void initialize() {
@@ -191,4 +206,9 @@ public class AnamneseController {
         if (question.length > 5) Question6.setText(question[5].Enonce);
         if (question.length > 6) Question7.setText(question[6].Enonce);
     }
+
+
+
+
+
 }

@@ -46,6 +46,16 @@ public class QCUController {
 
 
     private QCU qcu;
+    private EpreuveClinique epreuveClinique;
+    private BO bo;
+    private Patient patient;
+
+    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
+        this.epreuveClinique = epreuveClinique;
+        this.bo = bo;
+        this.patient = patient;
+    }
+
 
     @FXML
     void Ajouter(ActionEvent event) {

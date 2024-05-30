@@ -55,6 +55,7 @@ public class CalendarController implements Initializable {
     private ListView<String> listeHoraires;
     private static Map<LocalDate, List<LocalTime>> availableTimeSlotsMap = new HashMap<>();
     private RendezVous selectedRdv;
+    private Patient patient;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -221,9 +222,9 @@ public class CalendarController implements Initializable {
     public void commencerRdv() throws IOException {
         Session.setRdvList(calendarActivities);
         currentRDV.setSelectedRdv(selectedRdv);
-        //currentRDV.setPatient();// Store selected RDV
         FXMLLoader loader;
         System.out.println(selectedRdv.getType());
+        System.out.println();
         if (selectedRdv.getType().equals(TypeRdv.CONSULTATION)) {
             loader = new FXMLLoader(getClass().getResource("/com/example/demo1/bilan.fxml"));
         } else {
@@ -235,7 +236,8 @@ public class CalendarController implements Initializable {
             controllerBilan controller = loader.getController();
             controller.setTypeRdv(selectedRdv.getType());
             controller.setRendezVous(selectedRdv);
-            //controller.setPatient();
+            controller.setPatient(patient);
+            System.out.println(patient.getNom());
         } else {
             pickController controller = loader.getController();
             controller.setRendezVous(selectedRdv);
@@ -245,6 +247,7 @@ public class CalendarController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
 
 
 
@@ -357,4 +360,7 @@ public class CalendarController implements Initializable {
         });
     }
 
+    public void setPatient(Patient patient) {
+        this.patient=patient;
+    }
 }

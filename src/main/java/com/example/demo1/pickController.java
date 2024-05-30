@@ -46,7 +46,7 @@ public class pickController {
 
     private EpreuveClinique epreuveClinique = new EpreuveClinique("", 0);
     private BO bo = new BO(); // Instantiate BO
-    private int patientId = 1; // Example patientId, replace as needed
+    private Patient patient;
 
     @FXML
     public void initialize() {
@@ -85,23 +85,23 @@ public class pickController {
                 loader = new FXMLLoader(getClass().getResource("Exercice.fxml"));
                 page = loader.load();
                 ExerciceController exerciceController = loader.getController();
-                exerciceController.initData(epreuveClinique, bo, patientId);
+                exerciceController.initData(epreuveClinique, bo, patient);
             } else if (Quiz.isSelected()) {
                 if (qcm.isSelected()) {
                     loader = new FXMLLoader(getClass().getResource("QCM.fxml"));
                     page = loader.load();
                     QCMController qcmController = loader.getController();
-                    qcmController.initData(epreuveClinique, bo, patientId); // Pass all parameters
+                    qcmController.initData(epreuveClinique, bo, patient); // Pass all parameters
                 } else if (qcu.isSelected()) {
                     loader = new FXMLLoader(getClass().getResource("QCU.fxml"));
                     page = loader.load();
                     QCUController qcuController = loader.getController();
-                    qcuController.initData(epreuveClinique, bo, patientId); // Pass all parameters
+                    qcuController.initData(epreuveClinique, bo, patient); // Pass all parameters
                 } else if (qstLibre.isSelected()) {
                     loader = new FXMLLoader(getClass().getResource("Libre.fxml"));
                     page = loader.load();
                     LibreController libreController = loader.getController();
-                    libreController.initData(epreuveClinique, bo, patientId); // Pass all parameters
+                    libreController.initData(epreuveClinique, bo, patient); // Pass all parameters
                 }
             } else {
                 return;
@@ -118,7 +118,8 @@ public class pickController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Diagnostic.fxml"));
             Parent diagnosticPage = loader.load();
             DiagnosticController diagnosticController = loader.getController();
-            diagnosticController.initData(epreuveClinique, bo, patientId); // Pass necessary data
+            diagnosticController.initData(epreuveClinique, bo, patient);
+            System.out.println(patient.getNom()+ "" +patient.getBO(0).getAnamnese().getquestion(0));// Pass necessary data
 
             mainLayout.getChildren().setAll(diagnosticPage);
         } catch (IOException e) {
@@ -141,13 +142,26 @@ public class pickController {
         // Handle qstLibre action
     }
 
-    public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
+    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
         this.epreuveClinique = epreuveClinique;
         this.bo = bo;
-        this.patientId = patientId;
+        this.patient = patient;
     }
 
     public void setRendezVous(RendezVous selectedRdv) {
-        this.rdv=selectedRdv;
+        this.rdv = selectedRdv;
+    }
+
+    public void initData(Patient patient) {
+        this.patient = patient;
+    }
+
+    public void addTestToEpreuve(Test test) {
+        if (test instanceof Exercice) {
+            epreuveClinique.addExercise((Exercice) test);
+        } else if (test instanceof Questionnaire) {
+            epreuveClinique.addQuestionnaire((Questionnaire) test);
+        }
+        bo.updateEpreuveClinique(epreuveClinique);
     }
 }

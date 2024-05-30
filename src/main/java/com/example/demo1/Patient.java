@@ -47,6 +47,10 @@ public class Patient {
         return particulier;
     }
 
+    public BO getBO(int i) {
+        return bo[i];
+    }
+
     public void setParticulier(boolean b) {
         this.particulier = true;
     }
@@ -59,6 +63,8 @@ public class Patient {
             System.out.println("Maximum BOs reached for this patient.");
         }
     }
+
+
 
     public void setAnamnese(Anamnese anamnese) {
         if (i > 0) {
@@ -75,4 +81,11 @@ public class Patient {
     public List<Fiche> getFiches() {
         return fiches;
     }
+
+    public void setAdress(String adr) {
+        this.lieuNaiss=adr;
+    }
+
+
+
 }

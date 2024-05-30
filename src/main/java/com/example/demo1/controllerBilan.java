@@ -75,6 +75,8 @@ public class controllerBilan implements Initializable {
     private BooleanProperty enfantActive = new SimpleBooleanProperty(false);
     private BooleanProperty adulteActive = new SimpleBooleanProperty(false);
     private Compte ortho;
+    private Patient patient;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<String> list = FXCollections.observableArrayList("Enfant", "Adulte");
@@ -166,57 +168,45 @@ public class controllerBilan implements Initializable {
         if (isValid) {
             // Create Patient object
             LocalDate localDate = date.getValue();
-            String s = categoriePatient.getSelectionModel().getSelectedItem();
             String nomPat = nom.getText();
             String prenomPat = prenom.getText();
             LocalDate datenaiss = date.getValue();
             String adr = adress.getText();
             String lieuNaiss = lieu.getText();
-            if(typeRdv == TypeRdv.CONSULTATION) {
 
-                if(s=="Enfant") {
+            if (typeRdv == TypeRdv.CONSULTATION) {
+                if ("Enfant".equals(category)) {
                     String cls = classe.getText();
                     String numPere = npere.getText();
                     String numMere = nmere.getText();
                     Enfant patEnfant = new Enfant(cls, numPere, numMere, nomPat, prenomPat, lieuNaiss, datenaiss);
                     Dossier dos = new Dossier();
                     int nbDoss = dos.getNbDossiers() + 1;
-                    dos = new  Dossier(patEnfant,Integer.toString(nbDoss));
+                    dos = new Dossier(patEnfant, Integer.toString(nbDoss));
                     ortho.ajouterDossier(dos);
                     Session.setCompte(ortho);
-                }
-                else if(s=="Adulte") {
+                } else if ("Adulte".equals(category)) {
                     String prof = profession.getText();
                     String dip = diplome.getText();
                     String numP = numeropers.getText();
-                    Adulte adulte = new Adulte(nomPat,prenomPat,lieuNaiss,datenaiss,dip,prof,numP);
+                    Adulte adulte = new Adulte(nomPat, prenomPat, lieuNaiss, datenaiss, dip, prof, numP);
                     Dossier dos = new Dossier();
                     int nbDoss = dos.getNbDossiers() + 1;
-                    dos = new  Dossier(adulte,Integer.toString(nbDoss));
+                    dos = new Dossier(adulte, Integer.toString(nbDoss));
                     ortho.ajouterDossier(dos);
                     Session.setCompte(ortho);
+                } else {
+                    System.out.println("Erreur creation dossier");
                 }
-                else System.out.println("Erreur creation dossier");
-            }
-            else if ( typeRdv == TypeRdv.SEANCEDESUIVI) {
-                Patient patient = new Patient(nomPat,prenomPat,lieuNaiss,datenaiss);
+            } else if (typeRdv == TypeRdv.SEANCEDESUIVI) {
+                Patient patient = new Patient(nomPat, prenomPat, lieuNaiss, datenaiss);
                 Dossier dossier = ortho.trouverPatient(patient);
             }
-            QuestionAnamnese qst = new QuestionAnamnese("", Categorie.AntecedentFamiliaux, "");
-            QuestionAnamnese[] qsts = {qst};
-            Anamnese anam = new Anamnese(qsts);
-            QCU tst = new QCU("", false, 0, new String[]{"a", "b"}, 1);
 
-            Test[] tests = new Test[10]; // Assuming a max of 10 tests
-            EpreuveClinique epreuve = new EpreuveClinique("", 0);
-            Diagnostic diag = new Diagnostic("", DiagnoCategorie.cognitif);
-            String projetTherapeutique = "";
-            BO bo = new BO(anam, epreuve, diag, projetTherapeutique);
-
-            Patient patient = new Patient(nom.getText(), prenom.getText(), lieu.getText(), localDate);
-            patient.setBO(bo);
-            patient.setParticulier(false);
-            patient.setPremiere();
+            // Create the patient object to pass
+            Patient patient = new Patient(nomPat, prenomPat, lieuNaiss, datenaiss);
+            patient.setAdress(adr); // Assuming there is a setAdress method in Patient class
+            //patient.setCategory(category); // Assuming there is a setCategory method in Patient class
 
             // Load Anamnese.fxml and set the scene
             try {
@@ -243,10 +233,14 @@ public class controllerBilan implements Initializable {
             alert.setContentText(errorMessage);
             alert.showAndWait();
         }
-
     }
+
 
     public void setRendezVous(RendezVous selectedRdv) {
         this.rdv=selectedRdv;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient=patient;
     }
 }

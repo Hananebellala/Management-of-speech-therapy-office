@@ -10,6 +10,12 @@ import java.util.Random;
 public class Anamnese {
 
     private static QuestionAnamnese[] question;
+    private Patient patient;
+
+    public Categorie getquestion(int id) {
+        return this.question[id].getCat();
+    }
+
 
     public Anamnese(QuestionAnamnese[] question) {
         this.question = question;
@@ -59,5 +65,10 @@ public class Anamnese {
                 System.out.println();
             }
         }
+    }
+
+    public void initData(Patient patient) {
+        this.patient = patient;
+        // Initialize your fields with patient data
     }
 }

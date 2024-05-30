@@ -52,6 +52,8 @@ public class ExerciceController {
     private TextField score;
 
     private EpreuveClinique epreuveClinique;
+    private BO bo;
+    private Patient patient;
 
     // Method to initialize the controller with an EpreuveClinique object
     public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
@@ -167,6 +169,13 @@ public class ExerciceController {
             }
         });
     }
+
+    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
+        this.epreuveClinique = epreuveClinique;
+        this.bo = bo;
+        this.patient = patient;
+    }
+
 
 
     // Method to close the window

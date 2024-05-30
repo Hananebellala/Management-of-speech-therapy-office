@@ -27,12 +27,13 @@ public class DiagnosticController {
 
     private EpreuveClinique epreuveClinique;
     private BO bo;
-    private int patientId;
+    private Patient patient;
 
-    public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
+    // Initialization method to set the EpreuveClinique, BO, and Patient
+    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
         this.epreuveClinique = epreuveClinique;
         this.bo = bo;
-        this.patientId = patientId;
+        this.patient = patient;
 
         // Initialize the ChoiceBox with enum values
         categorie.getItems().setAll(DiagnoCategorie.values());
@@ -55,14 +56,15 @@ public class DiagnosticController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("ProjetTherapeutique.fxml"));
                 Parent projetTherapeutiquePage = loader.load();
                 ProjetTherapController projetTherapeutiqueController = loader.getController();
-                projetTherapeutiqueController.initData(epreuveClinique, bo, patientId); // Pass necessary data
+                projetTherapeutiqueController.initData(epreuveClinique, bo, patient); // Pass necessary data
 
-                mainLayout.getChildren().setAll(projetTherapeutiquePage);
+                mainLayout.setCenter(projetTherapeutiquePage);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
             // Show an error message or handle the invalid input
+            // e.g., showAlert("Please fill in all fields.");
         }
     }
 

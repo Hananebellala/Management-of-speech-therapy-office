@@ -25,11 +25,12 @@ public class ProjetTherapController {
     private EpreuveClinique epreuveClinique;
     private BO bo;
     private int patientId;
+    private Patient patient;
 
-    public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
+    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
         this.epreuveClinique = epreuveClinique;
         this.bo = bo;
-        this.patientId = patientId;
+        this.patient = patient;
     }
 
     @FXML
@@ -57,8 +58,12 @@ public class ProjetTherapController {
 
     private void navigateToFiches() {
         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fiches.fxml"));
+            Parent root = loader.load();
+            FichesController fichesController = loader.getController();
+            fichesController.initData(epreuveClinique, bo, patient); // Pass the necessary data
+
             Stage stage = (Stage) Finishbutton.getScene().getWindow();
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fiches.fxml")));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

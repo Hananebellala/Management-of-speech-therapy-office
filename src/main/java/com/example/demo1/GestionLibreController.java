@@ -1,16 +1,21 @@
 package com.example.demo1;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GestionLibreController {
 
@@ -80,6 +85,8 @@ public class GestionLibreController {
     @FXML
     private RadioButton radio8;
 
+    public Label nom;
+
     @FXML
     private RadioButton radio9;
 
@@ -96,6 +103,11 @@ public class GestionLibreController {
     @FXML
     void suprimer(ActionEvent event) {
         handleDeleteQuestion();
+    }
+
+    @FXML
+    void back(ActionEvent event) throws IOException {
+        navigateToQuestionTestAnamnese();
     }
 
     @FXML
@@ -193,5 +205,14 @@ public class GestionLibreController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    private void navigateToQuestionTestAnamnese() throws IOException {
+        Stage stage = (Stage) Ajouter.getScene().getWindow(); // Get the current stage
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("QestionTestAnamnese.fxml")); // Load the FXML file for QuestionTestAnamnese
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

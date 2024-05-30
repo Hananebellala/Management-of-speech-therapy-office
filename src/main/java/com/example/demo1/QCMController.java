@@ -52,6 +52,7 @@ public class QCMController {
 
     private BO bo;
     private int patientId;
+    private Patient patient;
 
     public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
         this.epreuveClinique = epreuveClinique;
@@ -115,13 +116,20 @@ public class QCMController {
 
             // Assuming pickController has a similar initData method
             pickController epreuveController = loader.getController();
-            epreuveController.initData(epreuveClinique, bo, patientId);
+            epreuveController.initData(epreuveClinique, bo, patient);
 
             mainLayout.getChildren().setAll(page);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
+        this.epreuveClinique = epreuveClinique;
+        this.bo = bo;
+        this.patient = patient;
+    }
+
 
     public void initialize() {
         // Get a random QCU object

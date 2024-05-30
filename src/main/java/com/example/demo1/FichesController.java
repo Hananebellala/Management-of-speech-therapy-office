@@ -40,6 +40,9 @@ public class FichesController {
     private Label two;
 
     private Label[] labels;
+    private EpreuveClinique epreuveClinique;
+    private BO bo;
+    private Patient patient;
 
     @FXML
     public void initialize() {
@@ -94,25 +97,33 @@ public class FichesController {
     private void handleAddClick(int index) {
         Label label = labels[index];
         if (label.getText().startsWith("F ")) {
-            navigateToObjectif();
+            navigateToObjectif(index);
         } else if (label.getText().isEmpty() || "+".equals(label.getText())) {
             navigateToAddObjectif(index);
         } else {
             Fiche fiche = loadFiche(index);
             if (fiche != null) {
-                navigateToEditObjectif(fiche);
+                navigateToEditObjectif(fiche, index);
             }
         }
     }
 
-    private void navigateToObjectif() {
+    private void navigateToObjectif(int index) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Objectif.fxml"));
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL); // Makes the window modal
             stage.setScene(new Scene(loader.load()));
 
+            ObjectifController controller = loader.getController();
+            controller.setIndex(index); // Pass the index to the controller
+            Fiche fiche = loadFiche(index);
+            if (fiche != null) {
+                controller.setFiche(fiche);
+            }
+
             stage.showAndWait(); // Waits for the window to close
+            updateLabels();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -140,7 +151,7 @@ public class FichesController {
         }
     }
 
-    private void navigateToEditObjectif(Fiche fiche) {
+    private void navigateToEditObjectif(Fiche fiche, int index) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterObjectif.fxml"));
             Stage stage = new Stage();
@@ -149,8 +160,14 @@ public class FichesController {
 
             AjouterObjectifController controller = loader.getController();
             controller.setFiche(fiche); // Set the fiche data in the controller
+            controller.setIndex(index); // Pass the index to the controller
 
             stage.showAndWait(); // Waits for the window to close
+
+            if (controller.isCompleted()) {
+                saveFiche(controller.getFiche(), index); // Save the fiche (with objectives and score)
+            }
+            updateLabels();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -176,5 +193,22 @@ public class FichesController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void updateLabels() {
+        for (int i = 0; i < labels.length; i++) {
+            if (new File("fiche" + i + ".ser").exists()) {
+                labels[i].setText("F " + (i + 1));
+            } else {
+                labels[i].setText("+");
+            }
+        }
+    }
+
+    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
+        this.epreuveClinique = epreuveClinique;
+        this.bo = bo;
+        this.patient = patient;
+        // Further initialization if needed
     }
 }

@@ -35,6 +35,7 @@ public class LibreController {
     private EpreuveClinique epreuveClinique;
     private BO bo;
     private int patientId;
+    private Patient patient;
 
     public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
         this.epreuveClinique = epreuveClinique;
@@ -86,6 +87,13 @@ public class LibreController {
         }
     }
 
+    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
+        this.epreuveClinique = epreuveClinique;
+        this.bo = bo;
+        this.patient = patient;
+    }
+
+
     @FXML
     void GoBack(ActionEvent event) {
         try {
@@ -94,7 +102,7 @@ public class LibreController {
 
             // Assuming pickController has a similar initData method
             pickController epreuveController = loader.getController();
-            epreuveController.initData(epreuveClinique, bo, patientId);
+            epreuveController.initData(epreuveClinique, bo, patient);
 
             mainLayout.getChildren().setAll(page);
         } catch (IOException e) {
