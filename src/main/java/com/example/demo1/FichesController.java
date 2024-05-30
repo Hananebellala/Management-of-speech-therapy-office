@@ -93,13 +93,28 @@ public class FichesController {
 
     private void handleAddClick(int index) {
         Label label = labels[index];
-        if (label.getText().isEmpty() || "+".equals(label.getText())) {
+        if (label.getText().startsWith("F ")) {
+            navigateToObjectif();
+        } else if (label.getText().isEmpty() || "+".equals(label.getText())) {
             navigateToAddObjectif(index);
         } else {
             Fiche fiche = loadFiche(index);
             if (fiche != null) {
                 navigateToEditObjectif(fiche);
             }
+        }
+    }
+
+    private void navigateToObjectif() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Objectif.fxml"));
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL); // Makes the window modal
+            stage.setScene(new Scene(loader.load()));
+
+            stage.showAndWait(); // Waits for the window to close
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -118,7 +133,7 @@ public class FichesController {
             if (controller.isCompleted()) {
                 // Assuming you want to change the label text when the process is completed
                 labels[index].setText("F " + (index + 1));
-                //saveFiche(new Fiche(), index); // Save the fiche (you need to replace with actual data)
+                saveFiche(controller.getFiche(), index); // Save the fiche (with objectives and score)
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -162,5 +177,4 @@ public class FichesController {
             e.printStackTrace();
         }
     }
-
 }

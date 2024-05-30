@@ -41,6 +41,9 @@ public class pickController {
     @FXML
     private TextArea conclusion;
 
+    @FXML
+    private RendezVous rdv;
+
     private EpreuveClinique epreuveClinique = new EpreuveClinique("", 0);
     private BO bo = new BO(); // Instantiate BO
     private int patientId = 1; // Example patientId, replace as needed
@@ -142,5 +145,9 @@ public class pickController {
         this.epreuveClinique = epreuveClinique;
         this.bo = bo;
         this.patientId = patientId;
+    }
+
+    public void setRendezVous(RendezVous selectedRdv) {
+        this.rdv=selectedRdv;
     }
 }

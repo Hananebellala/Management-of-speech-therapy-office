@@ -36,7 +36,7 @@ public class Libre extends Question {
         String enonce = "";
         List<String> lines = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/Libre.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/com/example/demo1/Libre.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 lines.add(line);

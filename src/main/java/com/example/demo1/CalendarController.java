@@ -220,16 +220,33 @@ public class CalendarController implements Initializable {
     }
     public void commencerRdv() throws IOException {
         Session.setRdvList(calendarActivities);
+        currentRDV.setSelectedRdv(selectedRdv);
+        //currentRDV.setPatient();// Store selected RDV
+        FXMLLoader loader;
+        System.out.println(selectedRdv.getType());
+        if (selectedRdv.getType().equals(TypeRdv.CONSULTATION)) {
+            loader = new FXMLLoader(getClass().getResource("/com/example/demo1/bilan.fxml"));
+        } else {
+            loader = new FXMLLoader(getClass().getResource("/com/example/demo1/pick.fxml"));
+        }
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/bilan.fxml"));
         Parent root = loader.load();
-        controllerBilan controller = loader.getController();
-        controller.setTypeRdv(selectedRdv.getType());
+        if (selectedRdv.getType().equals(TypeRdv.CONSULTATION)) {
+            controllerBilan controller = loader.getController();
+            controller.setTypeRdv(selectedRdv.getType());
+            controller.setRendezVous(selectedRdv);
+            //controller.setPatient();
+        } else {
+            pickController controller = loader.getController();
+            controller.setRendezVous(selectedRdv);
+        }
         Stage stage = (Stage) calendar.getScene().getWindow();
         stage.setTitle("Commencer un rendez-vous");
         stage.setScene(new Scene(root));
         stage.show();
     }
+
+
 
     public void retourMenu() throws IOException {
         Stage stage = (Stage) startAppointmentButton.getScene().getWindow();

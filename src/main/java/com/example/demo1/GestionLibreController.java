@@ -86,7 +86,7 @@ public class GestionLibreController {
     private Label[] labels;
     private RadioButton[] radioButtons;
 
-    private final String FILE_PATH = "src/main/resources/Libre.txt";
+    private final String FILE_PATH = "src/main/resources/com/example/demo1/Libre.txt";
 
     @FXML
     void Ajouter(ActionEvent event) {

@@ -1,6 +1,8 @@
 package com.example.demo1;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Patient {
     private String nom;
@@ -11,6 +13,7 @@ public class Patient {
     private boolean premiere;
     protected BO[] bo;
     protected static int i;
+    protected List<Fiche> fiches;
 
     public Patient(String nom, String prenom, String lieuNaiss, LocalDate dateNaiss) {
         this.nom = nom;
@@ -21,6 +24,7 @@ public class Patient {
         this.particulier = false;
         this.i = 0;
         this.bo = new BO[10]; // Initialize the bo array with a size of 10, or any other appropriate size
+        this.fiches = new ArrayList<>(); // Initialize the fiches list
     }
 
     public String getNom() {
@@ -62,5 +66,13 @@ public class Patient {
         } else {
             System.out.println("No BOs available to set Anamnese.");
         }
+    }
+
+    public void addFiche(Fiche fiche) {
+        this.fiches.add(fiche);
+    }
+
+    public List<Fiche> getFiches() {
+        return fiches;
     }
 }
