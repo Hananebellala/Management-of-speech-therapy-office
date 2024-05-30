@@ -1,6 +1,8 @@
 package com.example.demo1;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.fxml.FXMLLoader;
@@ -62,6 +64,16 @@ public class FichesController {
     @FXML
     void add3(MouseEvent event) {
         handleAddClick(2);
+    }
+
+    @FXML
+    void Suivant(ActionEvent event) throws IOException {
+        Stage stage = (Stage) one.getScene().getWindow(); // Get the current stage
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PageAccueil.fxml")); // Load the FXML file for QuestionTestAnamnese
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

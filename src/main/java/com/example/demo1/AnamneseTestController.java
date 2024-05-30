@@ -35,6 +35,16 @@ public class AnamneseTestController {
     }
 
     @FXML
+    void Retour(ActionEvent event) throws IOException {
+        Stage stage = (Stage) Anamn.getScene().getWindow(); // Get the current stage
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PageAccueil.fxml")); // Load the FXML file for QuestionTestAnamnese
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
     void QCM(ActionEvent event) {
         loadPage("GestionQCM.fxml");
     }

@@ -6,13 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class ProjetTherapController {
 
@@ -24,7 +22,6 @@ public class ProjetTherapController {
 
     private EpreuveClinique epreuveClinique;
     private BO bo;
-    private int patientId;
     private Patient patient;
 
     public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
@@ -44,12 +41,16 @@ public class ProjetTherapController {
         // Save the demarche to the BO object
         bo.saveProjetTherapeutique(demarcheText);
 
+        // Add the patient to the dossier list
+        Compte compte = Session.getCompte();
+        compte.ajouterDossier(new Dossier(patient, "Dossier " + (compte.getDossiersPatients().size() + 1)));
+
         showAlert("Success", "Demarche saved successfully.");
         navigateToFiches();
     }
 
     private void showAlert(String title, String message) {
-        Alert alert = new Alert(AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);

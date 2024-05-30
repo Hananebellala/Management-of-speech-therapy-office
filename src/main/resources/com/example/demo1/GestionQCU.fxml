@@ -19,7 +19,10 @@
    <top>
       <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #4b0082;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="60.0" prefWidth="379.0" />
+            <Pane prefHeight="60.0" prefWidth="379.0">
+               <children>
+                  <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#Retour" text="←" />
+               </children></Pane>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion de QCU">
                <font>
                   <Font name="Georgia Bold" size="26.0" />

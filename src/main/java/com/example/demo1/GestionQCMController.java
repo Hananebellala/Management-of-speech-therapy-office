@@ -1,11 +1,15 @@
 package com.example.demo1;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -87,6 +91,16 @@ public class GestionQCMController {
     private Label[] ansLabels;
 
     private final String FILE_PATH = "src/main/resources/com/example/demo1/QCU.txt";
+
+    @FXML
+    void Retour(ActionEvent event) throws IOException {
+        Stage stage = (Stage) qst3.getScene().getWindow(); // Get the current stage
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("QestionTestAnamnese.fxml")); // Load the FXML file for QuestionTestAnamnese
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
     public void initialize() {

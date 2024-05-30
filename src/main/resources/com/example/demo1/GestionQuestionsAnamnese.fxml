@@ -19,7 +19,14 @@
    <top>
       <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #4b0082;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="60.0" prefWidth="289.0" />
+            <Pane prefHeight="60.0" prefWidth="289.0">
+               <children>
+                  <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#Retour" prefHeight="33.0" prefWidth="48.0" style="-fx-background-color: f5e5ff;" text="←" textFill="INDIGO">
+                     <font>
+                        <Font name="Georgia Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children></Pane>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion de questions anamnese">
                <font>
                   <Font name="Georgia Bold" size="26.0" />
