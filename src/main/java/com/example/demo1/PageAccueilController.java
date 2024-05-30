@@ -1,6 +1,7 @@
 package com.example.demo1;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,6 +20,23 @@ public class PageAccueilController implements Initializable {
     public Label nom;
     @FXML
     private Button rdvButton;
+    @FXML
+    void Stat(ActionEvent event) throws IOException {
+        Stage stage = (Stage) nom.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Statistique.fxml")));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void Test(ActionEvent event) throws IOException {
+        Stage stage = (Stage) nom.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("QestionTestAnamnese.fxml")));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     @FXML
     private Button quitterButton;
     private final String nomFichier="Orthophoniste.txt";

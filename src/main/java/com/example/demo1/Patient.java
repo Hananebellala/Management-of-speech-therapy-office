@@ -67,4 +67,20 @@ public class Patient implements Serializable {
             System.out.println("No BOs available to set Anamnese.");
         }
     }
+
+    public void setAdress(String adr) {
+        this.lieuNaiss=adr;
+    }
+
+    public BO getBO(int i) {
+        return this.bo[i];
+    }
+
+    public LocalDate getDateNaiss() {
+        return dateNaiss;
+    }
+
+    public String getLieu() {
+        return this.lieuNaiss;
+    }
 }

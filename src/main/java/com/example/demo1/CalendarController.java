@@ -55,6 +55,7 @@ public class CalendarController implements Initializable {
     private ListView<String> listeHoraires;
     private static Map<LocalDate, List<LocalTime>> availableTimeSlotsMap = new HashMap<>();
     private RendezVous selectedRdv;
+    private Patient patient;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -350,4 +351,7 @@ public class CalendarController implements Initializable {
         });
     }
 
+    public void setPatient(Patient patient) {
+        this.patient=patient;
+    }
 }

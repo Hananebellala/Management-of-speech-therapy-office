@@ -29,7 +29,7 @@
             <Image url="@../../../../../../../../../../Users/LENOVO/Downloads/Spreadsheets-bro.png" />
          </image>
       </ImageView>
-      <Button layoutX="294.0" layoutY="380.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40; -fx-border-color: #4b0082;" text="Statistiques">
+      <Button layoutX="294.0" layoutY="380.0" mnemonicParsing="false" onAction="#Stat" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40; -fx-border-color: #4b0082;" text="Statistiques">
          <font>
             <Font name="Georgia Bold" size="16.0" />
          </font>
@@ -44,12 +44,12 @@
             <Font name="Georgia Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="294.0" layoutY="320.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter mes tests cliniques">
+      <Button layoutX="294.0" layoutY="320.0" mnemonicParsing="false" onAction="#Test" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter mes tests cliniques">
          <font>
             <Font name="Georgia Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="294.0" layoutY="260.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter un dossier" onAction="#loadSceneDossiers">
+      <Button layoutX="294.0" layoutY="260.0" mnemonicParsing="false" onAction="#loadSceneDossiers" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter un dossier">
          <font>
             <Font name="Georgia Bold" size="16.0" />
          </font>
@@ -59,7 +59,7 @@
             <Image url="@../../../../../../../../../../Users/LENOVO/Downloads/Schedule-bro.png" />
          </image>
       </ImageView>
-      <Button layoutX="294.0" layoutY="440.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Paramètres" onAction="#loadParametres">
+      <Button layoutX="294.0" layoutY="440.0" mnemonicParsing="false" onAction="#loadParametres" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Paramètres">
          <font>
             <Font name="Georgia Bold" size="16.0" />
          </font>

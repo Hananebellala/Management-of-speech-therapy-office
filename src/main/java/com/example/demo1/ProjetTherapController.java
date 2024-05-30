@@ -25,11 +25,12 @@ public class ProjetTherapController {
     private EpreuveClinique epreuveClinique;
     private BO bo;
     private int patientId;
+    private Patient patient;
 
-    public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
+    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patientId) {
         this.epreuveClinique = epreuveClinique;
         this.bo = bo;
-        this.patientId = patientId;
+        this.patient = patientId;
     }
 
     @FXML
