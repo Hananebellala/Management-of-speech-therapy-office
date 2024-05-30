@@ -1,6 +1,8 @@
 package com.example.demo1;
 
-public class Dossier {
+import java.io.Serializable;
+
+public class Dossier implements Serializable {
     private Patient pat;
     private static int nbDossiers;
     private String numDossier;

@@ -2,10 +2,14 @@ package com.example.demo1;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class PatientController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class PatientController implements Initializable {
 
     @FXML
     private Label DateNaiss;
@@ -27,7 +31,18 @@ public class PatientController {
 
     @FXML
     private Button bilan;
-
+    private Patient patient = new Patient();
+    private consultationDossiersController consultationController;
+    public void setConsultationDossiersController(consultationDossiersController controller) {
+        consultationController=controller;
+    }
+    public void setPatient(Patient patient) {
+        this.patient=patient;
+    }
+    public void initialize(URL url, ResourceBundle rb) {
+        if(patient!=null)
+        System.out.println(patient.getNom());
+    }
     @FXML
     void Bilans(ActionEvent event) {
 

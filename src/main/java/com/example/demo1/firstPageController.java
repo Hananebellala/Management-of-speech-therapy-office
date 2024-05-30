@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -19,7 +20,8 @@ public class firstPageController {
     private TextField champsEmail;
     @FXML
     private PasswordField champsMotPasse;
-
+    @FXML
+    private Label errorMessage;
     private final String nomFichier = "orthophoniste.ser";
 
     private Compte lireCompteDepuisFichier() throws IOException, ClassNotFoundException {
@@ -43,9 +45,9 @@ public class firstPageController {
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-            } else {
-                // Afficher un message d'erreur
-                System.out.println("Email ou mot de passe incorrect");
+            }
+            else {
+                errorMessage.setVisible(true);
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

@@ -6,11 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ProjetTherapController {
 
@@ -22,12 +24,12 @@ public class ProjetTherapController {
 
     private EpreuveClinique epreuveClinique;
     private BO bo;
-    private Patient patient;
+    private int patientId;
 
-    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
+    public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
         this.epreuveClinique = epreuveClinique;
         this.bo = bo;
-        this.patient = patient;
+        this.patientId = patientId;
     }
 
     @FXML
@@ -41,16 +43,12 @@ public class ProjetTherapController {
         // Save the demarche to the BO object
         bo.saveProjetTherapeutique(demarcheText);
 
-        // Add the patient to the dossier list
-        Compte compte = Session.getCompte();
-        compte.ajouterDossier(new Dossier(patient, "Dossier " + (compte.getDossiersPatients().size() + 1)));
-
         showAlert("Success", "Demarche saved successfully.");
         navigateToFiches();
     }
 
     private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
@@ -59,12 +57,8 @@ public class ProjetTherapController {
 
     private void navigateToFiches() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fiches.fxml"));
-            Parent root = loader.load();
-            FichesController fichesController = loader.getController();
-            fichesController.initData(epreuveClinique, bo, patient); // Pass the necessary data
-
             Stage stage = (Stage) Finishbutton.getScene().getWindow();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PageAccueil.fxml")));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

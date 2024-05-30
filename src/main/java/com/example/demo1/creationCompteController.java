@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -34,7 +35,8 @@ public class creationCompteController {
 
     private Compte compteOrtho;
     private String nomFichier;
-
+    @FXML
+    private Button retourButton;
     @FXML
     private void creerCompte() {
         try {
@@ -69,6 +71,21 @@ public class creationCompteController {
     private void chargerNouvelleScene() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("PageAccueil.fxml")); // Remplacez par le nom de votre fichier FXML
+            Parent root = loader.load();
+
+            // Obtenez le contrôleur de la nouvelle scène et passez le nom de fichier
+
+            Stage stage = (Stage) champsNom.getScene().getWindow(); // Obtenir la fenêtre actuelle
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Gérer l'erreur (par exemple, afficher un message à l'utilisateur)
+        }
+    }
+    public void retourPremierePage() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FirstPage.fxml")); // Remplacez par le nom de votre fichier FXML
             Parent root = loader.load();
 
             // Obtenez le contrôleur de la nouvelle scène et passez le nom de fichier

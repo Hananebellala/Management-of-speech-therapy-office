@@ -55,7 +55,6 @@ public class CalendarController implements Initializable {
     private ListView<String> listeHoraires;
     private static Map<LocalDate, List<LocalTime>> availableTimeSlotsMap = new HashMap<>();
     private RendezVous selectedRdv;
-    private Patient patient;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -221,35 +220,26 @@ public class CalendarController implements Initializable {
     }
     public void commencerRdv() throws IOException {
         Session.setRdvList(calendarActivities);
-        currentRDV.setSelectedRdv(selectedRdv);
-        FXMLLoader loader;
-        System.out.println(selectedRdv.getType());
-        System.out.println();
-        if (selectedRdv.getType().equals(TypeRdv.CONSULTATION)) {
-            loader = new FXMLLoader(getClass().getResource("/com/example/demo1/bilan.fxml"));
-        } else {
-            loader = new FXMLLoader(getClass().getResource("/com/example/demo1/pick.fxml"));
-        }
-
-        Parent root = loader.load();
-        if (selectedRdv.getType().equals(TypeRdv.CONSULTATION)) {
+        if(selectedRdv.getType()==TypeRdv.CONSULTATION) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/bilan.fxml"));
+            Parent root = loader.load();
             controllerBilan controller = loader.getController();
             controller.setTypeRdv(selectedRdv.getType());
-            controller.setRendezVous(selectedRdv);
-            controller.setPatient(patient);
-            System.out.println(patient.getNom());
-        } else {
-            pickController controller = loader.getController();
-            controller.setRendezVous(selectedRdv);
+            Stage stage = (Stage) calendar.getScene().getWindow();
+            stage.setTitle("Commencer un rendez-vous");
+            stage.setScene(new Scene(root));
+            stage.show();
         }
-        Stage stage = (Stage) calendar.getScene().getWindow();
-        stage.setTitle("Commencer un rendez-vous");
-        stage.setScene(new Scene(root));
-        stage.show();
+        else{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/pick.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) calendar.getScene().getWindow();
+            stage.setTitle("Epreuve clinique");
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
     }
-
-
-
 
     public void retourMenu() throws IOException {
         Stage stage = (Stage) startAppointmentButton.getScene().getWindow();
@@ -360,7 +350,4 @@ public class CalendarController implements Initializable {
         });
     }
 
-    public void setPatient(Patient patient) {
-        this.patient=patient;
-    }
 }

@@ -1,10 +1,9 @@
 package com.example.demo1;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
-public class Patient {
+public class Patient implements Serializable {
     private String nom;
     private String prenom;
     private String lieuNaiss;
@@ -13,8 +12,10 @@ public class Patient {
     private boolean premiere;
     protected BO[] bo;
     protected static int i;
-    protected List<Fiche> fiches;
+    private static final long serialVersionUID = 6264016623953139405L;
+    public Patient() {
 
+    }
     public Patient(String nom, String prenom, String lieuNaiss, LocalDate dateNaiss) {
         this.nom = nom;
         this.prenom = prenom;
@@ -24,7 +25,6 @@ public class Patient {
         this.particulier = false;
         this.i = 0;
         this.bo = new BO[10]; // Initialize the bo array with a size of 10, or any other appropriate size
-        this.fiches = new ArrayList<>(); // Initialize the fiches list
     }
 
     public String getNom() {
@@ -47,10 +47,6 @@ public class Patient {
         return particulier;
     }
 
-    public BO getBO(int i) {
-        return bo[i];
-    }
-
     public void setParticulier(boolean b) {
         this.particulier = true;
     }
@@ -64,8 +60,6 @@ public class Patient {
         }
     }
 
-
-
     public void setAnamnese(Anamnese anamnese) {
         if (i > 0) {
             bo[i - 1].setAnamnese(anamnese);
@@ -73,19 +67,4 @@ public class Patient {
             System.out.println("No BOs available to set Anamnese.");
         }
     }
-
-    public void addFiche(Fiche fiche) {
-        this.fiches.add(fiche);
-    }
-
-    public List<Fiche> getFiches() {
-        return fiches;
-    }
-
-    public void setAdress(String adr) {
-        this.lieuNaiss=adr;
-    }
-
-
-
 }
