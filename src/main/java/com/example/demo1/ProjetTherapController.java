@@ -24,13 +24,12 @@ public class ProjetTherapController {
 
     private EpreuveClinique epreuveClinique;
     private BO bo;
-    private int patientId;
     private Patient patient;
 
-    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patientId) {
+    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
         this.epreuveClinique = epreuveClinique;
         this.bo = bo;
-        this.patient = patientId;
+        this.patient = patient;  // Correct assignment of patient
     }
 
     @FXML
@@ -44,12 +43,16 @@ public class ProjetTherapController {
         // Save the demarche to the BO object
         bo.saveProjetTherapeutique(demarcheText);
 
+        // Add the patient to the dossier
+        Dossier dossier = new Dossier(patient, "someUniqueIdentifier");
+        Session.getCompte().ajouterDossier(dossier);
+
         showAlert("Success", "Demarche saved successfully.");
         navigateToFiches();
     }
 
     private void showAlert(String title, String message) {
-        Alert alert = new Alert(AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);

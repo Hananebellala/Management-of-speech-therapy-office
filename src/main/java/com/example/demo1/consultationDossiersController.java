@@ -36,27 +36,6 @@ public class consultationDossiersController implements Initializable {
     }
 
     @FXML
-    void consulter(ActionEvent event) {
-
-    }
-
-    private void navigateToPatientPage(Patient patient) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("PatientPage.fxml"));
-            Parent root = loader.load();
-            PatientController patientController = loader.getController();
-            patientController.setPatient(patient); // Pass the patient to the controller
-
-            Stage stage = (Stage) button.getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     void consulterDossier(ActionEvent event) {
         String selectedNumDossier = listeDossiers.getSelectionModel().getSelectedItem();
         if (selectedNumDossier != null) {
@@ -74,6 +53,23 @@ public class consultationDossiersController implements Initializable {
         }
     }
 
+    private void navigateToPatientPage(Patient patient) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PatientPage.fxml"));
+            Parent root = loader.load();
+            PatientController patientController = loader.getController();
+            patientController.setPatient(patient);  // Pass the patient to the controller
+            patientController.updatePatientDetails(); // Ensure details are updated
+
+            Stage stage = (Stage) button.getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     void retourButton(ActionEvent event) throws IOException {
         Stage stage = (Stage) button.getScene().getWindow();
@@ -82,5 +78,4 @@ public class consultationDossiersController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
 }

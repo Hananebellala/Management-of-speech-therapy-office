@@ -37,21 +37,31 @@ public class PatientController implements Initializable {
 
     @FXML
     private Button bilan;
-    private Patient patient = new Patient();
-    private consultationDossiersController consultationController;
-    public void setConsultationDossiersController(consultationDossiersController controller) {
-        consultationController=controller;
-    }
+    private Patient patient;
+
     public void setPatient(Patient patient) {
-        this.patient=patient;
+        this.patient = patient;
+        updatePatientDetails(); // Update details when patient is set
     }
+
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if(patient!=null)
-        System.out.println("Heree" +patient.getNom());
+        // Initialization logic
     }
+
+    @FXML
+    void Retour(ActionEvent event) throws IOException {
+        Stage stage = (Stage) bilan.getScene().getWindow(); // Get the current stage
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PageAccueil.fxml")); // Load the FXML file for QuestionTestAnamnese
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     @FXML
     void Bilans(ActionEvent event) {
-
+        // Bilans logic
     }
 
     @FXML
@@ -63,7 +73,7 @@ public class PatientController implements Initializable {
         stage.show();
     }
 
-    private void updatePatientDetails() {
+    void updatePatientDetails() {
         if (patient != null) {
             Nom.setText(patient.getNom());
             Prenom.setText(patient.getPrenom());
@@ -74,7 +84,6 @@ public class PatientController implements Initializable {
 
     @FXML
     void RendezVous(ActionEvent event) {
-
+        // RendezVous logic
     }
-
 }
