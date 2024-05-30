@@ -47,7 +47,9 @@ public class pickController {
     private EpreuveClinique epreuveClinique = new EpreuveClinique("", 0);
     private BO bo = new BO(); // Instantiate BO
     private Patient patient;
-
+    public void setPatient(Patient patient) {
+        this.patient=patient;
+    }
     @FXML
     public void initialize() {
         // Disable the checkboxes initially
@@ -119,7 +121,7 @@ public class pickController {
             Parent diagnosticPage = loader.load();
             DiagnosticController diagnosticController = loader.getController();
             diagnosticController.initData(epreuveClinique, bo, patient);
-            System.out.println(patient.getNom()+ "" +patient.getBO(0).getAnamnese().getquestion(0));// Pass necessary data
+            //System.out.println(patient.getNom()+ "" +patient.getBO(0).getAnamnese().getquestion(0));// Pass necessary data
 
             mainLayout.getChildren().setAll(diagnosticPage);
         } catch (IOException e) {

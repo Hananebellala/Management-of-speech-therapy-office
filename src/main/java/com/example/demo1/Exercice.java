@@ -1,11 +1,14 @@
 package com.example.demo1;
 
-public class Exercice extends Test {
+import java.io.Serializable;
+
+public class Exercice extends Test implements Serializable {
 
     private String Consigne;
     private String nomMateriel;
     private boolean needMateriel;
     private String CompteRdu;
+    private static final long serialVersionUID = 6264016623953139405L;
 
     public Exercice(String nom, int score, String Consigne, String nomMateriel, boolean needMateriel, String CompteRdu){
         super(nom,score,CompteRdu);

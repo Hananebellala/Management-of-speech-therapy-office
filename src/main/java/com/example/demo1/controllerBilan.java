@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -68,7 +69,8 @@ public class controllerBilan implements Initializable {
     private TextField prenom;
 
     private RendezVous rdv;
-
+    @FXML
+    private ComboBox dossiers;
     @FXML
     private TextField profession;
     private TypeRdv typeRdv;
@@ -84,6 +86,7 @@ public class controllerBilan implements Initializable {
         enfantContainer.disableProperty().bind(enfantActive.not());
         adulteContainer.disableProperty().bind(adulteActive.not());
         ortho = Session.getCompte();
+
     }
     public void setTypeRdv(TypeRdv typeRdv) {
         this.typeRdv=typeRdv;

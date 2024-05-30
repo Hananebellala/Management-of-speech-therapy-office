@@ -1,9 +1,12 @@
 package com.example.demo1;
 
-public class QuestionAnamnese {
+import java.io.Serializable;
+
+public class QuestionAnamnese implements Serializable {
     protected String Enonce;
     private Categorie cat;
     private String reponse;
+    private static final long serialVersionUID = 6264016623953139405L;
 
     public QuestionAnamnese(String Enonce, Categorie cat, String reponse) {
         this.Enonce = Enonce;

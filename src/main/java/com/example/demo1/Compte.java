@@ -3,6 +3,7 @@ package com.example.demo1;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Compte implements Serializable {
     private static final long serialVersionUID = 6264016623953139405L;
@@ -72,7 +73,7 @@ public class Compte implements Serializable {
     }
     public Patient trouverDossier(String numDossier){
         for (Dossier dos : dossiersPatients) {
-            if(dos.getNumDossier()==numDossier) {
+            if(Objects.equals(dos.getNumDossier(), numDossier)) {
                 return dos.getPatient();
             }
         }

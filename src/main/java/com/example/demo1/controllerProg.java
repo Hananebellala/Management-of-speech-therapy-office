@@ -22,6 +22,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class controllerProg implements Initializable {
@@ -103,6 +105,15 @@ public class controllerProg implements Initializable {
         consultationContainer.disableProperty().bind(consultationActive.not());
         seanceContainer.disableProperty().bind(suiviActive.not());
         atelierContainer.disableProperty().bind(atelierActive.not());
+        Compte ortho = Session.getCompte();
+        List<String> dossiersList = new ArrayList<>();
+        List<Dossier> listdoss = ortho.getDossiersPatients();
+        for (Dossier dos : listdoss) {
+            String numDos = dos.getNumDossier();
+            dossiersList.add(numDos);
+        }
+        list = FXCollections.observableArrayList(dossiersList);
+        comb1.setItems(list);
     }
 
     public void selectDossier() {

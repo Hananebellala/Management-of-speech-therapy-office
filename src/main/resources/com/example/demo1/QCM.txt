@@ -1,3 +1,4 @@
 Which of the following are types of triangles?,Equilateral;Isosceles;Scalene;Right-angled;Obtuse-angled;Acute-angled,0;1;2;3
 Which are programming languages?,Java;Python;HTML;CSS;JavaScript;SQL,0;1;4;5
 this is a test?,yes;no;maybe;yes;yes,0;1;2;3
+this is qcm,oui;22;33;44;22;55,0;1;2;3

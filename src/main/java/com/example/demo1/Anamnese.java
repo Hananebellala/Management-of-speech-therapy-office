@@ -3,14 +3,16 @@ package com.example.demo1;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Anamnese {
+public class Anamnese implements Serializable {
 
     private static QuestionAnamnese[] question;
     private Patient patient;
+    private static final long serialVersionUID = 6264016623953139405L;
 
     public Categorie getquestion(int id) {
         return this.question[id].getCat();

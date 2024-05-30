@@ -17,6 +17,7 @@ public class QCM extends Question implements Initializable {
 
     private String [] proposition;
     private int [] answer;
+    private static final long serialVersionUID = 6264016623953139405L;
 
     @FXML
     private Label questionLabel;
@@ -143,5 +144,9 @@ public class QCM extends Question implements Initializable {
     public int[] getCorrectAnswers() {
 
         return this.answer;
+    }
+
+    public void setScore(int i) {
+
     }
 }

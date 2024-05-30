@@ -6,3 +6,4 @@ Quand l'enfant a-t-il commencé à marcher ?, Y a-t-il des préoccupations conce
 Quand l'enfant a-t-il commencé à parler ?, Y a-t-il des retards de parole ou de langage ?, Dans quelle mesure l'enfant comprend-il et suit-il les instructions ?
 Comment l'enfant réagit-il généralement aux nouvelles situations ?, Y a-t-il des préoccupations comportementales ?, Comment l'enfant interagit-il avec ses pairs et les adultes ?
 This is anamnese
+Namnese question

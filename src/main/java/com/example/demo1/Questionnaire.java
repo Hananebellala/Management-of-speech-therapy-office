@@ -1,9 +1,12 @@
 package com.example.demo1;
 
-public class Questionnaire extends Test {
+import java.io.Serializable;
+
+public class Questionnaire extends Test implements Serializable {
 
     private Question[] Qst;
     private static int i;
+    private static final long serialVersionUID = 6264016623953139405L;
 
     public Questionnaire(String nom, int Score, String CompteRdu, Question [] qst) {
         super(nom, Score, CompteRdu);

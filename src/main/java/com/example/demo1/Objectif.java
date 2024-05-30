@@ -7,6 +7,7 @@ public class Objectif implements Serializable {
     private String nom;
     private TypeObjectif Type;
     private boolean Realized;
+    private static final long serialVersionUID = 6264016623953139405L;
 
     public Objectif(String nom,TypeObjectif Type, boolean Realized){
         this.nom=nom;

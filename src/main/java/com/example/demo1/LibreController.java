@@ -34,13 +34,12 @@ public class LibreController {
 
     private EpreuveClinique epreuveClinique;
     private BO bo;
-    private int patientId;
     private Patient patient;
 
-    public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
+    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
         this.epreuveClinique = epreuveClinique;
         this.bo = bo;
-        this.patientId = patientId;
+        this.patient = patient;
     }
 
     @FXML
@@ -80,19 +79,15 @@ public class LibreController {
 
         // Add the Libre object to the EpreuveClinique
         if (epreuveClinique != null) {
-            // epreuveClinique.addLibre(libre);
+            epreuveClinique.addLibre(libre); // Add Libre method needs to be implemented in EpreuveClinique class
+            if (bo != null) {
+                bo.updateEpreuveClinique(epreuveClinique);
+            }
             System.out.println("Libre exercise added");
         } else {
             System.out.println("EpreuveClinique is not initialized.");
         }
     }
-
-    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
-        this.epreuveClinique = epreuveClinique;
-        this.bo = bo;
-        this.patient = patient;
-    }
-
 
     @FXML
     void GoBack(ActionEvent event) {
@@ -101,8 +96,8 @@ public class LibreController {
             Parent page = loader.load();
 
             // Assuming pickController has a similar initData method
-            pickController epreuveController = loader.getController();
-            epreuveController.initData(epreuveClinique, bo, patient);
+            pickController pickController = loader.getController();
+            pickController.initData(epreuveClinique, bo, patient);
 
             mainLayout.getChildren().setAll(page);
         } catch (IOException e) {

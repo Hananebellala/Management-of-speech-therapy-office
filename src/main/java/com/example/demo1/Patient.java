@@ -2,6 +2,7 @@ package com.example.demo1;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 public class Patient implements Serializable {
     private String nom;
@@ -82,5 +83,10 @@ public class Patient implements Serializable {
 
     public String getLieu() {
         return this.lieuNaiss;
+    }
+
+    public BO[] getListBO() {
+        return this.bo;
+
     }
 }

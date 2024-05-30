@@ -48,7 +48,7 @@
                         <Font name="Georgia Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Label layoutX="93.0" layoutY="208.0" text="Identifiants non valides! " textFill="RED" visible="false" fx:id="errorMessage">
+                  <Label fx:id="errorMessage" layoutX="93.0" layoutY="208.0" text="Identifiants non valides! " textFill="RED" visible="false">
                      <font>
                         <Font name="Georgia" size="16.0" />
                      </font>
@@ -74,10 +74,10 @@
       </Text>
       <ImageView fitHeight="284.0" fitWidth="260.0" layoutX="42.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../Users/LENOVO/Downloads/9796308-removebg-preview.png" />
+            <Image url="@../../../9796308-removebg-preview.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="44.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OrtheCare Manager">
+      <Text fill="WHITE" layoutX="44.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OrtheCare Manager">
          <font>
             <Font name="Georgia Bold" size="25.0" />
          </font>

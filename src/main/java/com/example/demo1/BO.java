@@ -1,9 +1,12 @@
 package com.example.demo1;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BO {
+public class BO implements Serializable {
+    private static final long serialVersionUID = 6264016623953139405L;
+
     protected Anamnese anamnese;
     protected EpreuveClinique epreuve;
     protected Diagnostic diagnostic;
@@ -61,5 +64,9 @@ public class BO {
     // Getter for projetTherapeutique if needed
     public String getProjetTherapeutique() {
         return projetTherapeutique;
+    }
+
+    public Diagnostic getDiagnostic() {
+        return this.diagnostic;
     }
 }

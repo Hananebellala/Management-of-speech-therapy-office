@@ -93,7 +93,7 @@
       </AnchorPane>
       <ImageView fitHeight="445.0" fitWidth="302.0" layoutX="595.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../Users/LENOVO/Downloads/4478884-removebg-preview.png" />
+            <Image url="@../../../4478884-removebg-preview.png" />
          </image>
       </ImageView>
    </children>

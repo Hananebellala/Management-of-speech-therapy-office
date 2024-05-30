@@ -10,7 +10,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.StatistiqueController">
    <top>
       <HBox prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #4b0082;" BorderPane.alignment="CENTER">
@@ -36,7 +35,7 @@
                   <Image url="@../../../Statistics-bro.png" />
                </image>
             </ImageView>
-            <Button fx:id="evolution" layoutX="271.0" layoutY="110.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="378.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Evolution de patients par trouble" textFill="WHITE">
+            <Button fx:id="evolution" layoutX="271.0" layoutY="110.0" mnemonicParsing="false" onAction="#openStatsTrouble" prefHeight="60.0" prefWidth="378.0" style="-fx-background-color: #4b0082; -fx-background-radius: 10;" text="Evolution de patients par trouble" textFill="WHITE">
                <font>
                   <Font name="Georgia Bold" size="20.0" />
                </font>

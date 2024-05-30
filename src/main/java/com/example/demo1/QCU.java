@@ -3,13 +3,15 @@ package com.example.demo1;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class QCU extends Question {
+public class QCU extends Question implements Serializable {
     private String [] proposition;
     private int answer;
+    private static final long serialVersionUID = 6264016623953139405L;
 
     public QCU(String Enonce, boolean Effectue,int score, String [] proposition, int answer) {
         super(Enonce, Effectue,score);

@@ -3,13 +3,15 @@ package com.example.demo1;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Libre extends Question {
+public class Libre extends Question implements Serializable {
 
     private String answer;
+    private static final long serialVersionUID = 6264016623953139405L;
 
     public Libre(String Enonce, boolean Effectue, int score, String answer) {
         super(Enonce, Effectue, score);

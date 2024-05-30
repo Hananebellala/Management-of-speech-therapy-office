@@ -21,6 +21,9 @@ public class PageAccueilController implements Initializable {
     @FXML
     private Button rdvButton;
     @FXML
+    private Button statButton;
+
+    @FXML
     void Stat(ActionEvent event) throws IOException {
         Stage stage = (Stage) nom.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Statistique.fxml")));
@@ -97,6 +100,14 @@ public class PageAccueilController implements Initializable {
     public void loadParametres() throws IOException {
         Stage stage = (Stage) nom.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Parametres.fxml")));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void loadStats() throws IOException {
+        Stage stage = (Stage) nom.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("Statistique.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

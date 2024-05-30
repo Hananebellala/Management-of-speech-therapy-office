@@ -61,8 +61,13 @@ public class PatientController implements Initializable {
     }
 
     @FXML
-    void Bilans(ActionEvent event) {
-        // Bilans logic
+    void Bilans(ActionEvent event) throws IOException {
+        Stage stage = (Stage) bilan.getScene().getWindow(); // Get the current stage
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BilanAffichageController.fxml")); // Load the FXML file for QuestionTestAnamnese
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

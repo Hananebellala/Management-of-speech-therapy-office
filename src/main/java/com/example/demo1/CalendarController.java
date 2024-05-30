@@ -235,6 +235,13 @@ public class CalendarController implements Initializable {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/pick.fxml"));
             Parent root = loader.load();
+            pickController controller = loader.getController();
+            SeanceSuivi seqnce = (SeanceSuivi) selectedRdv;
+            int num = seqnce.getNumDossier();
+            Compte ortho = Session.getCompte();
+            Patient patient=ortho.trouverDossier(Integer.toString(num));
+            System.out.println("Patinent trouve "+patient.getNom());
+            controller.setPatient(patient);
             Stage stage = (Stage) calendar.getScene().getWindow();
             stage.setTitle("Epreuve clinique");
             stage.setScene(new Scene(root));

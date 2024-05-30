@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class QCMController {
@@ -48,16 +49,14 @@ public class QCMController {
     @FXML
     private CheckBox third;
 
-    private EpreuveClinique epreuveClinique = new EpreuveClinique("Initial Observation", 0);
-
+    private EpreuveClinique epreuveClinique;
     private BO bo;
-    private int patientId;
     private Patient patient;
 
-    public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
+    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
         this.epreuveClinique = epreuveClinique;
         this.bo = bo;
-        this.patientId = patientId;
+        this.patient = patient;
     }
 
     @FXML
@@ -76,25 +75,17 @@ public class QCMController {
 
         // Check if the selected answers match the correct answers
         int score = 0;
-        int i = 0;
-        for (int k = 0; k < correctAnswers.length; k++) {
-            if (selectedAnswers.get(k) == correctAnswers[k]) {
-                i++;
-            }
-
-            if (i == correctAnswers.length) {
-                score = 1;
-                qcm.SetScore(1);
-            }
+        if (Arrays.equals(selectedAnswers.toArray(new Integer[0]), Arrays.stream(correctAnswers).boxed().toArray(Integer[]::new))) {
+            score = 1;
+            qcm.setScore(1);
         }
 
         // Add QCM to the current questionnaire in epreuveClinique
         if (epreuveClinique != null) {
             epreuveClinique.addQuestionToCurrentQuestionnaire(qcm);
-            if(bo!=null){
+            if (bo != null) {
                 bo.updateEpreuveClinique(epreuveClinique);
             }
-
 
             // Show the score in a window
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -115,8 +106,8 @@ public class QCMController {
             Parent page = loader.load();
 
             // Assuming pickController has a similar initData method
-            pickController epreuveController = loader.getController();
-            epreuveController.initData(epreuveClinique, bo, patient);
+            pickController pickController = loader.getController();
+            pickController.initData(epreuveClinique, bo, patient);
 
             mainLayout.getChildren().setAll(page);
         } catch (IOException e) {
@@ -124,21 +115,15 @@ public class QCMController {
         }
     }
 
-    public void initData(EpreuveClinique epreuveClinique, BO bo, Patient patient) {
-        this.epreuveClinique = epreuveClinique;
-        this.bo = bo;
-        this.patient = patient;
-    }
-
-
     public void initialize() {
         // Get a random QCU object
         qcm = QCM.getRandomQCM();
 
         // Get the enonce and set it to the qst label
-        String enonce = qcm.Enonce;
+        String enonce = qcm.getEnonce();
         questionLabel.setText(enonce);
         System.out.println(enonce);
+
         // Get the propositions and set them to the CheckBoxes
         String[] propositions = qcm.getProposition();
         if (propositions.length > 0) first.setText(propositions[0]);
@@ -157,3 +142,4 @@ public class QCMController {
         alert.showAndWait();
     }
 }
+

@@ -1,14 +1,17 @@
 package com.example.demo1;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class EpreuveClinique {
+public class EpreuveClinique implements Serializable {
     protected Test[] Testepreuve;
     protected String Observation;
     protected int ScoreTotal;
     static protected int max = 10;
     static protected int i = 0;
     private Questionnaire currentQuestionnaire;
+    private static final long serialVersionUID = 6264016623953139405L;
+
 
     public EpreuveClinique(String Observation, int ScoreTotal) {
         this.Testepreuve = new Test[max]; // Initialize the array with a fixed size
@@ -53,17 +56,13 @@ public class EpreuveClinique {
     }
 
     public void score() {
-        for (Test test : Testepreuve) {
-            if (test instanceof Exercice) {
-                // Add score of the exercise
-            } else if (test instanceof Questionnaire) {
-                Questionnaire questionnaire = (Questionnaire) test;
-                this.ScoreTotal += questionnaire.CalculerScore(); // Add score of the questionnaire
-            }
-        }
+
     }
 
     public int GetScore() {
         return this.ScoreTotal;
+    }
+
+    public void addLibre(Libre libre) {
     }
 }

@@ -26,7 +26,7 @@
       </AnchorPane>
       <ImageView fitHeight="221.0" fitWidth="277.0" layoutX="692.0" layoutY="548.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../Users/LENOVO/Downloads/Spreadsheets-bro.png" />
+            <Image url="@../../../Spreadsheets-bro.png" />
          </image>
       </ImageView>
       <Button layoutX="294.0" layoutY="380.0" mnemonicParsing="false" onAction="#Stat" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40; -fx-border-color: #4b0082;" text="Statistiques">
@@ -56,7 +56,7 @@
       </Button>
       <ImageView fitHeight="277.0" fitWidth="277.0" layoutX="14.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../Users/LENOVO/Downloads/Schedule-bro.png" />
+            <Image url="@../../../Schedule-bro.png" />
          </image>
       </ImageView>
       <Button layoutX="294.0" layoutY="440.0" mnemonicParsing="false" onAction="#loadParametres" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Paramètres">

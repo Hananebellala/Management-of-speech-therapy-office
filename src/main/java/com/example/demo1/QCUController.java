@@ -12,6 +12,10 @@ import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 
+
+
+
+
 public class QCUController {
 
     @FXML
@@ -44,7 +48,6 @@ public class QCUController {
     @FXML
     private CheckBox third;
 
-
     private QCU qcu;
     private EpreuveClinique epreuveClinique;
     private BO bo;
@@ -56,7 +59,6 @@ public class QCUController {
         this.patient = patient;
     }
 
-
     @FXML
     void Ajouter(ActionEvent event) {
         // Get the selected answer index (assuming the CheckBoxes are mutually exclusive)
@@ -67,27 +69,31 @@ public class QCUController {
         if (fourth.isSelected()) selectedAnswerIndex = 3;
 
         // Calculate the score based on the selected answer
-        int score=0;
-
-
-            if (selectedAnswerIndex==qcu.GetAnser()) {
-                score++;
-            }
-
-
-            qcu.SetScore(score);
-
-
+        int score = 0;
+        if (selectedAnswerIndex == qcu.GetAnser()) {
+            score++;
+        }
 
         // Set the score in the QCU object
         qcu.SetScore(score);
 
-        // Show the score in a window
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Score");
-        alert.setHeaderText(null);
-        alert.setContentText("Your score is: " + score);
-        alert.showAndWait();
+        // Add QCU to the current questionnaire in epreuveClinique
+        if (epreuveClinique != null) {
+            epreuveClinique.addQuestionToCurrentQuestionnaire(qcu);
+            if (bo != null) {
+                bo.updateEpreuveClinique(epreuveClinique);
+            }
+
+            // Show the score in a window
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Score");
+            alert.setHeaderText(null);
+            alert.setContentText("Your score is: " + score);
+            alert.showAndWait();
+        } else {
+            // Handle the case where epreuveClinique is null
+            System.out.println("EpreuveClinique is not initialized.");
+        }
     }
 
     @FXML
@@ -112,16 +118,13 @@ public class QCUController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("pick.fxml"));
             Parent page = loader.load();
 
-            // Assuming EpreuveCliniqueController has a similar initData method
-            pickController epreuveController = loader.getController();
-            //epreuveController.initData(epreuveClinique);
+            // Assuming pickController has a similar initData method
+            pickController pickController = loader.getController();
+            pickController.initData(epreuveClinique, bo, patient);
 
             mainLayout.getChildren().setAll(page);
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void initData(EpreuveClinique epreuveClinique, BO bo, int patientId) {
     }
 }
