@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -47,6 +48,11 @@
                         <Font name="Georgia Bold" size="16.0" />
                      </font>
                   </Button>
+                  <Label layoutX="93.0" layoutY="208.0" text="Identifiants non valides! " textFill="RED" visible="false" fx:id="errorMessage">
+                     <font>
+                        <Font name="Georgia" size="16.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <Text layoutX="105.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous n'avez pas encore de compte ?">
@@ -71,7 +77,7 @@
             <Image url="@../../../../../../../../../../Users/LENOVO/Downloads/9796308-removebg-preview.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="44.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OrtheCare Manager">
+      <Text fill="WHITE" layoutX="44.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OrtheCare Manager">
          <font>
             <Font name="Georgia Bold" size="25.0" />
          </font>

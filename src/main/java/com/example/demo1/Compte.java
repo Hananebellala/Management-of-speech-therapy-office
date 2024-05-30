@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Compte implements Serializable {
+    private static final long serialVersionUID = 6264016623953139405L;
     private String nom;
     private String prenom;
     private String adresse;
@@ -14,7 +15,9 @@ public class Compte implements Serializable {
     private List<Dossier> dossiersPatients = new ArrayList<Dossier>();
     private List<Dossier> dossiersParticuliers;
     private List<RendezVous> rdvList = new ArrayList<RendezVous> ();
+    public Compte () {
 
+    }
     public Compte(String nom, String prenom, String adresse, int numero, String email, String motdepasse) {
         this.nom = nom;
         this.prenom = prenom;
@@ -63,6 +66,14 @@ public class Compte implements Serializable {
         for (Dossier dos : dossiersPatients) {
             if(dos.getPatient()==patient) {
                 return dos;
+            }
+        }
+        return null;
+    }
+    public Patient trouverDossier(String numDossier){
+        for (Dossier dos : dossiersPatients) {
+            if(dos.getNumDossier()==numDossier) {
+                return dos.getPatient();
             }
         }
         return null;

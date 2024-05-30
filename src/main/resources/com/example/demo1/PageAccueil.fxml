@@ -29,32 +29,27 @@
             <Image url="@../../../../../../../../../../Users/LENOVO/Downloads/Spreadsheets-bro.png" />
          </image>
       </ImageView>
-      <Button layoutX="294.0" layoutY="440.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40; -fx-border-color: #4b0082;" text="Statistiques">
+      <Button layoutX="294.0" layoutY="380.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40; -fx-border-color: #4b0082;" text="Statistiques">
          <font>
             <Font name="Georgia Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="294.0" layoutY="500.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40; -fx-border-color: #4b0082;" text="Quitter">
+      <Button fx:id="quitterButton" layoutX="294.0" layoutY="500.0" mnemonicParsing="false" onAction="#sauvegardeDonnees" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40; -fx-border-color: #4b0082;" text="Se déconnecter">
          <font>
             <Font name="Georgia Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="294.0" layoutY="200.0" mnemonicParsing="false" onAction="#loadSceneCalendar" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Programmer un nouveau rendez-vous">
+      <Button layoutX="294.0" layoutY="200.0" mnemonicParsing="false" onAction="#loadSceneCalendar" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter mes rendez-vous">
          <font>
             <Font name="Georgia Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="294.0" layoutY="380.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter mes tests cliniques">
+      <Button layoutX="294.0" layoutY="320.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter mes tests cliniques">
          <font>
             <Font name="Georgia Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="294.0" layoutY="320.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter mes rendez-vous" onAction="#loadSceneCalendar">
-         <font>
-            <Font name="Georgia Bold" size="16.0" />
-         </font>
-      </Button>
-      <Button layoutX="294.0" layoutY="260.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter un dossier" onAction="#loadSceneDossiers">
+      <Button layoutX="294.0" layoutY="260.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Consulter un dossier">
          <font>
             <Font name="Georgia Bold" size="16.0" />
          </font>
@@ -64,5 +59,10 @@
             <Image url="@../../../../../../../../../../Users/LENOVO/Downloads/Schedule-bro.png" />
          </image>
       </ImageView>
+      <Button layoutX="294.0" layoutY="440.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: #f5e5ff; -fx-border-color: #4b0082; -fx-background-radius: 40;" text="Paramètres" onAction="#loadParametres">
+         <font>
+            <Font name="Georgia Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

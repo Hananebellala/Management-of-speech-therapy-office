@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="680.0" prefWidth="920.0" style="-fx-background-color: #4b0082;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.parametresController">
+   <children>
+      <Text fill="#f5e5ff" layoutX="303.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informations du compte">
+         <font>
+            <Font name="Georgia Bold" size="25.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="65.0" layoutY="64.0" prefHeight="179.0" prefWidth="790.0" style="-fx-background-color: #f5e5ff;">
+         <children>
+            <Text layoutX="48.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom : ">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="48.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom : ">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="48.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse :">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="48.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numéro de téléphone :">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Text>
+            <Label fx:id="labelNom" layoutX="104.0" layoutY="23.0" text="Nom">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelPrenom" layoutX="128.0" layoutY="58.0" text="Prénom">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelAdresse" layoutX="128.0" layoutY="93.0" text="Adresse">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelNumero" layoutX="238.0" layoutY="128.0" text="Numero">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="65.0" layoutY="292.0" prefHeight="179.0" prefWidth="790.0" style="-fx-background-color: #f5e5ff;">
+         <children>
+            <Text layoutX="47.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier l'adresse E-mail :">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="emailField" layoutX="290.0" layoutY="11.0" prefHeight="26.0" prefWidth="275.0" />
+            <Text layoutX="47.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier le mot de passe :">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="47.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ancien mot de passe :">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Text>
+            <PasswordField layoutX="258.0" layoutY="123.0" />
+            <Text layoutX="47.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nouveau mot de passe :">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Text>
+            <PasswordField layoutX="258.0" layoutY="86.0" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="298.0" layoutY="509.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="324.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40;" text="Sauvegarder changements">
+         <font>
+            <Font name="Georgia Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="366.0" layoutY="571.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="188.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40;" text="Retour">
+         <font>
+            <Font name="Georgia Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

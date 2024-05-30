@@ -11,7 +11,10 @@ public class Patient {
     private boolean premiere;
     protected BO[] bo;
     protected static int i;
+    private static final long serialVersionUID = 6264016623953139405L;
+    public Patient() {
 
+    }
     public Patient(String nom, String prenom, String lieuNaiss, LocalDate dateNaiss) {
         this.nom = nom;
         this.prenom = prenom;

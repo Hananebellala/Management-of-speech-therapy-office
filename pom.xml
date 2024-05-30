@@ -108,11 +108,6 @@
       <artifactId>view</artifactId>
       <version>11.12.7</version> <!-- Vérifiez la dernière version disponible -->
     </dependency>
-    <dependency>
-      <groupId>org.openjfx</groupId>
-      <artifactId>javafx-controls</artifactId>
-      <version>3.0.0</version>
-    </dependency>
   </dependencies>
 
   <build>

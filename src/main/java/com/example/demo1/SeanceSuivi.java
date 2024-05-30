@@ -1,12 +1,17 @@
 package com.example.demo1;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZonedDateTime;
 
-public class SeanceSuivi extends RendezVous {
+public class SeanceSuivi extends RendezVous implements Serializable {
     private int numDossier;
     private TypeSeance typeSnc;
+    private static final long serialVersionUID = 6264016623953139405L;
+    public SeanceSuivi() {
+
+    }
     public SeanceSuivi(int num, TypeSeance type) {
         numDossier=num;
         this.typeSnc=type;
