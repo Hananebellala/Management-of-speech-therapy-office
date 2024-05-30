@@ -86,7 +86,7 @@ public class GestionQCMController {
     private Label[] propLabels;
     private Label[] ansLabels;
 
-    private final String FILE_PATH = "C:/Users/Administrator/IdeaProjects/demo1/src/main/resources/QCU.txt";
+    private final String FILE_PATH = "src/main/resources/com/example/demo1/QCU.txt";
 
     @FXML
     public void initialize() {

@@ -67,6 +67,8 @@ public class controllerBilan implements Initializable {
     @FXML
     private TextField prenom;
 
+    private RendezVous rdv;
+
     @FXML
     private TextField profession;
     private TypeRdv typeRdv;
@@ -242,5 +244,9 @@ public class controllerBilan implements Initializable {
             alert.showAndWait();
         }
 
+    }
+
+    public void setRendezVous(RendezVous selectedRdv) {
+        this.rdv=selectedRdv;
     }
 }
