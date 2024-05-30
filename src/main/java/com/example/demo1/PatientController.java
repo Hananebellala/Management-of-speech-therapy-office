@@ -57,6 +57,7 @@ public class PatientController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
     @FXML
