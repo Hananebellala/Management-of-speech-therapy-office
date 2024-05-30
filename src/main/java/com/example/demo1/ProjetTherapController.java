@@ -58,7 +58,7 @@ public class ProjetTherapController {
     private void navigateToFiches() {
         try {
             Stage stage = (Stage) Finishbutton.getScene().getWindow();
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fiches.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PageAccueil.fxml")));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

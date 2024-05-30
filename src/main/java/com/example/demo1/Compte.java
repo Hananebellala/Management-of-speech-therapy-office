@@ -78,4 +78,10 @@ public class Compte implements Serializable {
         }
         return null;
     }
+    public void setMdp(String mdp) {
+        this.motdepasse = mdp;
+    }
+    public void setEmail(String email){
+        this.email=email;
+    }
 }

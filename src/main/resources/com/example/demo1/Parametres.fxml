@@ -77,21 +77,21 @@
                   <Font name="Georgia" size="18.0" />
                </font>
             </Text>
-            <PasswordField layoutX="258.0" layoutY="123.0" />
+            <PasswordField fx:id="mdpNouveau" layoutX="258.0" layoutY="123.0" />
             <Text layoutX="47.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nouveau mot de passe :">
                <font>
                   <Font name="Georgia" size="18.0" />
                </font>
             </Text>
-            <PasswordField layoutX="258.0" layoutY="86.0" />
+            <PasswordField fx:id="mdpActuel" layoutX="258.0" layoutY="86.0" />
          </children>
       </AnchorPane>
-      <Button layoutX="298.0" layoutY="509.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="324.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40;" text="Sauvegarder changements">
+      <Button layoutX="298.0" layoutY="509.0" mnemonicParsing="false" onAction="#sauvegardeChangements" prefHeight="34.0" prefWidth="324.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40;" text="Sauvegarder changements">
          <font>
             <Font name="Georgia Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="366.0" layoutY="571.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="188.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40;" text="Retour">
+      <Button layoutX="366.0" layoutY="571.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="188.0" style="-fx-background-color: #f5e5ff; -fx-background-radius: 40;" text="Retour" onAction="#retourButton">
          <font>
             <Font name="Georgia Bold" size="18.0" />
          </font>

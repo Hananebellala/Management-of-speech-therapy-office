@@ -1,8 +1,9 @@
 package com.example.demo1;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Patient {
+public class Patient implements Serializable {
     private String nom;
     private String prenom;
     private String lieuNaiss;
